@@ -1,0 +1,858 @@
+{
+  "meta": {
+    "title": "ASSTV86 — Connexion",
+    "appName": "myATN ASSTV86"
+  },
+  "common": {
+    "needHelp": "Besoin d'aide ?",
+    "closeNotification": "Fermer la notification",
+    "language": "Langue",
+    "french": "Français",
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+  "brand": {
+    "center": "Centre de santé au travail",
+    "locations": "Poitiers - Niort",
+    "tagline": "Assistant numérique pour le traitement intelligent des dossiers de santé au travail.",
+    "copyright": "© ASSTV 86 - Tous droits réservés"
+  },
+  "auth": {
+    "welcome": "Bienvenue",
+    "description": "Connectez-vous à votre espace myATN.",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "submit": "Se connecter",
+    "submitting": "Connexion...",
+    "or": "ou",
+    "sso": "Se connecter avec SSO",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "success": "Connexion réussie !",
+    "failed": "La connexion a échoué",
+    "securityTitle": "Données sécurisées",
+    "securityText": "Protégé - Fiable - Conforme"
+  },
+  "validation": {
+    "emailRequired": "Veuillez saisir votre e-mail",
+    "emailInvalid": "Adresse e-mail invalide",
+    "passwordRequired": "Veuillez saisir votre mot de passe",
+    "passwordMinLength": "Le mot de passe doit contenir au moins 6 caractères"
+  },
+  "errors": {
+    "invalidCredentials": "E-mail ou mot de passe incorrect",
+    "accountInactive": "Ce compte est désactivé",
+    "accountLocked": "Ce compte est verrouillé"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "dossiers": "Dossiers",
+    "toValidate": "À valider",
+    "anomalies": "Anomalies",
+    "inProgress": "Traitement en cours",
+    "completed": "Terminés",
+    "search": "Recherche",
+    "sourceDocuments": "Documents sources",
+    "statistics": "Statistiques",
+    "settings": "Paramètres",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "mainMenu": "Menu principal"
+  },
+  "header": {
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher...",
+    "clearSearch": "Effacer la recherche",
+    "notifications": "Notifications",
+    "userName": "Sophie Martin",
+    "userRole": "Secrétaire médicale",
+    "accountMenu": "Menu du compte",
+    "logout": "Déconnexion"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Tout marquer comme lu",
+    "markAsRead": "Marquer comme lu",
+    "new": "Nouveaux",
+    "earlier": "Anciens",
+    "empty": "Aucune notification pour le moment.",
+    "dossierRef": "Dossier",
+    "types": {
+      "dossier": "Dossier reçu",
+      "validation": "À valider",
+      "anomaly": "Anomalie",
+      "completed": "Terminé",
+      "reminder": "Rappel"
+    },
+    "items": {
+      "receivedMoreau": {
+        "title": "Nouveau dossier reçu",
+        "body": "Jean Moreau, visite d'embauche. Le dossier a été déposé ce matin et attend une première lecture."
+      },
+      "validateLeroux": {
+        "title": "Décision d'aptitude à prendre",
+        "body": "Camille Leroux, visite périodique. Une décision d'aptitude doit être validée avant la fin de journée."
+      },
+      "anomalyMarchand": {
+        "title": "Pièce d'identité manquante",
+        "body": "Le dossier de Hugo Marchand ne contient pas de justificatif d'identité. Le traitement est bloqué."
+      },
+      "completedBernard": {
+        "title": "Dossier traité",
+        "body": "Claire Bernard, visite de reprise. Le dossier a été clôturé et classé dans les terminés."
+      },
+      "assignedPetit": {
+        "title": "Dossier assigné",
+        "body": "Le dossier de Léa Petit vous a été assigné pour contrôle des documents sources."
+      },
+      "reminderDupuis": {
+        "title": "Visite prévue demain",
+        "body": "Pierre Dupuis, visite de pré-reprise. Vérifiez le dossier avant le rendez-vous de 9h00."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "received": "Dossiers reçus",
+    "processed": "Dossiers traités",
+    "toValidate": "À valider",
+    "anomalies": "Anomalies",
+    "vsLast7Days": "vs 7 derniers jours",
+    "recentFiles": "Dossiers récents",
+    "seeMore": "Voir plus",
+    "viewAll": "Voir tout",
+    "validationQueue": "File de validation",
+    "processingOverview": "Aperçu du traitement",
+    "upcomingAppointments": "Rendez-vous à venir",
+    "atnActivity": "Activité ATN",
+    "viewReport": "Voir le rapport",
+    "last7Days": "7 derniers jours",
+    "receivedShort": "Reçus",
+    "processedShort": "Traités",
+    "total": "Total",
+    "itemsInQueue": "éléments en file",
+    "goToValidation": "Voir toute la file",
+    "queueItemAwaiting": "Dossier \"{name}\" à valider",
+    "queueEmpty": "Aucun dossier à valider.",
+    "today": "Aujourd'hui",
+    "upcoming": "À venir",
+    "medicalVisit": "Visite médicale",
+    "doctorPrefix": "Médecin :",
+    "columns": {
+      "fileName": "Nom du fichier",
+      "source": "Source",
+      "type": "Type",
+      "receivedOn": "Reçu le",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "status": {
+      "toValidate": "À valider",
+      "processing": "En cours",
+      "completed": "Terminé",
+      "anomaly": "Anomalie"
+    },
+    "priority": {
+      "priority": "Priorité",
+      "normal": "Normal"
+    },
+    "visit": {
+      "embauche": "ATN initial",
+      "reprise": "ATN reprise",
+      "periodique": "ATN périodique",
+      "speciale": "ATN exceptionnel"
+    }
+  },
+  "dossiers": {
+    "queue": {
+      "title": "À traiter",
+      "all": "Tous",
+      "search": "Rechercher un salarié...",
+      "count": "{count} dossiers",
+      "empty": "Aucun dossier ne correspond aux filtres.",
+      "documentsCount": "{count} documents",
+      "headingToProcess": "Dossiers à traiter ({count})",
+      "headingAll": "Tous les dossiers ({count})",
+      "filter": "Filtrer",
+      "more": "Plus",
+      "openList": "Ouvrir la liste des dossiers",
+      "closeList": "Réduire la liste",
+      "loading": "Chargement des dossiers..."
+    },
+    "workspace": {
+      "nav": "Sections du dossier",
+      "synthesis": "Synthèse",
+      "documents": "Documents ({count})",
+      "proposal": "Proposition",
+      "history": "Historique",
+      "agenda": "Agenda",
+      "information": "Informations",
+      "historyEmpty": "Aucun historique n'est encore disponible pour ce dossier.",
+      "agendaEmpty": "Aucun événement d'agenda n'est encore planifié.",
+      "actionTitle": "Analyse et proposition",
+      "openAction": "Analyse et proposition",
+      "closeAction": "Fermer",
+      "document": "Documents",
+      "analysis": "Analyse",
+      "appointment": "Rendez-vous"
+    },
+    "header": {
+      "company": "Entreprise",
+      "visitType": "Type de visite",
+      "receivedAt": "Date de réception",
+      "receivedOn": "Reçu le",
+      "proposedAt": "Rendez-vous proposé",
+      "noProposal": "Aucune proposition",
+      "bornOn": "Né le {date} ({age} ans)",
+      "atDateTime": "{date} à {time}",
+      "center": "Centre",
+      "practitioner": "Médecin",
+      "reference": "Référence",
+      "source": "Source"
+    },
+    "documents": {
+      "title": "Documents du dossier",
+      "pages": "{count} pages"
+    },
+    "viewer": {
+      "toolbar": "Outils du document",
+      "zoomOut": "Zoom arrière",
+      "zoomIn": "Zoom avant",
+      "zoom": "{value}%",
+      "page": "{current} / {total}",
+      "goToPage": "Aller à la page",
+      "print": "Imprimer le fichier",
+      "download": "Télécharger le PDF",
+      "downloaded": "Téléchargement de {file}",
+      "downloadFailed": "Impossible de télécharger le PDF"
+    },
+    "report": {
+      "title": "Compte-rendu médical",
+      "center": "Médecine du travail - ASSTV 86",
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "visitType": "Type de visite",
+      "examDate": "Date de visite",
+      "doctor": "Médecin",
+      "clinical": "Examen clinique",
+      "clinicalBody": "Le salarié a été examiné dans le cadre de la visite indiquée. L'examen clinique ne retrouve pas de contre-indication majeure à la poursuite ou à la reprise du travail, sous réserve des restrictions médicales ci-dessous.",
+      "clinicalPending": "ATN lit et rapproche les documents du dossier. Le compte-rendu s'affichera lorsque l'analyse sera terminée.",
+      "restrictions": "Restrictions médicales",
+      "noRestrictions": "Aucune restriction médicale n'est mentionnée dans ce document.",
+      "conclusion": "Conclusion",
+      "conclusionRestricted": "Aptitude temporaire avec aménagement de poste. Contrôle à prévoir selon les restrictions indiquées.",
+      "conclusionFit": "Aptitude sans restriction particulière. Prochaine visite selon le calendrier périodique.",
+      "conclusionBlocked": "Le dossier ne permet pas de conclure. Des pièces ou informations manquent avant toute proposition de rendez-vous.",
+      "visitRequestTitle": "Demande de visite",
+      "visitRequestBody": "L'entreprise transmet une demande de visite de santé au travail. Le type de visite, le poste et la date de réception figurent sur ce bordereau.",
+      "sickLeaveTitle": "Arrêt de travail",
+      "sickLeaveBody": "Le certificat d'arrêt est joint pour dater l'interruption et les conditions de reprise. ATN le rapproche de la demande de visite.",
+      "jobSheetTitle": "Fiche de poste",
+      "jobSheetBody": "La fiche décrit les postures, charges et gestes répétitifs du poste. Ces éléments servent à évaluer les restrictions médicales.",
+      "formTitle": "Formulaire du dossier",
+      "formBody": "Formulaire administratif du dossier, avec l'identité du salarié, l'entreprise et le type de visite demandé.",
+      "emailTitle": "E-mail source",
+      "emailBody": "Message d'accompagnement des pièces source. Le contenu a été rattaché au dossier du salarié par ATN."
+    },
+    "paper": {
+      "page": "Page {current} / {total}",
+      "confidential": "Confidentiel - médecine du travail",
+      "cerfa": "Cerfa n° 10170*05",
+      "leaveNotice": "Avis d'arrêt de travail",
+      "insured": "Assuré",
+      "ssn": "N° de sécurité sociale",
+      "ssnValue": "1 85 •• •• ••• •• 28",
+      "prescriber": "Médecin prescripteur",
+      "gp": "Dr Claire Morel",
+      "gpCity": "Cabinet médical, Poitiers",
+      "leavePeriod": "Période d'arrêt de travail",
+      "from": "Du",
+      "to": "Au",
+      "duration": "{days} jours",
+      "durationLabel": "Durée",
+      "diagnosis": "Motif médical",
+      "diagnosisValue": "Pathologie musculo-squelettique, membre supérieur droit",
+      "outings": "Sorties autorisées",
+      "outingsYes": "Oui, aux heures habituelles",
+      "partTime": "Temps partiel thérapeutique",
+      "partTimeNo": "Non",
+      "resumeVisit": "Visite de reprise à prévoir",
+      "signature": "Signature et cachet",
+      "jobTitle": "Intitulé du poste",
+      "jobTitleValue": "Opérateur magasinier",
+      "site": "Établissement",
+      "requestedBy": "Demandeur",
+      "hr": "Service RH",
+      "desiredDate": "Date souhaitée",
+      "motive": "Motif de la demande",
+      "constraints": "Contraintes du poste",
+      "handling": "Manutention manuelle",
+      "handlingValue": "Charges jusqu'à 15 kg, palettes et cartons",
+      "posture": "Postures",
+      "postureValue": "Station debout prolongée, flexion du tronc",
+      "repeat": "Gestes répétitifs",
+      "repeatValue": "Saisie et étiquetage en cadence",
+      "environment": "Ambiance de travail",
+      "environmentValue": "Entrepôt, température variable",
+      "yes": "Oui",
+      "no": "Non",
+      "emailFrom": "De",
+      "emailTo": "À",
+      "emailSubject": "Objet",
+      "emailSubjectValue": "Pièces jointes - visite de santé au travail - {name}",
+      "emailGreeting": "Bonjour,",
+      "emailBody1": "Veuillez trouver ci-joint les pièces du dossier de {name} ({company}) pour une {visit}.",
+      "emailBody2": "Merci de traiter la demande et de proposer un créneau.",
+      "emailSignoff": "Cordialement,",
+      "stampAsstv": "ASSTV 86",
+      "stampMedical": "Médecine du travail",
+      "findings": "Constat clinique",
+      "findingsBody": "Examen général sans signe aigu. Douleur à l'effort du membre supérieur et amplitude limitée lors du port de charge.",
+      "aptitudeBox": "Avis d'aptitude",
+      "annexTitle": "Annexe",
+      "annexLabel": "Annexe au compte rendu",
+      "annexIssuedOn": "Établi le {date}",
+      "annexRecommendations": "Recommandations d'aménagement de poste",
+      "annexRecommendationsBody": "Au regard des restrictions médicales indiquées, l'entreprise doit éviter les postures statiques prolongées et le port de charges. Alterner assis/debout et autoriser des pauses courtes si la douleur augmente.",
+      "annexRestrictionsApplied": "Restrictions prises en compte",
+      "annexNoRestrictions": "Aucune restriction médicale n'est enregistrée. Les recommandations générales de prévention s'appliquent.",
+      "annexMeasures": "Mesures d'aménagement",
+      "annexMeasurePosture": "Alternance des postures",
+      "annexMeasurePostureValue": "Alterner assis et debout toutes les 45 à 60 minutes. Éviter la station statique prolongée.",
+      "annexMeasureLoad": "Manutention",
+      "annexMeasureLoadValue": "Limiter le port de charges à 10 kg. Privilégier les aides à la manutention (diable, transpalette).",
+      "annexMeasureBreaks": "Pauses",
+      "annexMeasureBreaksValue": "Autoriser une micro-pause de 5 minutes toutes les 2 heures, ou dès l'apparition de douleur.",
+      "annexMeasureStation": "Poste de travail",
+      "annexMeasureStationValue": "Adapter la hauteur du plan de travail et éviter les gestes au-dessus des épaules.",
+      "annexFollowUp": "Réexamen prévu",
+      "annexFollowUpValue": "Point de suivi à {date}, sauf aggravation des symptômes.",
+      "annexEmployerAction": "Actions attendues de l'employeur",
+      "annexEmployerActionBody": "Informer le manager du poste, mettre en œuvre les aménagements et signaler toute difficulté d'application au service de santé au travail.",
+      "annexAdmin": "Mentions administratives et confidentialité",
+      "annexAdminBody": "Ce document appartient au dossier de médecine du travail et ne peut être transmis qu'aux personnes habilitées. Toute copie ou transmission externe doit respecter le secret médical.",
+      "annexDocumentId": "Identifiant document",
+      "annexCenter": "Service émetteur",
+      "annexClassification": "Classification",
+      "annexClassificationValue": "Confidentiel — secret médical",
+      "annexRecipients": "Destinataires habilités",
+      "annexRecipientDoctor": "Médecin du travail et équipe pluridisciplinaire ASSTV 86",
+      "annexRecipientHr": "Service RH habilité de l'entreprise, pour les seules mentions d'aptitude et d'aménagement",
+      "annexRecipientWorker": "Salarié concerné, sur demande",
+      "annexLegalBasis": "Fondement",
+      "annexLegalBasisValue": "Art. L. 4624-1 et suivants du Code du travail. Le secret médical s'applique à l'ensemble du dossier.",
+      "annexRetention": "Durée de conservation",
+      "annexRetentionValue": "Conservation pendant la durée du suivi du salarié, puis archivage selon les règles applicables aux dossiers médicaux en santé au travail.",
+      "annexCopyRule": "Reproduction",
+      "annexCopyRuleValue": "Toute copie, extraction ou transmission externe requiert l'accord du médecin du travail, hors obligations légales.",
+      "annexContact": "Contact",
+      "annexContactValue": "Secrétariat médical ASSTV 86 — dossiers@asstv86.fr"
+    },
+    "analysis": {
+      "title": "Analyse ATN",
+      "restrictions": "Restrictions médicales",
+      "empty": "ATN n'a pas encore extrait de restriction médicale.",
+      "pending": "Analyse du contenu documentaire en cours.",
+      "lifting": "Port de charge supérieure à 10 kg interdit",
+      "repetitive": "Éviter les gestes répétitifs",
+      "staticPosture": "Limiter les postures statiques prolongées",
+      "severityHigh": "Priorité haute",
+      "severityMedium": "À surveiller",
+      "fitness": "Décision d'aptitude"
+    },
+    "appointment": {
+      "title": "Proposition de rendez-vous",
+      "doctor": "Médecin",
+      "center": "Centre",
+      "datetime": "Date et heure",
+      "match": "Adéquation {percent}%",
+      "accept": "Accepter la proposition",
+      "changeDoctor": "Changer de médecin",
+      "changeDate": "Changer de date",
+      "otherSlots": "Voir d'autres créneaux",
+      "back": "Retour à la proposition",
+      "selectDoctor": "Choisir un médecin",
+      "selectDate": "Choisir une date",
+      "selectSlot": "Autres créneaux",
+      "accepted": "Rendez-vous accepté",
+      "unavailable": "ATN n'a pas encore proposé de rendez-vous pour ce dossier.",
+      "blocked": "Impossible de proposer un rendez-vous tant que des pièces manquent."
+    },
+    "status": {
+      "toProcess": "À traiter",
+      "analysing": "Analyse en cours",
+      "readyForAppointment": "Prêt pour RDV",
+      "blocked": "Bloqué",
+      "completed": "Terminé"
+    },
+    "fitness": {
+      "fit": "APTE",
+      "unfit": "INAPTE",
+      "pending": "En attente"
+    },
+    "documentType": {
+      "visitRequest": "Demande de visite",
+      "jobSheet": "Fiche de poste",
+      "form": "Formulaire",
+      "email": "E-mail",
+      "sickLeave": "Arrêt de travail",
+      "medicalReport": "Compte-rendu médical"
+    },
+    "emptySelection": "Sélectionnez un salarié pour traiter le dossier.",
+    "toast": {
+      "accepted": "Rendez-vous accepté pour",
+      "doctorChanged": "Médecin modifié pour",
+      "slotChanged": "Créneau modifié pour"
+    }
+  },
+  "toValidate": {
+    "pendingDossiers": "Dossiers en attente",
+    "fieldsToConfirm": "Champs à valider",
+    "urgentDecisions": "Décisions urgentes",
+    "total": "Total",
+    "vsYesterday": "par rapport à hier",
+    "listTitle": "Liste à valider",
+    "filter": "Filtrer",
+    "filterAll": "Tous",
+    "columns": {
+      "dossier": "Dossier",
+      "type": "Type",
+      "reason": "Motif",
+      "priority": "Priorité",
+      "deadline": "Échéance",
+      "status": "Statut"
+    },
+    "reason": {
+      "returnDate": "Date de reprise",
+      "visitType": "Type de visite",
+      "workplace": "Lieu de travail",
+      "employeeName": "Identité du salarié",
+      "jobTitle": "Poste",
+      "companyName": "Entreprise"
+    },
+    "priority": {
+      "high": "Haute",
+      "medium": "Moyenne",
+      "low": "Basse"
+    },
+    "statusPending": "En attente",
+    "remainingOne": "(1 jour)",
+    "remainingMany": "({count} jours)",
+    "range": "Affichage de {from} à {to} sur {total} dossiers",
+    "empty": "Aucun dossier en attente de validation.",
+    "emptyFilter": "Aucun dossier ne correspond au filtre.",
+    "emptySelection": "Sélectionnez un dossier à valider.",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "page": "Page {page}",
+    "summary": "Synthèse du dossier",
+    "examDate": "Date de visite",
+    "doctor": "Médecin",
+    "visitType": "Type de visite",
+    "company": "Entreprise",
+    "proposal": "Proposition ATN (extraite)",
+    "source": "Source d'extraction",
+    "sourceFile": "{file} (page {page})",
+    "confidence": "Confiance : {percent}%",
+    "alternatives": "Autres choix",
+    "extraTitle": "Informations complémentaires du document",
+    "notes": "Notes (optionnel)",
+    "notesPlaceholder": "Saisissez vos notes...",
+    "confirm": "Valider",
+    "edit": "Modifier",
+    "requestMore": "Demander un complément",
+    "skip": "Ignorer",
+    "extra": {
+      "returnDate": "Le dossier est analysé. Deux dates de reprise différentes ont été détectées et doivent être validées.",
+      "visitType": "Le type de visite a été extrait de la demande. Le lieu de travail doit encore être précisé avant validation.",
+      "workplace": "Le lieu de travail doit être précisé avant validation du dossier.",
+      "employeeName": "Le nom extrait diffère du nom saisi dans la demande. L'identité doit être confirmée avant poursuite.",
+      "jobTitle": "Le poste a été extrait de la fiche de poste. Il doit être confirmé avant conclusion.",
+      "companyName": "Le nom de l'entreprise a été extrait des pièces source. Il doit être rapproché avant validation."
+    },
+    "toast": {
+      "confirmed": "Dossier validé pour {name}.",
+      "skipped": "Dossier ignoré pour {name}.",
+      "edit": "Modification enregistrée pour {name}.",
+      "requestMore": "Complément demandé pour {name}."
+    }
+  },
+  "anomalies": {
+    "listTitle": "Liste des anomalies",
+    "searchPlaceholder": "Rechercher par anomalie, dossier...",
+    "reset": "Réinitialiser",
+    "detailTitle": "Détail de l'anomalie",
+    "detailTab": "Détail",
+    "historyTitle": "Historique de traitement",
+    "historyEmpty": "Aucun historique pour le moment.",
+    "detectedAt": "Détectée le {time}",
+    "relatedDossier": "Dossier lié",
+    "visitType": "Type de visite",
+    "examDate": "Date",
+    "doctor": "Médecin",
+    "comparison": "Comparaison des valeurs",
+    "sourceLeft": "Source 1",
+    "sourceRight": "Source 2",
+    "vs": "VS",
+    "suggestionTitle": "Proposition ATN",
+    "actions": "Actions rapides",
+    "editValue": "Corriger la valeur",
+    "markResolved": "Marquer comme traitée",
+    "openDossier": "Ouvrir le dossier",
+    "emptyFilter": "Aucune anomalie ne correspond aux filtres.",
+    "emptySelection": "Sélectionnez une anomalie pour voir le détail.",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "page": "Page {page}",
+    "range": "Affichage de {from} à {to} sur {total} anomalies",
+    "perPage": "{count} / page",
+    "perPageLabel": "Anomalies par page",
+    "filters": {
+      "severity": "Niveau",
+      "status": "Statut",
+      "type": "Type d'anomalie",
+      "assignee": "Responsable",
+      "from": "Date de début",
+      "to": "Date de fin"
+    },
+    "severity": {
+      "critical": "Critique",
+      "warning": "Alerte",
+      "info": "Info"
+    },
+    "status": {
+      "open": "Non traitée",
+      "inProgress": "En cours",
+      "resolved": "Traitée",
+      "blocked": "Bloquée"
+    },
+    "summary": {
+      "resolved": "Traitées",
+      "blocked": "Blocage"
+    },
+    "hints": {
+      "critical": "À traiter immédiatement",
+      "warning": "À surveiller",
+      "resolved": "Aujourd'hui",
+      "blocked": "À débloquer"
+    },
+    "types": {
+      "inconsistent": "Données incohérentes",
+      "lowConfidence": "Confiance faible",
+      "missingDocument": "Document manquant",
+      "missingInformation": "Information manquante"
+    },
+    "columns": {
+      "anomaly": "Anomalie",
+      "dossier": "Dossier",
+      "severity": "Niveau",
+      "assignee": "Responsable",
+      "status": "Statut",
+      "detected": "Date de détection"
+    },
+    "history": {
+      "detected": "Détection automatique par ATN.",
+      "assigned": "Anomalie assignée pour traitement.",
+      "resolved": "Anomalie marquée comme traitée."
+    },
+    "toast": {
+      "edit": "Correction enregistrée pour {name}.",
+      "resolved": "Anomalie traitée pour {name}."
+    }
+  },
+  "inProgress": {
+    "subtitle": "Suivre les dossiers actuellement traités par ATN, étape par étape",
+    "vsYesterday": "par rapport à hier",
+    "listTitle": "Dossiers en cours de traitement",
+    "searchPlaceholder": "Rechercher par n° dossier, salarié, entreprise...",
+    "export": "Exporter",
+    "exported": "{count} dossiers en cours exportés.",
+    "seeDetails": "Voir le détail",
+    "seeAllActivity": "Voir toute l'activité >",
+    "workflowTitle": "Parcours de traitement ATN",
+    "feedTitle": "Activité en temps réel",
+    "empty": "Aucun dossier en cours de traitement.",
+    "emptyFilter": "Aucun dossier ne correspond au filtre.",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "range": "Affichage de {from} à {to} sur {total} dossiers",
+    "perPage": "{count} / page",
+    "perPageLabel": "Dossiers par page",
+    "etaHours": "{hours}h {minutes}m",
+    "etaMinutes": "{minutes}m",
+    "cards": {
+      "analysing": "En analyse",
+      "checking": "En contrôle",
+      "scheduling": "Recherche de créneau"
+    },
+    "filters": {
+      "status": "Statut ATN",
+      "step": "Étape en cours"
+    },
+    "columns": {
+      "reference": "N° dossier",
+      "employee": "Salarié",
+      "step": "Étape actuelle",
+      "progress": "Avancement",
+      "status": "Statut ATN",
+      "lastActivity": "Dernière activité",
+      "eta": "ETA"
+    },
+    "steps": {
+      "analyse": "Analyse documentaire",
+      "check": "Contrôle",
+      "schedule": "Recherche de créneau"
+    },
+    "status": {
+      "analysing": "En analyse",
+      "checking": "En contrôle",
+      "scheduling": "Recherche de créneau"
+    },
+    "workflow": {
+      "intake": "Réception",
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "classify": "Classification",
+      "analyse": "Analyse documentaire",
+      "check": "Contrôle",
+      "schedule": "Recherche de créneau",
+      "propose": "Proposition de RDV",
+      "confirm": "Confirmation",
+      "generate": "Génération de documents"
+    },
+    "activity": {
+      "ocr": "OCR des documents médicaux",
+      "extract": "Extraction des informations",
+      "classify": "Classification des documents",
+      "verify": "Contrôle des contraintes",
+      "slots": "Recherche de créneau",
+      "match": "Appariement médecin"
+    },
+    "feed": {
+      "ocr": "{reference} est en cours d'analyse",
+      "extract": "{reference} extrait les données",
+      "classify": "{reference} classe les documents",
+      "verify": "{reference} est en cours de contrôle",
+      "slots": "{reference} recherche un créneau",
+      "match": "{reference} associe un médecin"
+    }
+  },
+  "completed": {
+    "stats": {
+      "dossiers": "Dossiers terminés",
+      "dossiersHint": "Total des dossiers",
+      "documents": "Documents créés",
+      "documentsHint": "Total des documents",
+      "sent": "Envoyés",
+      "sentHint": "Total",
+      "archived": "Archivés",
+      "archivedHint": "Total"
+    },
+    "vsLastMonth": "par rapport au mois dernier",
+    "listTitle": "Liste des dossiers terminés",
+    "searchPlaceholder": "Rechercher par référence, salarié, entreprise...",
+    "filter": "Filtres",
+    "filterAll": "Tous les types de visite",
+    "columns": {
+      "reference": "Référence",
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "visitType": "Type de visite",
+      "completedAt": "Date de clôture",
+      "documents": "Documents",
+      "status": "Statut final"
+    },
+    "statusCompleted": "Terminé",
+    "range": "Affichage de {from} à {to} sur {total} dossiers",
+    "empty": "Aucun dossier terminé pour le moment.",
+    "emptyFilter": "Aucun dossier ne correspond à ce filtre.",
+    "emptySelection": "Sélectionnez un dossier pour voir les informations.",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "page": "Page {page}",
+    "detailTitle": "Informations du dossier",
+    "detailTab": "Informations",
+    "createdAt": "Créé le {date} à {time}",
+    "completedAtValue": "{date} à {time}",
+    "processTitle": "Processus de clôture",
+    "process": {
+      "created": "Création du dossier",
+      "clinical": "Examen clinique",
+      "paraclinical": "Examens complémentaires",
+      "conclusion": "Conclusion médicale",
+      "sent": "Terminé et envoyé"
+    },
+    "documentsTitle": "Documents créés ({count})",
+    "docTitles": {
+      "invitation": "Convocation",
+      "email": "E-mail",
+      "summary": "Fiche de synthèse",
+      "report": "Compte rendu",
+      "fitness": "Avis d'aptitude"
+    },
+    "viewDocument": "Aperçu du document",
+    "downloadDocument": "Télécharger le document",
+    "actionsTitle": "Actions rapides",
+    "actions": {
+      "preview": "Aperçu",
+      "exportPdf": "Exporter PDF",
+      "exportWord": "Exporter Word",
+      "share": "Partager"
+    },
+    "historyTitle": "Historique récent",
+    "historyEmpty": "Aucun historique pour ce dossier.",
+    "history": {
+      "sent": "Dossier clôturé et envoyé",
+      "concluded": "Conclusion signée par le médecin",
+      "attached": "Résultats complémentaires joints",
+      "created": "Dossier créé"
+    },
+    "toast": {
+      "preview": "Ouverture de l'aperçu pour {name}.",
+      "exportPdf": "PDF exporté pour {name}.",
+      "exportWord": "Word exporté pour {name}.",
+      "share": "Lien de partage créé pour {name}.",
+      "viewDocument": "Ouverture de {name}.",
+      "downloadDocument": "{name} téléchargé."
+    }
+  },
+  "sourceDocuments": {
+    "total": "Total documents",
+    "analysed": "Analysés",
+    "reviewing": "En relecture",
+    "error": "Erreurs",
+    "vsYesterday": "par rapport à hier",
+    "searchLabel": "Rechercher un document",
+    "searchPlaceholder": "Rechercher un document",
+    "filters": {
+      "source": "Source",
+      "fileType": "Type de fichier",
+      "status": "Statut",
+      "uploadedAt": "Date de dépôt",
+      "datePlaceholder": "Choisir une période",
+      "all": "Tous",
+      "more": "Filtres"
+    },
+    "listTitle": "Liste des documents ({count})",
+    "listNav": "Pagination des documents",
+    "columns": {
+      "select": "Sélectionner",
+      "name": "Nom du document",
+      "source": "Source",
+      "fileType": "Type de fichier",
+      "uploadedAt": "Date de dépôt",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "status": {
+      "analysed": "Analysé",
+      "reviewing": "En relecture",
+      "error": "Erreur",
+      "uploaded": "Déposé"
+    },
+    "fileType": {
+      "PDF": "PDF",
+      "PPTX": "PPTX",
+      "DOCX": "DOCX",
+      "JPG": "JPG",
+      "XLSX": "XLSX"
+    },
+    "range": "Affichage de {from} à {to} sur {total} documents",
+    "emptyFilter": "Aucun document ne correspond aux filtres.",
+    "emptySelection": "Sélectionnez un document pour voir le détail.",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "open": "Ouvrir",
+    "download": "Télécharger",
+    "reanalyse": "Relancer l'analyse",
+    "viewDetails": "Voir le détail",
+    "uploadedMeta": "{date} à {time} · {size}",
+    "extractTitle": "Synthèse d'extraction",
+    "tabs": {
+      "preview": "Aperçu",
+      "metadata": "Métadonnées",
+      "history": "Historique"
+    },
+    "viewer": {
+      "page": "{current} / {total}",
+      "zoom": "{value}%",
+      "zoomIn": "Zoom avant",
+      "zoomOut": "Zoom arrière",
+      "fullscreen": "Plein écran"
+    },
+    "meta": {
+      "fileName": "Nom du fichier",
+      "fileType": "Type de fichier",
+      "size": "Taille",
+      "pages": "Pages",
+      "pagesValue": "{count} pages",
+      "source": "Source",
+      "uploader": "Déposé par",
+      "uploadedAt": "Date de dépôt",
+      "dossier": "Dossier lié"
+    },
+    "history": {
+      "uploaded": "Le document a été déposé dans le système.",
+      "analysed": "ATN a terminé l'analyse du document.",
+      "reviewStarted": "Le document est en cours de relecture.",
+      "errorDetected": "Une erreur d'analyse a été détectée.",
+      "reanalysed": "Une nouvelle analyse a été demandée."
+    },
+    "summary": {
+      "nightWork": "Attestation d'aptitude au travail de nuit pour {name} ({company}). Conclusion : apte au travail de nuit, sans restriction particulière.",
+      "jobSheet": "Fiche de poste de {name} chez {company}. Les contraintes de posture, de répétition et d'environnement ont été extraites.",
+      "visitRequest": "Demande de visite de {company} pour {name}. Le type de visite et la date souhaitée ont été identifiés.",
+      "sickLeave": "Arrêt de travail de {name}. La période d'arrêt et la date de reprise prévue ont été extraites.",
+      "form": "Formulaire de {name} ({company}) lu. Les champs administratifs principaux ont été renseignés.",
+      "planning": "Planning de {company} concernant {name}. Les horaires et jours travaillés ont été identifiés.",
+      "email": "Courriel d'accompagnement de {company} pour {name}. Le contenu principal a été associé au dossier.",
+      "error": "Le document de {name} ({company}) n'a pas pu être lu. Déposez une copie plus lisible ou relancez l'analyse."
+    },
+    "paper": {
+      "center": "Service de santé au travail",
+      "title": "ATTESTATION D'APTITUDE AU TRAVAIL DE NUIT",
+      "employee": "Salarié",
+      "company": "Employeur",
+      "date": "Date",
+      "doctor": "Médecin du travail",
+      "doctorName": "Dr Pierre Martin",
+      "conclusion": "Conclusion",
+      "conclusionBody": "Le salarié est reconnu apte au travail de nuit, sans restriction particulière à la date de l'examen.",
+      "annex": "Annexe: recommandations de suivi et organisation des pauses."
+    },
+    "toast": {
+      "opened": "{name} ouvert.",
+      "downloaded": "{name} téléchargé.",
+      "reanalysed": "Analyse relancée pour {name}."
+    }
+  },
+  "placeholder": {
+    "comingSoon": "Cette page sera disponible prochainement."
+  },
+  "chatbot": {
+    "title": "Assistant",
+    "open": "Ouvrir l'assistant",
+    "close": "Fermer l'assistant",
+    "newChat": "Nouvelle conversation",
+    "untitled": "Nouvelle conversation",
+    "history": "Historique",
+    "expand": "Étendre le panneau à droite",
+    "collapse": "Réduire le panneau",
+    "send": "Envoyer",
+    "attachFile": "Joindre un fichier",
+    "removeFile": "Retirer le fichier",
+    "placeholder": "Écrire un message...",
+    "emptyHistory": "Aucune conversation pour le moment.",
+    "welcomeTitle": "Bonjour, comment puis-je vous aider ?",
+    "welcomeBody": "Posez une question sur les dossiers, les validations ou les anomalies.",
+    "thinking": "Réflexion en cours",
+    "dragHint": "Glisser pour déplacer, cliquer pour ouvrir",
+    "suggestions": {
+      "anomalies": "Quels dossiers sont en anomalie ?",
+      "validation": "Résume la file de validation",
+      "appointments": "Quels sont les prochains rendez-vous ?"
+    }
+  }
+}

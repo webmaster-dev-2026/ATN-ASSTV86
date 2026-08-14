@@ -1,0 +1,14 @@
+// Danh mục enum vai trò người dùng và trạng thái tài khoản
+{
+  "USER_ROLE": [
+    "ADMINISTRATIVE_USER",
+    "SUPERVISOR",
+    "PROFESSIONAL",
+    "MANAGER"
+  ],
+  "USER_STATUS": [
+    "ACTIVE",
+    "INACTIVE",
+    "LOCKED"
+  ]
+}

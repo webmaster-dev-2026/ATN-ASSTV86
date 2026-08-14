@@ -1,0 +1,104 @@
+{
+  "documents": [
+    {
+      "id": "DOC-0001",
+      "dossier_id": "DOS-0001",
+      "uploaded_by": "USR-0001",
+      "file_name": "ATN_2026_08_13_0001.pdf",
+      "document_type": "DEMANDE_VISITE",
+      "file_type": "PDF",
+      "status": "ANALYSED",
+      "received_at": "2026-08-13T09:24:00+02:00"
+    },
+    {
+      "id": "DOC-0002",
+      "dossier_id": "DOS-0002",
+      "uploaded_by": "USR-0002",
+      "file_name": "ATN_2026_08_13_0002.docx",
+      "document_type": "FICHE_POSTE",
+      "file_type": "DOCX",
+      "status": "ANALYSING",
+      "received_at": "2026-08-13T08:45:00+02:00"
+    },
+    {
+      "id": "DOC-0003",
+      "dossier_id": "DOS-0003",
+      "uploaded_by": "USR-0003",
+      "file_name": "ATN_2026_08_13_0003.jpg",
+      "document_type": "FORMULAIRE",
+      "file_type": "IMAGE",
+      "status": "ANALYSED",
+      "received_at": "2026-08-13T09:00:00+02:00"
+    },
+    {
+      "id": "DOC-0004",
+      "dossier_id": "DOS-0004",
+      "uploaded_by": "USR-0001",
+      "file_name": "ATN_2026_08_13_0004.pdf",
+      "document_type": "DEMANDE_VISITE",
+      "file_type": "PDF",
+      "status": "ANALYSED",
+      "received_at": "2026-08-13T09:15:00+02:00"
+    },
+    {
+      "id": "DOC-0005",
+      "dossier_id": "DOS-0005",
+      "uploaded_by": "USR-0003",
+      "file_name": "ATN_2026_08_12_0005.pdf",
+      "document_type": "EMAIL",
+      "file_type": "PDF",
+      "status": "ANALYSED",
+      "received_at": "2026-08-12T14:30:00+02:00"
+    },
+    {
+      "id": "DOC-0006",
+      "dossier_id": "DOS-0006",
+      "uploaded_by": "USR-0002",
+      "file_name": "ATN_2026_08_13_0006.pdf",
+      "document_type": "DEMANDE_VISITE",
+      "file_type": "PDF",
+      "status": "ANALYSED",
+      "received_at": "2026-08-13T09:20:00+02:00"
+    },
+    {
+      "id": "DOC-0007",
+      "dossier_id": "DOS-0007",
+      "uploaded_by": "USR-0001",
+      "file_name": "ATN_2026_08_13_0007.docx",
+      "document_type": "ARRET_TRAVAIL",
+      "file_type": "DOCX",
+      "status": "ANALYSING",
+      "received_at": "2026-08-13T09:28:00+02:00"
+    },
+    {
+      "id": "DOC-0008",
+      "dossier_id": "DOS-0008",
+      "uploaded_by": "USR-0003",
+      "file_name": "ATN_2026_08_13_0008.jpg",
+      "document_type": "FICHE_POSTE",
+      "file_type": "IMAGE",
+      "status": "ANALYSED",
+      "received_at": "2026-08-13T09:32:00+02:00"
+    },
+    {
+      "id": "DOC-0009",
+      "dossier_id": "DOS-0009",
+      "uploaded_by": "USR-0002",
+      "file_name": "ATN_2026_08_13_0009.pdf",
+      "document_type": "DEMANDE_VISITE",
+      "file_type": "PDF",
+      "status": "UPLOADED",
+      "received_at": "2026-08-13T09:36:00+02:00"
+    },
+    {
+      "id": "DOC-0010",
+      "dossier_id": "DOS-0010",
+      "uploaded_by": "USR-0003",
+      "file_name": "ATN_2026_08_12_0010.pdf",
+      "document_type": "FORMULAIRE",
+      "file_type": "PDF",
+      "status": "ANALYSED",
+      "received_at": "2026-08-12T15:10:00+02:00"
+    }
+  ]
+}
