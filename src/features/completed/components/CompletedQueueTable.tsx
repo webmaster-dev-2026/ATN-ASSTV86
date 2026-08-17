@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { BrandMark } from '@/components/brand/BrandLogo'
+import { useEffect, useMemo, useState } from 'react'
+import { HeaderFilter } from '@/components/ui'
 import { visitLabel } from '@/features/dashboard/format'
 import { SearchIcon } from '@/features/dossiers/components/DossierIcons'
 import { interpolate } from '@/features/dossiers/format'
@@ -8,7 +8,7 @@ import { useI18n, type TranslationKey } from '@/i18n'
 import { cn } from '@/lib/cn'
 import { formatDateTimeCompact, pageNumbers } from '../format'
 import type { CompletedItem, CompletedVisitFilter } from '../types'
-import { FunnelIcon, SortDownIcon } from './CompletedIcons'
+import { SortDownIcon } from './CompletedIcons'
 
 const PAGE_SIZE = 8
 
@@ -31,8 +31,6 @@ export function CompletedQueueTable({ items, selectedId, onSelect }: CompletedQu
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<CompletedVisitFilter>('all')
   const [page, setPage] = useState(1)
-  const [filterOpen, setFilterOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -58,67 +56,21 @@ export function CompletedQueueTable({ items, selectedId, onSelect }: CompletedQu
     setPage(1)
   }, [filter, items.length, query])
 
-  useEffect(() => {
-    const onPointerDown = (event: PointerEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setFilterOpen(false)
-      }
-    }
-    document.addEventListener('pointerdown', onPointerDown)
-    return () => document.removeEventListener('pointerdown', onPointerDown)
-  }, [])
-
   return (
     <section className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
       <div className="flex shrink-0 flex-col gap-3 px-4 py-3 sm:px-5">
         <h2 className="truncate text-[16px] font-bold text-[#1c2a4e]">{t('completed.listTitle')}</h2>
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="relative min-w-0 flex-1">
-            <span className="sr-only">{t('completed.searchPlaceholder')}</span>
-            <SearchIcon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#8b95a8]" />
-            <input
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={t('completed.searchPlaceholder')}
-              className="h-9 w-full rounded-lg border border-[#e4ecf6] bg-[#f7fafc] py-0 pl-9 pr-3 text-[13px] text-[#1c2a4e] transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-[#8b95a8] focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/30"
-            />
-          </label>
-          <div ref={menuRef} className="relative shrink-0">
-            <button
-              type="button"
-              className="inline-flex h-9 min-w-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg border border-[#e4ecf6] bg-white px-3 text-[13px] font-semibold text-[#5b6b82] transition-colors duration-200 hover:bg-[#eef5fc] hover:text-[#1d4f9a]"
-              aria-label={t('completed.filter')}
-              aria-expanded={filterOpen}
-              onClick={() => setFilterOpen((current) => !current)}
-            >
-              <FunnelIcon className="size-3.5" />
-              {t('completed.filter')}
-            </button>
-            {filterOpen ? (
-              <div className="absolute right-0 top-10 z-20 w-48 rounded-xl border border-[#e4ecf6] bg-white py-1 shadow-[0_8px_24px_rgba(28,42,78,0.12)]">
-                {FILTERS.map((option) => (
-                  <button
-                    key={option.value}
-                    type="button"
-                    className={cn(
-                      'flex w-full cursor-pointer px-3 py-2 text-left text-[13px] font-medium',
-                      filter === option.value
-                        ? 'bg-[#eef5fc] text-[#1d4f9a]'
-                        : 'text-[#1c2a4e] hover:bg-[#f7fafc]',
-                    )}
-                    onClick={() => {
-                      setFilter(option.value)
-                      setFilterOpen(false)
-                    }}
-                  >
-                    {t(option.labelKey)}
-                  </button>
-                ))}
-              </div>
-            ) : null}
-          </div>
-        </div>
+        <label className="relative min-w-0">
+          <span className="sr-only">{t('completed.searchPlaceholder')}</span>
+          <SearchIcon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#8b95a8]" />
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t('completed.searchPlaceholder')}
+            className="h-9 w-full rounded-lg border border-[#e4ecf6] bg-[#f7fafc] py-0 pl-9 pr-3 text-[13px] text-[#1c2a4e] transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-[#8b95a8] focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/30"
+          />
+        </label>
       </div>
 
       <div className="min-h-0 min-w-0 flex-1 overflow-auto">
@@ -128,7 +80,17 @@ export function CompletedQueueTable({ items, selectedId, onSelect }: CompletedQu
               <th className="px-4 py-2.5 font-semibold">{t('completed.columns.reference')}</th>
               <th className="px-3 py-2.5 font-semibold">{t('completed.columns.employee')}</th>
               <th className="hidden px-3 py-2.5 font-semibold lg:table-cell">{t('completed.columns.company')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('completed.columns.visitType')}</th>
+              <th className="px-3 py-2.5 font-semibold">
+                <HeaderFilter
+                  label={t('completed.columns.visitType')}
+                  value={filter}
+                  onChange={setFilter}
+                  options={FILTERS.map((option) => ({
+                    value: option.value,
+                    label: t(option.labelKey),
+                  }))}
+                />
+              </th>
               <th className="px-3 py-2.5 font-semibold">
                 <span className="inline-flex items-center gap-1 text-[#2860B9]">
                   {t('completed.columns.completedAt')}
@@ -168,20 +130,17 @@ export function CompletedQueueTable({ items, selectedId, onSelect }: CompletedQu
                     className={cn(
                       'cursor-pointer border-b border-[#f3f6fb] transition-colors duration-200',
                       selected
-                        ? 'bg-[#F0F7FF] shadow-[inset_3px_0_0_#2860B9]'
+                        ? 'bg-[#F0F7FF]'
                         : 'hover:bg-[#f7fafc]',
                     )}
                   >
                     <td className="min-w-0 px-4 py-3">
-                      <div className="flex min-w-0 items-center gap-2.5">
-                        <BrandMark size="sm" />
-                        <span
-                          className="truncate text-[13px] font-semibold text-[#2860B9]"
-                          title={item.reference}
-                        >
-                          {item.reference}
-                        </span>
-                      </div>
+                      <span
+                        className="block truncate text-[13px] font-semibold text-[#2860B9]"
+                        title={item.reference}
+                      >
+                        {item.reference}
+                      </span>
                     </td>
                     <td className="min-w-0 px-3 py-3">
                       <span className="block truncate text-[13px] font-medium text-[#1c2a4e]" title={item.employeeName}>

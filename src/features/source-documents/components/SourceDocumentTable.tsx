@@ -56,7 +56,7 @@ export function SourceDocumentTable({
   }, [])
 
   return (
-    <section className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
+    <section className="flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
       <div className="flex shrink-0 items-center px-4 py-3 sm:px-5">
         <h2 className="truncate text-[16px] font-bold text-[#1c2a4e]">
           {interpolate(t('sourceDocuments.listTitle'), { count: items.length })}
@@ -67,20 +67,17 @@ export function SourceDocumentTable({
         <table className="w-full min-w-[860px] border-collapse text-left">
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="w-10 px-3 py-2.5">
-                <span className="sr-only">{t('sourceDocuments.columns.select')}</span>
-              </th>
-              <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.name')}</th>
+              <th className="px-4 py-2.5 font-semibold">{t('sourceDocuments.columns.name')}</th>
               <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.source')}</th>
               <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.fileType')}</th>
               <th className="px-3 py-2.5 font-semibold">
-                <span className="inline-flex items-center gap-1">
+                <span className="inline-flex items-center gap-1 text-[#2860B9]">
                   {t('sourceDocuments.columns.uploadedAt')}
-                  <SortDownIcon className="text-[#8b95a8]" />
+                  <SortDownIcon className="size-2.5" />
                 </span>
               </th>
               <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.status')}</th>
-              <th className="w-10 px-3 py-2.5">
+              <th className="w-10 px-4 py-2.5">
                 <span className="sr-only">{t('sourceDocuments.columns.actions')}</span>
               </th>
             </tr>
@@ -88,7 +85,7 @@ export function SourceDocumentTable({
           <tbody>
             {visible.length === 0 ? (
               <tr>
-                <td colSpan={7} className="px-4 py-12 text-center text-[13px] font-medium text-[#8b95a8]">
+                <td colSpan={6} className="px-4 py-12 text-center text-[13px] font-medium text-[#8b95a8]">
                   {t('sourceDocuments.emptyFilter')}
                 </td>
               </tr>
@@ -109,20 +106,12 @@ export function SourceDocumentTable({
                     }}
                     className={cn(
                       'cursor-pointer border-b border-[#f3f6fb] transition-colors duration-200',
-                      selected ? 'bg-[#e8f1fc]' : 'hover:bg-[#f7fafc]',
+                      selected
+                        ? 'bg-[#F0F7FF]'
+                        : 'hover:bg-[#f7fafc]',
                     )}
                   >
-                    <td className="px-3 py-3">
-                      <input
-                        type="checkbox"
-                        checked={selected}
-                        onChange={() => onSelect(item.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        className="size-4 cursor-pointer accent-[#2860B9]"
-                        aria-label={item.fileName}
-                      />
-                    </td>
-                    <td className="min-w-0 px-3 py-3">
+                    <td className="min-w-0 px-4 py-3">
                       <span className="flex min-w-0 items-center gap-2.5">
                         <SourceFileTypeIcon type={item.fileKind} />
                         <span className="min-w-0 truncate text-[13px] font-semibold text-[#1c2a4e]" title={item.fileName}>
@@ -147,7 +136,7 @@ export function SourceDocumentTable({
                         {t(STATUS_LABEL[item.status])}
                       </span>
                     </td>
-                    <td className="px-2 py-3">
+                    <td className="px-4 py-3">
                       <div className="relative" ref={menuId === item.id ? menuRef : undefined}>
                         <button
                           type="button"
@@ -207,7 +196,7 @@ export function SourceDocumentTable({
         <nav className="flex flex-wrap items-center gap-1" aria-label={t('sourceDocuments.listNav')}>
           <button
             type="button"
-            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors duration-200 hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
+            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
             aria-label={t('sourceDocuments.prevPage')}
             disabled={currentPage <= 1}
             onClick={() => setPage((value) => Math.max(1, value - 1))}
@@ -216,8 +205,8 @@ export function SourceDocumentTable({
           </button>
           {pageNumbers(currentPage, pageCount).map((item, index) =>
             item === 'ellipsis' ? (
-              <span key={`e-${index}`} className="grid size-8 place-items-center text-[13px] text-[#8b95a8]">
-                ...
+              <span key={`ellipsis-${index}`} className="grid size-8 place-items-center text-[13px] font-semibold text-[#8b95a8]">
+                  …
               </span>
             ) : (
               <button
@@ -225,7 +214,7 @@ export function SourceDocumentTable({
                 type="button"
                 aria-current={item === currentPage ? 'page' : undefined}
                 className={cn(
-                  'grid size-8 cursor-pointer place-items-center rounded-lg text-[13px] font-semibold transition-colors duration-200',
+                  'grid size-8 cursor-pointer place-items-center rounded-lg text-[13px] font-semibold transition-colors',
                   item === currentPage ? 'bg-[#2860B9] text-white' : 'text-[#5b6b82] hover:bg-[#eef5fc]',
                 )}
                 onClick={() => setPage(item)}
@@ -236,7 +225,7 @@ export function SourceDocumentTable({
           )}
           <button
             type="button"
-            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors duration-200 hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
+            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
             aria-label={t('sourceDocuments.nextPage')}
             disabled={currentPage >= pageCount}
             onClick={() => setPage((value) => Math.min(pageCount, value + 1))}

@@ -1,6 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { Timeline, TimelineItem } from '@/components/ui'
-import { BrandMark } from '@/components/brand/BrandLogo'
 import { visitLabel } from '@/features/dashboard/format'
 import { DownloadIcon } from '@/features/dossiers/components/DossierIcons'
 import { formatStamp, interpolate } from '@/features/dossiers/format'
@@ -150,14 +149,11 @@ function DetailPane({
 
   return (
     <>
-      <div className="flex items-center gap-3">
-        <BrandMark size="md" />
-        <div className="min-w-0">
-          <p className="truncate text-[15px] font-bold text-[#1c2a4e]">{item.reference}</p>
-          <p className="mt-0.5 truncate text-[12px] text-[#8b95a8]">
-            {interpolate(t('completed.createdAt'), { date: created.date, time: created.time })}
-          </p>
-        </div>
+      <div className="min-w-0">
+        <p className="truncate text-[15px] font-bold text-[#1c2a4e]">{item.reference}</p>
+        <p className="mt-0.5 truncate text-[12px] text-[#8b95a8]">
+          {interpolate(t('completed.createdAt'), { date: created.date, time: created.time })}
+        </p>
       </div>
 
       <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">

@@ -7,6 +7,7 @@ import { CompletedStatCards } from '@/features/completed/components/CompletedSta
 import { getCompletedData } from '@/features/completed/getCompletedData'
 import { interpolate } from '@/features/dossiers/format'
 import { useI18n, type TranslationKey } from '@/i18n'
+import { cn } from '@/lib/cn'
 
 const initialData = getCompletedData()
 
@@ -29,37 +30,36 @@ export function CompletedPage() {
       <div className="flex min-h-0 flex-1 flex-col gap-4">
         <CompletedStatCards summary={initialData.summary} />
 
-        <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.85fr)]">
+        <div
+          className={cn(
+            'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
+            selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.85fr)]',
+          )}
+        >
           <CompletedQueueTable
             items={initialData.items}
             selectedId={selectedId}
-            onSelect={setSelectedId}
+            onSelect={(id) => setSelectedId((current) => (current === id ? null : id))}
           />
-          <CompletedDetail
-            item={selected}
-            onPreview={() => {
-              if (selected) {
+          {selected ? (
+            <CompletedDetail
+              item={selected}
+              onPreview={() => {
                 notifyNamed('completed.toast.preview', selected.employeeName)
-              }
-            }}
-            onExportPdf={() => {
-              if (selected) {
+              }}
+              onExportPdf={() => {
                 notifyNamed('completed.toast.exportPdf', selected.employeeName, 'success')
-              }
-            }}
-            onExportWord={() => {
-              if (selected) {
+              }}
+              onExportWord={() => {
                 notifyNamed('completed.toast.exportWord', selected.employeeName, 'success')
-              }
-            }}
-            onShare={() => {
-              if (selected) {
+              }}
+              onShare={() => {
                 notifyNamed('completed.toast.share', selected.employeeName)
-              }
-            }}
-            onViewDocument={(name) => notifyNamed('completed.toast.viewDocument', name)}
-            onDownloadDocument={(name) => notifyNamed('completed.toast.downloadDocument', name, 'success')}
-          />
+              }}
+              onViewDocument={(name) => notifyNamed('completed.toast.viewDocument', name)}
+              onDownloadDocument={(name) => notifyNamed('completed.toast.downloadDocument', name, 'success')}
+            />
+          ) : null}
         </div>
       </div>
     </PageFrame>

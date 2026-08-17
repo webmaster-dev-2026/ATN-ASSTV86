@@ -14,6 +14,7 @@ interface HeaderProps {
 
 function HeaderSearch() {
   const { t } = useI18n()
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
@@ -30,6 +31,11 @@ function HeaderSearch() {
   const clearQuery = () => {
     setQuery('')
     inputRef.current?.focus()
+  }
+
+  const goToSearch = () => {
+    const value = query.trim()
+    navigate(value ? `/recherche?q=${encodeURIComponent(value)}` : '/recherche')
   }
 
   return (
@@ -64,6 +70,10 @@ function HeaderSearch() {
             setQuery('')
             setOpen(false)
             inputRef.current?.blur()
+          }
+          if (event.key === 'Enter') {
+            event.preventDefault()
+            goToSearch()
           }
         }}
         placeholder={t('header.searchPlaceholder')}

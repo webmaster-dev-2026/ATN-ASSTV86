@@ -2,7 +2,6 @@ import { useEffect, useState, type CSSProperties } from 'react'
 import { BrandLogo } from '@/components/brand/BrandLogo'
 import { formatDate, interpolate } from '@/features/dossiers/format'
 import { useI18n, type Locale } from '@/i18n'
-import { cn } from '@/lib/cn'
 import type { SourceDocument } from '../types'
 import { ChevronLeftIcon, ChevronRightIcon, MaximizeIcon, MinusIcon, PlusIcon } from './SourceDocumentIcons'
 
@@ -41,7 +40,7 @@ export function SourceDocumentPreview({ document }: SourceDocumentPreviewProps) 
   }, [expanded])
 
   const viewer = (
-    <div className={cn('flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#e4ecf6] bg-[#eef3f9]', expanded && 'h-full')}>
+    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-[#e4ecf6] bg-[#eef3f9]">
       <div className="flex shrink-0 items-center justify-between gap-2 border-b border-[#e4ecf6] bg-white px-2 py-1.5">
         <div className="flex items-center gap-1 text-[12px] font-semibold tabular-nums text-[#1c2a4e]">
           <button
@@ -100,7 +99,7 @@ export function SourceDocumentPreview({ document }: SourceDocumentPreviewProps) 
         </div>
       </div>
 
-      <div className={cn('overflow-auto px-2 py-2', expanded ? 'flex-1' : 'max-h-[280px]')}>
+      <div className="min-h-0 flex-1 overflow-auto px-2 py-2">
         <div className="mx-auto w-full max-w-[420px]" style={{ zoom: zoom / 100 } as CSSProperties}>
           <PreviewPaper document={document} page={page} locale={locale} />
         </div>

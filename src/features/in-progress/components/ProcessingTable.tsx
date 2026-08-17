@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, type ChangeEvent, type ReactNode } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { HeaderFilter } from '@/components/ui'
 import { formatStamp, interpolate } from '@/features/dossiers/format'
 import { useI18n } from '@/i18n'
 import { cn } from '@/lib/cn'
@@ -23,7 +24,7 @@ import {
 const PAGE_SIZES = [10, 25, 50] as const
 
 const selectClass =
-  'h-9 min-w-[148px] cursor-pointer appearance-none rounded-lg border border-[#e4ecf6] bg-white py-0 pl-3 pr-8 text-[13px] font-medium text-[#1c2a4e] transition-colors duration-200 hover:border-[#c5d4ea] focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30 [&::-ms-expand]:hidden'
+  'h-9 min-w-[108px] cursor-pointer appearance-none rounded-lg border border-[#e4ecf6] bg-white py-0 pl-3 pr-8 text-[13px] font-medium text-[#1c2a4e] transition-colors duration-200 hover:border-[#c5d4ea] focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30 [&::-ms-expand]:hidden'
 
 const inputClass =
   'h-9 w-full rounded-lg border border-[#e4ecf6] bg-[#f7fafc] py-0 pl-9 pr-3 text-[13px] text-[#1c2a4e] transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-[#8b95a8] focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/30'
@@ -67,7 +68,7 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
   }, [query, status, step, items, pageSize])
 
   return (
-    <section className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-2xl border border-[#e8eef6] bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
+    <section className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
       <div className="flex shrink-0 flex-col gap-3 px-4 py-3 sm:px-5">
         <div className="flex min-w-0 items-center gap-2">
           <h2 className="truncate text-[16px] font-bold text-[#1c2a4e]">{t('inProgress.listTitle')}</h2>
@@ -162,7 +163,7 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
                     : interpolate(t('inProgress.etaHours'), { hours: eta.hours, minutes: eta.minutes })
 
                 return (
-                  <tr key={item.id} className="border-b border-[#f3f6fb] transition-colors hover:bg-[#f7fafc]">
+                  <tr key={item.id} className="border-b border-[#f3f6fb] transition-colors duration-200 hover:bg-[#f7fafc]">
                     <td className="px-4 py-3">
                       <span className="block truncate text-[13px] font-bold text-[#1c2a4e]" title={item.reference}>
                         {item.reference}
@@ -232,8 +233,8 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
             </button>
             {pageNumbers(currentPage, pageCount).map((item, index) =>
               item === 'ellipsis' ? (
-                <span key={`e-${index}`} className="grid size-8 place-items-center text-[13px] text-[#8b95a8]">
-                  ...
+                <span key={`ellipsis-${index}`} className="grid size-8 place-items-center text-[13px] font-semibold text-[#8b95a8]">
+                  …
                 </span>
               ) : (
                 <button
@@ -280,7 +281,6 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
     </section>
   )
 }
-
 function SelectWrap({ children }: { children: ReactNode }) {
   return (
     <div className="relative">
@@ -289,3 +289,4 @@ function SelectWrap({ children }: { children: ReactNode }) {
     </div>
   )
 }
+

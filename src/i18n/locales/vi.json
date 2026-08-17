@@ -828,6 +828,226 @@
       "reanalysed": "Đã gửi phân tích lại cho {name}."
     }
   },
+  "settings": {
+    "navTitle": "Danh mục cài đặt",
+    "relatedTitle": "Cài đặt liên quan",
+    "comingSoon": "Phần này sẽ sớm khả dụng.",
+    "categories": {
+      "general": "Chung",
+      "users": "Người dùng & vai trò",
+      "centers": "Trung tâm & bác sĩ",
+      "channels": "Kênh tiếp nhận",
+      "rules": "Quy tắc nghiệp vụ",
+      "templates": "Mẫu tài liệu",
+      "notifications": "Thông báo"
+    },
+    "sections": {
+      "general": {
+        "title": "Chung",
+        "description": "Cấu hình chung của hệ thống ATN."
+      },
+      "users": {
+        "title": "Người dùng & vai trò",
+        "description": "Quản lý tài khoản, quyền hạn và vai trò người dùng."
+      },
+      "centers": {
+        "title": "Trung tâm & bác sĩ",
+        "description": "Quản lý trung tâm y tế và bác sĩ phụ trách."
+      },
+      "channels": {
+        "title": "Kênh tiếp nhận",
+        "description": "Cấu hình các kênh tiếp nhận hồ sơ và tài liệu."
+      },
+      "rules": {
+        "title": "Quy tắc nghiệp vụ",
+        "description": "Định nghĩa quy tắc xử lý hồ sơ sức khỏe nghề nghiệp."
+      },
+      "notifications": {
+        "title": "Thông báo",
+        "description": "Cấu hình kênh và nội dung thông báo hệ thống."
+      }
+    },
+    "templates": {
+      "title": "Mẫu tài liệu",
+      "description": "Quản lý các mẫu tài liệu hệ thống sử dụng trong quy trình ATN.",
+      "add": "Thêm mẫu mới",
+      "preview": "Xem trước",
+      "edit": "Chỉnh sửa",
+      "duplicate": "Nhân bản",
+      "more": "Thêm thao tác",
+      "archive": "Lưu trữ",
+      "updated": "Cập nhật: {date} bởi {name}",
+      "copyName": "{name} (bản sao)",
+      "range": "Hiển thị {from} đến {to} trong tổng số {total} mẫu",
+      "perPage": "{count} / trang",
+      "perPageLabel": "Số mẫu mỗi trang",
+      "prevPage": "Trang trước",
+      "nextPage": "Trang sau",
+      "listNav": "Phân trang mẫu tài liệu",
+      "empty": "Chưa có mẫu tài liệu.",
+      "status": {
+        "active": "Đang sử dụng",
+        "draft": "Bản nháp"
+      },
+      "items": {
+        "invite": {
+          "name": "Giấy mời",
+          "description": "Mẫu giấy mời khám sức khỏe nghề nghiệp gửi cho người lao động."
+        },
+        "email": {
+          "name": "Email xác nhận",
+          "description": "Mẫu email xác nhận lịch hẹn khám sức khỏe nghề nghiệp."
+        },
+        "letter": {
+          "name": "Công văn",
+          "description": "Mẫu công văn trao đổi với doanh nghiệp về kết quả ATN."
+        },
+        "summary": {
+          "name": "Phiếu tổng hợp",
+          "description": "Phiếu tổng hợp kết quả khám sức khỏe nghề nghiệp."
+        },
+        "custom": {
+          "name": "Mẫu mới",
+          "description": "Mẫu tài liệu mới chưa được cấu hình."
+        }
+      },
+      "toast": {
+        "preview": "Đã mở xem trước {name}.",
+        "edit": "Đã mở chỉnh sửa {name}.",
+        "duplicated": "Đã nhân bản {name}.",
+        "archived": "Đã lưu trữ {name}.",
+        "added": "Đã tạo mẫu mới."
+      }
+    },
+    "related": {
+      "ruleAutomation": {
+        "title": "Tự động hóa quy tắc",
+        "description": "Áp dụng quy tắc nghiệp vụ khi xử lý hồ sơ"
+      },
+      "auditLog": {
+        "title": "Nhật ký hệ thống (Audit log)",
+        "description": "Ghi nhận thao tác của người dùng"
+      },
+      "defaultLanguage": {
+        "title": "Ngôn ngữ mặc định",
+        "description": "Ngôn ngữ hiển thị mặc định của hệ thống"
+      },
+      "systemNotifications": {
+        "title": "Thông báo hệ thống",
+        "description": "Gửi thông báo khi có sự kiện quan trọng"
+      },
+      "periodicReports": {
+        "title": "Gửi báo cáo định kỳ",
+        "description": "Báo cáo tổng hợp gửi tự động theo lịch"
+      },
+      "retention": {
+        "title": "Thời gian lưu trữ dữ liệu",
+        "description": "Thời hạn lưu trữ hồ sơ theo quy định",
+        "years": "{count} năm"
+      }
+    }
+  },
+  "statistics": {
+    "received": "Hồ sơ tiếp nhận",
+    "avgProcessingTime": "Thời gian xử lý TB",
+    "anomalyRate": "Tỷ lệ bất thường",
+    "confirmationRate": "Tỷ lệ xác nhận",
+    "today": "Hôm nay",
+    "vsYesterday": "so với hôm qua",
+    "vsPrevious30Days": "so với 30 ngày trước",
+    "daysUnit": "ngày",
+    "periods": {
+      "last7Days": "7 ngày qua",
+      "last30Days": "30 ngày qua",
+      "last90Days": "90 ngày qua"
+    },
+    "receivedByDay": "Số lượng hồ sơ tiếp nhận theo ngày ({period})",
+    "byVisitType": "Số lượng hồ sơ theo loại khám ({period})",
+    "statusDistribution": "Phân bổ hồ sơ theo trạng thái",
+    "anomalyClassification": "Phân loại bất thường ({period})",
+    "topFacilities": "Top cơ sở khám hoạt động nhiều nhất ({period})",
+    "total": "Tổng số",
+    "records": "Hồ sơ",
+    "updated": "Cập nhật: {datetime}",
+    "refresh": "Làm mới",
+    "viewAllFacilities": "Xem tất cả cơ sở khám",
+    "rank": "#",
+    "facility": "Cơ sở khám",
+    "receivedCount": "Hồ sơ tiếp nhận",
+    "rate": "Tỷ lệ",
+    "trend": "Xu hướng",
+    "period": "Kỳ",
+    "status": {
+      "toProcess": "Cần xử lý",
+      "processing": "Đang xử lý",
+      "waitingAppointment": "Chờ lịch hẹn",
+      "completed": "Hoàn tất",
+      "blocked": "Bị chặn"
+    },
+    "visit": {
+      "other": "Khám khác"
+    },
+    "anomalies": {
+      "prolongedRestriction": "Hạn chế tư thế kéo dài",
+      "missingInfo": "Thiếu thông tin/giấy tờ",
+      "inconsistent": "Dữ liệu không khớp",
+      "lowConfidence": "Độ tin cậy thấp",
+      "missingDocument": "Thiếu tài liệu"
+    }
+  },
+  "search": {
+    "subtitle": "Tìm hồ sơ, tài liệu, bất thường hoặc người lao động",
+    "placeholder": "Tên, mã hồ sơ, doanh nghiệp, tài liệu...",
+    "clear": "Xóa tìm kiếm",
+    "scopes": {
+      "all": "Tất cả",
+      "dossier": "Hồ sơ",
+      "document": "Tài liệu",
+      "anomaly": "Bất thường",
+      "employee": "Người lao động"
+    },
+    "kind": {
+      "dossier": "Hồ sơ",
+      "document": "Tài liệu",
+      "anomaly": "Bất thường",
+      "employee": "Người lao động"
+    },
+    "latestTitle": "Mục gần nhất",
+    "resultsTitle": "Kết quả",
+    "empty": "Không có kết quả phù hợp với tìm kiếm.",
+    "emptySelection": "Chọn một kết quả để xem chi tiết.",
+    "detailTitle": "Chi tiết",
+    "openDossier": "Mở hồ sơ",
+    "openDocument": "Mở tài liệu",
+    "openAnomaly": "Xem bất thường",
+    "openEmployee": "Xem hồ sơ",
+    "related": "{count} mục liên quan",
+    "range": "Hiển thị từ {from} đến {to} trên {total}",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "page": "Trang {page}",
+    "listNav": "Phân trang kết quả",
+    "columns": {
+      "type": "Loại",
+      "result": "Kết quả",
+      "employee": "Người lao động",
+      "company": "Doanh nghiệp",
+      "date": "Ngày",
+      "status": "Trạng thái"
+    },
+    "fields": {
+      "employee": "Người lao động",
+      "company": "Doanh nghiệp",
+      "visitType": "Loại khám",
+      "status": "Trạng thái",
+      "date": "Ngày",
+      "source": "Nguồn",
+      "file": "Tệp",
+      "size": "Dung lượng",
+      "severity": "Mức độ",
+      "related": "Mục liên quan"
+    }
+  },
   "placeholder": {
     "comingSoon": "Trang này sẽ sớm khả dụng."
   },

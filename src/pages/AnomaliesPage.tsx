@@ -2,13 +2,13 @@ import { useMemo, useState } from 'react'
 import { PageFrame } from '@/components/layout/PageFrame'
 import { useToast } from '@/components/ui'
 import { AnomalyDetail } from '@/features/anomalies/components/AnomalyDetail'
-import { AnomalyFilters } from '@/features/anomalies/components/AnomalyFilters'
 import { AnomalyList } from '@/features/anomalies/components/AnomalyList'
 import { AnomalyStatCards } from '@/features/anomalies/components/AnomalyStatCards'
 import { EMPTY_FILTERS, toDateInput } from '@/features/anomalies/format'
 import { getAnomaliesData } from '@/features/anomalies/getAnomaliesData'
 import { interpolate } from '@/features/dossiers/format'
 import { useI18n, type TranslationKey } from '@/i18n'
+import { cn } from '@/lib/cn'
 import type { AnomalyFilterState, AnomalyItem, AnomalySummary } from '@/features/anomalies/types'
 
 const initialData = getAnomaliesData()
@@ -73,7 +73,7 @@ export function AnomaliesPage() {
     })
   }, [cardFilter, filters, items])
 
-  const selected = filtered.find((item) => item.id === selectedId) ?? filtered[0] ?? null
+  const selected = filtered.find((item) => item.id === selectedId) ?? null
   const summary = useMemo(() => summaryFrom(items), [items])
 
   const notifyNamed = (key: TranslationKey, name: string, variant: 'success' | 'info' = 'info') => {
@@ -84,55 +84,54 @@ export function AnomaliesPage() {
     <PageFrame className="overflow-auto xl:overflow-hidden">
       <div className="flex min-h-0 flex-1 flex-col gap-4">
         <AnomalyStatCards summary={summary} active={cardFilter} onSelect={setCardFilter} />
-        <AnomalyFilters
-          value={filters}
-          assignees={assignees}
-          onChange={setFilters}
-          onReset={() => {
-            setFilters(EMPTY_FILTERS)
-            setCardFilter('all')
-          }}
-        />
 
-        <div className="grid min-h-0 min-w-0 grid-cols-1 gap-4 xl:min-h-0 xl:flex-1 xl:grid-cols-[minmax(0,1.45fr)_minmax(340px,0.9fr)]">
+        <div
+          className={cn(
+            'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
+            selected && 'xl:grid-cols-[minmax(0,1.45fr)_minmax(340px,0.9fr)]',
+          )}
+        >
           <AnomalyList
             items={filtered}
-            selectedId={selected?.id ?? null}
-            onSelect={setSelectedId}
+            selectedId={selectedId}
+            onSelect={(id) => setSelectedId((current) => (current === id ? null : id))}
+            filters={filters}
+            assignees={assignees}
+            onFiltersChange={setFilters}
           />
-          <AnomalyDetail
-            item={selected}
-            onEdit={() => {
-              if (selected) {
+          {selected ? (
+            <AnomalyDetail
+              item={selected}
+              onEdit={() => {
                 notifyNamed('anomalies.toast.edit', selected.employeeName)
-              }
-            }}
-            onResolve={() => {
-              if (!selected || selected.status === 'resolved') {
-                return
-              }
-              setItems((current) =>
-                current.map((item) =>
-                  item.id === selected.id
-                    ? {
-                        ...item,
-                        status: 'resolved',
-                        history: [
-                          ...item.history,
-                          {
-                            id: `${item.id}-resolved-ui`,
-                            at: new Date().toISOString(),
-                            actorName: item.assigneeName,
-                            kind: 'resolved',
-                          },
-                        ],
-                      }
-                    : item,
-                ),
-              )
-              notifyNamed('anomalies.toast.resolved', selected.employeeName, 'success')
-            }}
-          />
+              }}
+              onResolve={() => {
+                if (selected.status === 'resolved') {
+                  return
+                }
+                setItems((current) =>
+                  current.map((item) =>
+                    item.id === selected.id
+                      ? {
+                          ...item,
+                          status: 'resolved',
+                          history: [
+                            ...item.history,
+                            {
+                              id: `${item.id}-resolved-ui`,
+                              at: new Date().toISOString(),
+                              actorName: item.assigneeName,
+                              kind: 'resolved',
+                            },
+                          ],
+                        }
+                      : item,
+                  ),
+                )
+                notifyNamed('anomalies.toast.resolved', selected.employeeName, 'success')
+              }}
+            />
+          ) : null}
         </div>
       </div>
     </PageFrame>

@@ -828,6 +828,226 @@
       "reanalysed": "Analyse relancée pour {name}."
     }
   },
+  "settings": {
+    "navTitle": "Catégories de paramètres",
+    "relatedTitle": "Paramètres associés",
+    "comingSoon": "Cette section sera bientôt disponible.",
+    "categories": {
+      "general": "Général",
+      "users": "Utilisateurs & rôles",
+      "centers": "Centres & médecins",
+      "channels": "Canaux de réception",
+      "rules": "Règles métier",
+      "templates": "Modèles de documents",
+      "notifications": "Notifications"
+    },
+    "sections": {
+      "general": {
+        "title": "Général",
+        "description": "Configuration générale du système ATN."
+      },
+      "users": {
+        "title": "Utilisateurs & rôles",
+        "description": "Gérer les comptes, les droits et les rôles utilisateurs."
+      },
+      "centers": {
+        "title": "Centres & médecins",
+        "description": "Gérer les centres médicaux et les médecins affectés."
+      },
+      "channels": {
+        "title": "Canaux de réception",
+        "description": "Configurer les canaux de réception des dossiers et documents."
+      },
+      "rules": {
+        "title": "Règles métier",
+        "description": "Définir les règles de traitement des dossiers de santé au travail."
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Configurer les canaux et le contenu des notifications système."
+      }
+    },
+    "templates": {
+      "title": "Modèles de documents",
+      "description": "Gérer les modèles de documents utilisés dans le processus ATN.",
+      "add": "Ajouter un modèle",
+      "preview": "Aperçu",
+      "edit": "Modifier",
+      "duplicate": "Dupliquer",
+      "more": "Plus d'actions",
+      "archive": "Archiver",
+      "updated": "Mis à jour : {date} par {name}",
+      "copyName": "{name} (copie)",
+      "range": "Affichage de {from} à {to} sur {total} modèles",
+      "perPage": "{count} / page",
+      "perPageLabel": "Modèles par page",
+      "prevPage": "Page précédente",
+      "nextPage": "Page suivante",
+      "listNav": "Pagination des modèles de documents",
+      "empty": "Aucun modèle de document.",
+      "status": {
+        "active": "En service",
+        "draft": "Brouillon"
+      },
+      "items": {
+        "invite": {
+          "name": "Convocation",
+          "description": "Modèle de convocation à la visite de santé au travail envoyé au salarié."
+        },
+        "email": {
+          "name": "E-mail de confirmation",
+          "description": "Modèle d'e-mail confirmant le rendez-vous de santé au travail."
+        },
+        "letter": {
+          "name": "Courrier officiel",
+          "description": "Modèle de courrier pour échanger avec l'entreprise sur les résultats ATN."
+        },
+        "summary": {
+          "name": "Fiche de synthèse",
+          "description": "Fiche de synthèse des résultats de la visite de santé au travail."
+        },
+        "custom": {
+          "name": "Nouveau modèle",
+          "description": "Nouveau modèle de document non encore configuré."
+        }
+      },
+      "toast": {
+        "preview": "Aperçu de {name} ouvert.",
+        "edit": "Édition de {name} ouverte.",
+        "duplicated": "{name} a été dupliqué.",
+        "archived": "{name} a été archivé.",
+        "added": "Nouveau modèle créé."
+      }
+    },
+    "related": {
+      "ruleAutomation": {
+        "title": "Automatisation des règles",
+        "description": "Appliquer les règles métier lors du traitement des dossiers"
+      },
+      "auditLog": {
+        "title": "Journal système (Audit log)",
+        "description": "Enregistrer les actions des utilisateurs"
+      },
+      "defaultLanguage": {
+        "title": "Langue par défaut",
+        "description": "Langue d'affichage par défaut du système"
+      },
+      "systemNotifications": {
+        "title": "Notifications système",
+        "description": "Envoyer une alerte lors d'événements importants"
+      },
+      "periodicReports": {
+        "title": "Rapports périodiques",
+        "description": "Envoyer automatiquement un rapport de synthèse selon le calendrier"
+      },
+      "retention": {
+        "title": "Durée de conservation",
+        "description": "Durée de conservation des dossiers selon la réglementation",
+        "years": "{count} ans"
+      }
+    }
+  },
+  "statistics": {
+    "received": "Dossiers reçus",
+    "avgProcessingTime": "Temps de traitement moyen",
+    "anomalyRate": "Taux d'anomalies",
+    "confirmationRate": "Taux de confirmation",
+    "today": "Aujourd'hui",
+    "vsYesterday": "par rapport à hier",
+    "vsPrevious30Days": "par rapport aux 30 jours précédents",
+    "daysUnit": "jours",
+    "periods": {
+      "last7Days": "7 derniers jours",
+      "last30Days": "30 derniers jours",
+      "last90Days": "90 derniers jours"
+    },
+    "receivedByDay": "Nombre de dossiers reçus par jour ({period})",
+    "byVisitType": "Nombre de dossiers par type de visite ({period})",
+    "statusDistribution": "Répartition des dossiers par statut",
+    "anomalyClassification": "Classification des anomalies ({period})",
+    "topFacilities": "Centres les plus actifs ({period})",
+    "total": "Total",
+    "records": "Dossiers",
+    "updated": "Mis à jour : {datetime}",
+    "refresh": "Actualiser",
+    "viewAllFacilities": "Voir tous les centres",
+    "rank": "#",
+    "facility": "Centre",
+    "receivedCount": "Dossiers reçus",
+    "rate": "Taux",
+    "trend": "Tendance",
+    "period": "Période",
+    "status": {
+      "toProcess": "À traiter",
+      "processing": "En cours",
+      "waitingAppointment": "En attente de RDV",
+      "completed": "Terminés",
+      "blocked": "Bloqués"
+    },
+    "visit": {
+      "other": "Autre"
+    },
+    "anomalies": {
+      "prolongedRestriction": "Restriction posturale prolongée",
+      "missingInfo": "Informations / pièces manquantes",
+      "inconsistent": "Données incohérentes",
+      "lowConfidence": "Faible confiance d'extraction",
+      "missingDocument": "Document manquant"
+    }
+  },
+  "search": {
+    "subtitle": "Retrouver un dossier, un document, une anomalie ou un salarié",
+    "placeholder": "Nom, n° dossier, entreprise, document...",
+    "clear": "Effacer la recherche",
+    "scopes": {
+      "all": "Tous",
+      "dossier": "Dossiers",
+      "document": "Documents",
+      "anomaly": "Anomalies",
+      "employee": "Salariés"
+    },
+    "kind": {
+      "dossier": "Dossier",
+      "document": "Document",
+      "anomaly": "Anomalie",
+      "employee": "Salarié"
+    },
+    "latestTitle": "Derniers éléments",
+    "resultsTitle": "Résultats",
+    "empty": "Aucun résultat ne correspond à votre recherche.",
+    "emptySelection": "Sélectionnez un résultat pour voir le détail.",
+    "detailTitle": "Détail",
+    "openDossier": "Ouvrir le dossier",
+    "openDocument": "Ouvrir le document",
+    "openAnomaly": "Voir l'anomalie",
+    "openEmployee": "Voir les dossiers",
+    "related": "{count} éléments liés",
+    "range": "Affichage de {from} à {to} sur {total}",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "page": "Page {page}",
+    "listNav": "Pagination des résultats",
+    "columns": {
+      "type": "Type",
+      "result": "Résultat",
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "date": "Date",
+      "status": "Statut"
+    },
+    "fields": {
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "visitType": "Type de visite",
+      "status": "Statut",
+      "date": "Date",
+      "source": "Source",
+      "file": "Fichier",
+      "size": "Taille",
+      "severity": "Gravité",
+      "related": "Éléments liés"
+    }
+  },
   "placeholder": {
     "comingSoon": "Cette page sera disponible prochainement."
   },

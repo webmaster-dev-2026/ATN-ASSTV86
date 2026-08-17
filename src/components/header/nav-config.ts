@@ -72,6 +72,7 @@ export const NAV_ITEMS: NavItem[] = [
     id: 'search',
     path: '/recherche',
     labelKey: 'nav.search',
+    subtitleKey: 'search.subtitle',
     icon: 'search',
   },
   {

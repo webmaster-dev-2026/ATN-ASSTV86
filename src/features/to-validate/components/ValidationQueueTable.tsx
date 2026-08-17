@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { HeaderFilter } from '@/components/ui'
 import { visitLabel } from '@/features/dashboard/format'
 import { formatDate, initials, interpolate } from '@/features/dossiers/format'
-import { FilterIcon } from '@/features/dossiers/components/DossierIcons'
 import { useI18n, type TranslationKey } from '@/i18n'
 import { cn } from '@/lib/cn'
 import {
@@ -9,6 +9,7 @@ import {
   PRIORITY_KEYS,
   REASON_KEYS,
   avatarTone,
+  pageNumbers,
   remainingDays,
 } from '../format'
 import type { QueueFilter, ValidationItem } from '../types'
@@ -33,8 +34,6 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
   const { t, locale } = useI18n()
   const [filter, setFilter] = useState<QueueFilter>('all')
   const [page, setPage] = useState(1)
-  const [filterOpen, setFilterOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
 
   const filtered = useMemo(
     () => (filter === 'all' ? items : items.filter((item) => item.priority === filter)),
@@ -52,83 +51,35 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
     setPage(1)
   }, [filter, items.length])
 
-  useEffect(() => {
-    const onPointerDown = (event: PointerEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setFilterOpen(false)
-      }
-    }
-    document.addEventListener('pointerdown', onPointerDown)
-    return () => document.removeEventListener('pointerdown', onPointerDown)
-  }, [])
-
   return (
     <section className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
-      <div className="flex shrink-0 items-center justify-between gap-3 px-4 py-3 sm:px-5">
-        <div className="flex min-w-0 items-center gap-2">
-          <h2 className="truncate text-[16px] font-bold text-[#1c2a4e]">{t('toValidate.listTitle')}</h2>
-          <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-[#d9e8fb] px-2 py-0.5 text-[12px] font-bold text-[#1d4f9a]">
-            {filtered.length}
-          </span>
-        </div>
-
-        <div ref={menuRef} className="relative">
-          <button
-            type="button"
-            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc] hover:text-[#1d4f9a]"
-            aria-label={t('toValidate.filter')}
-            aria-expanded={filterOpen}
-            onClick={() => setFilterOpen((current) => !current)}
-          >
-            <FilterIcon className="size-4" />
-          </button>
-          {filterOpen ? (
-            <div className="absolute right-0 top-9 z-20 w-44 rounded-xl border border-[#e4ecf6] bg-white py-1 shadow-[0_8px_24px_rgba(28,42,78,0.12)]">
-              {FILTERS.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  className={cn(
-                    'flex w-full cursor-pointer px-3 py-2 text-left text-[13px] font-medium',
-                    filter === option.value
-                      ? 'bg-[#eef5fc] text-[#1d4f9a]'
-                      : 'text-[#1c2a4e] hover:bg-[#f7fafc]',
-                  )}
-                  onClick={() => {
-                    setFilter(option.value)
-                    setFilterOpen(false)
-                  }}
-                >
-                  {t(option.labelKey)}
-                </button>
-              ))}
-            </div>
-          ) : null}
-        </div>
+      <div className="flex shrink-0 items-center gap-2 px-4 py-3 sm:px-5">
+        <h2 className="truncate text-[16px] font-bold text-[#1c2a4e]">{t('toValidate.listTitle')}</h2>
+        <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-[#d9e8fb] px-2 py-0.5 text-[12px] font-bold text-[#1d4f9a]">
+          {filtered.length}
+        </span>
       </div>
 
-      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
-        <table className="w-full table-fixed border-collapse text-left">
+      <div className="min-h-0 min-w-0 flex-1 overflow-auto">
+        <table className="w-full min-w-[860px] border-collapse text-left">
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="w-[42%] px-3 py-2.5 font-semibold sm:w-[28%] sm:px-4">
-                {t('toValidate.columns.dossier')}
+              <th className="px-4 py-2.5 font-semibold">{t('toValidate.columns.dossier')}</th>
+              <th className="hidden px-3 py-2.5 font-semibold sm:table-cell">{t('toValidate.columns.type')}</th>
+              <th className="hidden px-3 py-2.5 font-semibold md:table-cell">{t('toValidate.columns.reason')}</th>
+              <th className="px-3 py-2.5 font-semibold">
+                <HeaderFilter
+                  label={t('toValidate.columns.priority')}
+                  value={filter}
+                  onChange={setFilter}
+                  options={FILTERS.map((option) => ({
+                    value: option.value,
+                    label: t(option.labelKey),
+                  }))}
+                />
               </th>
-              <th className="hidden w-[16%] px-2 py-2.5 font-semibold sm:table-cell">
-                {t('toValidate.columns.type')}
-              </th>
-              <th className="hidden w-[18%] px-2 py-2.5 font-semibold md:table-cell">
-                {t('toValidate.columns.reason')}
-              </th>
-              <th className="w-[16%] px-2 py-2.5 font-semibold sm:w-[12%]">
-                {t('toValidate.columns.priority')}
-              </th>
-              <th className="w-[22%] px-2 py-2.5 font-semibold sm:w-[14%]">
-                {t('toValidate.columns.deadline')}
-              </th>
-              <th className="hidden w-[14%] px-3 py-2.5 font-semibold lg:table-cell">
-                {t('toValidate.columns.status')}
-              </th>
+              <th className="px-3 py-2.5 font-semibold">{t('toValidate.columns.deadline')}</th>
+              <th className="hidden px-4 py-2.5 font-semibold lg:table-cell">{t('toValidate.columns.status')}</th>
             </tr>
           </thead>
           <tbody>
@@ -163,13 +114,13 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                       }
                     }}
                     className={cn(
-                      'cursor-pointer border-b border-[#f3f6fb] transition-colors',
+                      'cursor-pointer border-b border-[#f3f6fb] transition-colors duration-200',
                       selected
-                        ? 'bg-[#eef5fc] shadow-[inset_3px_0_0_#2860B9]'
+                        ? 'bg-[#F0F7FF]'
                         : 'hover:bg-[#f7fafc]',
                     )}
                   >
-                    <td className="min-w-0 px-3 py-3 sm:px-4">
+                    <td className="min-w-0 px-4 py-3">
                       <div className="flex min-w-0 items-center gap-2.5">
                         <span
                           className={cn(
@@ -203,17 +154,17 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                         </span>
                       </div>
                     </td>
-                    <td className="hidden min-w-0 px-2 py-3 sm:table-cell">
+                    <td className="hidden min-w-0 px-3 py-3 sm:table-cell">
                       <span className="block truncate text-[13px] text-[#1c2a4e]" title={typeLabel}>
                         {typeLabel}
                       </span>
                     </td>
-                    <td className="hidden min-w-0 px-2 py-3 md:table-cell">
+                    <td className="hidden min-w-0 px-3 py-3 md:table-cell">
                       <span className="block truncate text-[13px] text-[#1c2a4e]" title={reasonLabel}>
                         {reasonLabel}
                       </span>
                     </td>
-                    <td className="min-w-0 px-2 py-3">
+                    <td className="min-w-0 px-3 py-3">
                       <span className="inline-flex max-w-full items-center gap-1.5 text-[13px] font-medium text-[#1c2a4e]">
                         <span className={cn('size-2 shrink-0 rounded-full', PRIORITY_DOT[item.priority])} />
                         <span className="truncate" title={priorityLabel}>
@@ -221,7 +172,7 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                         </span>
                       </span>
                     </td>
-                    <td className="min-w-0 px-2 py-3">
+                    <td className="min-w-0 px-3 py-3">
                       <span className="block truncate text-[13px] font-medium tabular-nums text-[#1c2a4e]">
                         {formatDate(item.deadlineAt, locale)}
                       </span>
@@ -234,7 +185,7 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                         {remainingLabel}
                       </span>
                     </td>
-                    <td className="hidden min-w-0 px-3 py-3 lg:table-cell">
+                    <td className="hidden min-w-0 px-4 py-3 lg:table-cell">
                       <span className="inline-flex max-w-full truncate rounded-full bg-[#fff1e4] px-2 py-1 text-[11px] font-semibold text-[#ea7a1a]">
                         {t('toValidate.statusPending')}
                       </span>
@@ -251,7 +202,7 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
         <p className="min-w-0 truncate text-[12px] font-medium text-[#8b95a8]">
           {interpolate(t('toValidate.range'), { from, to, total: filtered.length })}
         </p>
-        <nav className="flex items-center gap-1" aria-label={t('toValidate.listTitle')}>
+        <nav className="flex flex-wrap items-center gap-1" aria-label={t('toValidate.listTitle')}>
           <button
             type="button"
             className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
@@ -261,24 +212,29 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
           >
             <ChevronLeftIcon />
           </button>
-          {Array.from({ length: pageCount }, (_, index) => {
-            const number = index + 1
-            const active = number === currentPage
+          {pageNumbers(currentPage, pageCount).map((entry, index) => {
+            if (entry === 'ellipsis') {
+              return (
+                <span key={`ellipsis-${index}`} className="grid size-8 place-items-center text-[13px] font-semibold text-[#8b95a8]">
+                  …
+                </span>
+              )
+            }
+
+            const active = entry === currentPage
             return (
               <button
-                key={number}
+                key={entry}
                 type="button"
-                aria-label={interpolate(t('toValidate.page'), { page: number })}
+                aria-label={interpolate(t('toValidate.page'), { page: entry })}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
                   'grid size-8 cursor-pointer place-items-center rounded-lg text-[13px] font-semibold transition-colors',
-                  active
-                    ? 'bg-[#2860B9] text-white'
-                    : 'text-[#5b6b82] hover:bg-[#eef5fc]',
+                  active ? 'bg-[#2860B9] text-white' : 'text-[#5b6b82] hover:bg-[#eef5fc]',
                 )}
-                onClick={() => setPage(number)}
+                onClick={() => setPage(entry)}
               >
-                {number}
+                {entry}
               </button>
             )
           })}

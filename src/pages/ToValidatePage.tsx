@@ -8,6 +8,7 @@ import { getToValidateData } from '@/features/to-validate/getToValidateData'
 import type { ValidationSummary } from '@/features/to-validate/types'
 import { interpolate } from '@/features/dossiers/format'
 import { useI18n, type TranslationKey } from '@/i18n'
+import { cn } from '@/lib/cn'
 
 const initialData = getToValidateData()
 
@@ -59,55 +60,44 @@ export function ToValidatePage() {
       <div className="flex min-h-0 flex-1 flex-col gap-4">
         <ValidationStatCards summary={summary} />
 
-        <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.4fr)_minmax(360px,0.95fr)]">
+        <div
+          className={cn(
+            'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
+            selected && 'xl:grid-cols-[minmax(0,1.4fr)_minmax(360px,0.95fr)]',
+          )}
+        >
           <ValidationQueueTable
             items={items}
             selectedId={selectedId}
-            onSelect={setSelectedId}
+            onSelect={(id) => setSelectedId((current) => (current === id ? null : id))}
           />
-          <ValidationDetail
-            item={selected}
-            selectedOption={selected ? (options[selected.id] ?? selected.proposal) : null}
-            note={selected ? (notes[selected.id] ?? '') : ''}
-            onSelectOption={(option) => {
-              if (!selected) {
-                return
-              }
-              setOptions((current) => ({ ...current, [selected.id]: option }))
-            }}
-            onNoteChange={(value) => {
-              if (!selected) {
-                return
-              }
-              setNotes((current) => ({ ...current, [selected.id]: value }))
-            }}
-            onConfirm={() => {
-              if (!selected) {
-                return
-              }
-              notifyNamed('toValidate.toast.confirmed', selected.employeeName, 'success')
-              removeSelected()
-            }}
-            onEdit={() => {
-              if (!selected) {
-                return
-              }
-              notifyNamed('toValidate.toast.edit', selected.employeeName)
-            }}
-            onRequestMore={() => {
-              if (!selected) {
-                return
-              }
-              notifyNamed('toValidate.toast.requestMore', selected.employeeName)
-            }}
-            onSkip={() => {
-              if (!selected) {
-                return
-              }
-              notifyNamed('toValidate.toast.skipped', selected.employeeName)
-              removeSelected()
-            }}
-          />
+          {selected ? (
+            <ValidationDetail
+              item={selected}
+              selectedOption={options[selected.id] ?? selected.proposal}
+              note={notes[selected.id] ?? ''}
+              onSelectOption={(option) => {
+                setOptions((current) => ({ ...current, [selected.id]: option }))
+              }}
+              onNoteChange={(value) => {
+                setNotes((current) => ({ ...current, [selected.id]: value }))
+              }}
+              onConfirm={() => {
+                notifyNamed('toValidate.toast.confirmed', selected.employeeName, 'success')
+                removeSelected()
+              }}
+              onEdit={() => {
+                notifyNamed('toValidate.toast.edit', selected.employeeName)
+              }}
+              onRequestMore={() => {
+                notifyNamed('toValidate.toast.requestMore', selected.employeeName)
+              }}
+              onSkip={() => {
+                notifyNamed('toValidate.toast.skipped', selected.employeeName)
+                removeSelected()
+              }}
+            />
+          ) : null}
         </div>
       </div>
     </PageFrame>

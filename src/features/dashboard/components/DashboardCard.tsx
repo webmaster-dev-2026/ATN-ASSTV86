@@ -19,15 +19,20 @@ export function DashboardCard({
   return (
     <section
       className={cn(
-        'flex min-h-0 flex-col rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(28,42,78,0.04)]',
+        '@container flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl bg-white p-4 shadow-[0_1px_2px_rgba(28,42,78,0.04)] sm:p-5',
         className,
       )}
     >
-      <div className="mb-3 flex shrink-0 items-center justify-between gap-3">
-        <h2 className={cn('font-sans text-[16px] font-bold text-[#1c2a4e]', titleClassName)}>
+      <div className="mb-3 flex shrink-0 items-start justify-between gap-2 sm:gap-3">
+        <h2
+          className={cn(
+            'min-w-0 flex-1 break-words font-sans text-[15px] font-bold leading-snug text-[#1c2a4e] sm:text-[16px]',
+            titleClassName,
+          )}
+        >
           {title}
         </h2>
-        {action}
+        {action ? <div className="max-w-[45%] shrink-0">{action}</div> : null}
       </div>
       {children}
     </section>

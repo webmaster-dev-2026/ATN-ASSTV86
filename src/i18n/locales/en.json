@@ -828,6 +828,226 @@
       "reanalysed": "Re-analysis sent for {name}."
     }
   },
+  "settings": {
+    "navTitle": "Settings categories",
+    "relatedTitle": "Related settings",
+    "comingSoon": "This section will be available soon.",
+    "categories": {
+      "general": "General",
+      "users": "Users & roles",
+      "centers": "Centers & doctors",
+      "channels": "Intake channels",
+      "rules": "Business rules",
+      "templates": "Document templates",
+      "notifications": "Notifications"
+    },
+    "sections": {
+      "general": {
+        "title": "General",
+        "description": "General configuration of the ATN system."
+      },
+      "users": {
+        "title": "Users & roles",
+        "description": "Manage accounts, permissions and user roles."
+      },
+      "centers": {
+        "title": "Centers & doctors",
+        "description": "Manage medical centers and assigned doctors."
+      },
+      "channels": {
+        "title": "Intake channels",
+        "description": "Configure channels used to receive files and documents."
+      },
+      "rules": {
+        "title": "Business rules",
+        "description": "Define processing rules for occupational health files."
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Configure system notification channels and content."
+      }
+    },
+    "templates": {
+      "title": "Document templates",
+      "description": "Manage system document templates used in the ATN process.",
+      "add": "Add new template",
+      "preview": "Preview",
+      "edit": "Edit",
+      "duplicate": "Duplicate",
+      "more": "More actions",
+      "archive": "Archive",
+      "updated": "Updated: {date} by {name}",
+      "copyName": "{name} (copy)",
+      "range": "Showing {from} to {to} of {total} templates",
+      "perPage": "{count} / page",
+      "perPageLabel": "Templates per page",
+      "prevPage": "Previous page",
+      "nextPage": "Next page",
+      "listNav": "Document template pagination",
+      "empty": "No document templates yet.",
+      "status": {
+        "active": "In use",
+        "draft": "Draft"
+      },
+      "items": {
+        "invite": {
+          "name": "Invitation letter",
+          "description": "Occupational health invitation letter sent to the employee."
+        },
+        "email": {
+          "name": "Confirmation email",
+          "description": "Email template confirming the occupational health appointment."
+        },
+        "letter": {
+          "name": "Official letter",
+          "description": "Official letter used to share ATN results with the company."
+        },
+        "summary": {
+          "name": "Summary sheet",
+          "description": "Summary sheet of occupational health examination results."
+        },
+        "custom": {
+          "name": "New template",
+          "description": "New document template that is not configured yet."
+        }
+      },
+      "toast": {
+        "preview": "Opened preview of {name}.",
+        "edit": "Opened editor for {name}.",
+        "duplicated": "Duplicated {name}.",
+        "archived": "Archived {name}.",
+        "added": "New template created."
+      }
+    },
+    "related": {
+      "ruleAutomation": {
+        "title": "Rule automation",
+        "description": "Apply business rules when processing files"
+      },
+      "auditLog": {
+        "title": "System log (Audit log)",
+        "description": "Record user actions"
+      },
+      "defaultLanguage": {
+        "title": "Default language",
+        "description": "Default display language of the system"
+      },
+      "systemNotifications": {
+        "title": "System notifications",
+        "description": "Send alerts when important events occur"
+      },
+      "periodicReports": {
+        "title": "Periodic reports",
+        "description": "Send summary reports automatically on a schedule"
+      },
+      "retention": {
+        "title": "Data retention period",
+        "description": "File retention period according to regulation",
+        "years": "{count} years"
+      }
+    }
+  },
+  "statistics": {
+    "received": "Records received",
+    "avgProcessingTime": "Avg. processing time",
+    "anomalyRate": "Anomaly rate",
+    "confirmationRate": "Confirmation rate",
+    "today": "Today",
+    "vsYesterday": "vs yesterday",
+    "vsPrevious30Days": "vs the previous 30 days",
+    "daysUnit": "days",
+    "periods": {
+      "last7Days": "Last 7 days",
+      "last30Days": "Last 30 days",
+      "last90Days": "Last 90 days"
+    },
+    "receivedByDay": "Records received by day ({period})",
+    "byVisitType": "Records by exam type ({period})",
+    "statusDistribution": "Record distribution by status",
+    "anomalyClassification": "Anomaly classification ({period})",
+    "topFacilities": "Most active exam centres ({period})",
+    "total": "Total",
+    "records": "Records",
+    "updated": "Updated: {datetime}",
+    "refresh": "Refresh",
+    "viewAllFacilities": "View all exam centres",
+    "rank": "#",
+    "facility": "Centre",
+    "receivedCount": "Records received",
+    "rate": "Rate",
+    "trend": "Trend",
+    "period": "Period",
+    "status": {
+      "toProcess": "To process",
+      "processing": "Processing",
+      "waitingAppointment": "Waiting for appointment",
+      "completed": "Completed",
+      "blocked": "Blocked"
+    },
+    "visit": {
+      "other": "Other"
+    },
+    "anomalies": {
+      "prolongedRestriction": "Prolonged posture restriction",
+      "missingInfo": "Missing information / documents",
+      "inconsistent": "Inconsistent data",
+      "lowConfidence": "Low extraction confidence",
+      "missingDocument": "Missing document"
+    }
+  },
+  "search": {
+    "subtitle": "Find a file, document, anomaly or worker",
+    "placeholder": "Name, file ID, company, document...",
+    "clear": "Clear search",
+    "scopes": {
+      "all": "All",
+      "dossier": "Files",
+      "document": "Documents",
+      "anomaly": "Anomalies",
+      "employee": "Workers"
+    },
+    "kind": {
+      "dossier": "File",
+      "document": "Document",
+      "anomaly": "Anomaly",
+      "employee": "Worker"
+    },
+    "latestTitle": "Latest items",
+    "resultsTitle": "Results",
+    "empty": "No results match your search.",
+    "emptySelection": "Select a result to see details.",
+    "detailTitle": "Details",
+    "openDossier": "Open file",
+    "openDocument": "Open document",
+    "openAnomaly": "View anomaly",
+    "openEmployee": "View files",
+    "related": "{count} linked items",
+    "range": "Showing {from} to {to} of {total}",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "page": "Page {page}",
+    "listNav": "Results pagination",
+    "columns": {
+      "type": "Type",
+      "result": "Result",
+      "employee": "Worker",
+      "company": "Company",
+      "date": "Date",
+      "status": "Status"
+    },
+    "fields": {
+      "employee": "Worker",
+      "company": "Company",
+      "visitType": "Visit type",
+      "status": "Status",
+      "date": "Date",
+      "source": "Source",
+      "file": "File",
+      "size": "Size",
+      "severity": "Severity",
+      "related": "Linked items"
+    }
+  },
   "placeholder": {
     "comingSoon": "This page will be available soon."
   },
