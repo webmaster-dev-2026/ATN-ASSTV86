@@ -58,14 +58,14 @@ export function InProgressPage() {
   }
 
   return (
-    <PageFrame className="overflow-auto xl:overflow-hidden">
-      <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(280px,320px)]">
+    <PageFrame className="xl:overflow-hidden">
+      <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,320px)]">
         <div className="flex min-h-0 min-w-0 flex-col gap-4">
           <ProcessingStatCards summary={data.summary} active={cardFilter} onSelect={setCardFilter} />
           <ProcessingTable items={items} onExport={exportRows} />
         </div>
 
-        <aside className="flex min-h-0 flex-col gap-4 xl:overflow-y-auto">
+        <aside className="flex min-h-0 min-w-0 flex-col gap-4 xl:overflow-y-auto">
           <ProcessingWorkflow steps={data.workflow} />
           <ProcessingActivityFeed events={data.activity} />
         </aside>

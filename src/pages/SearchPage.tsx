@@ -65,8 +65,8 @@ export function SearchPage() {
   }
 
   return (
-    <PageFrame className="overflow-auto xl:overflow-hidden">
-      <div className="flex min-h-0 flex-1 flex-col gap-4">
+    <PageFrame className="xl:overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4">
         <SearchBar
           query={query}
           scope={scope}
@@ -79,7 +79,7 @@ export function SearchPage() {
           <div
             className={cn(
               'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
-              selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(340px,0.9fr)]',
+              selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(0,0.9fr)]',
             )}
           >
             <SearchResults

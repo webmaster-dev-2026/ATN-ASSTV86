@@ -33,11 +33,11 @@ export function HeaderMenu({ label, children, align = 'left' }: HeaderMenuProps)
     <div ref={ref} className="relative">
       <button
         type="button"
-        className="inline-flex items-center gap-1 text-[#2860B9]"
+        className="inline-flex max-w-full min-w-0 items-center gap-1 text-[#2860B9]"
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
       >
-        {label}
+        <span className="truncate">{label}</span>
         <SortDownIcon />
       </button>
       {open ? (

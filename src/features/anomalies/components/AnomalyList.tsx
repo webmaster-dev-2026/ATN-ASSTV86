@@ -83,11 +83,18 @@ export function AnomalyList({
         </label>
       </div>
 
-      <div className="min-h-0 min-w-0 flex-1 overflow-auto">
-        <table className="w-full min-w-[860px] border-collapse text-left">
+      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+        <table className="w-full table-fixed border-collapse text-left">
+          <colgroup>
+            <col className="w-[28%]" />
+            <col className="w-[18%]" />
+            <col className="w-[20%]" />
+            <col className="w-[18%]" />
+            <col className="w-[16%]" />
+          </colgroup>
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="px-4 py-2.5 font-semibold">
+              <th className="overflow-hidden px-3 py-2.5 font-semibold sm:px-4">
                 <HeaderFilter
                   label={t('anomalies.columns.anomaly')}
                   value={filters.type}
@@ -98,8 +105,8 @@ export function AnomalyList({
                   ]}
                 />
               </th>
-              <th className="px-3 py-2.5 font-semibold">{t('anomalies.columns.dossier')}</th>
-              <th className="hidden px-3 py-2.5 font-semibold lg:table-cell">
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('anomalies.columns.dossier')}</th>
+              <th className="overflow-hidden px-2 py-2.5 font-semibold sm:px-3">
                 <HeaderFilter
                   label={t('anomalies.columns.assignee')}
                   value={filters.assigneeId}
@@ -110,7 +117,7 @@ export function AnomalyList({
                   ]}
                 />
               </th>
-              <th className="px-3 py-2.5 font-semibold">
+              <th className="overflow-hidden px-2 py-2.5 font-semibold sm:px-3">
                 <HeaderFilter
                   label={t('anomalies.columns.status')}
                   value={filters.status}
@@ -121,7 +128,7 @@ export function AnomalyList({
                   ]}
                 />
               </th>
-              <th className="hidden px-4 py-2.5 font-semibold lg:table-cell">
+              <th className="overflow-hidden px-2 py-2.5 font-semibold sm:px-4">
                 <HeaderMenu label={t('anomalies.columns.detected')} align="right">
                   {() => (
                     <div className="flex flex-col gap-2 px-3 py-2">
@@ -182,27 +189,22 @@ export function AnomalyList({
                         : 'hover:bg-[#f7fafc]',
                     )}
                   >
-                    <td className="min-w-0 px-4 py-3">
+                    <td className="min-w-0 overflow-hidden px-3 py-3 sm:px-4">
                       <span className="flex min-w-0 items-start gap-2.5">
                         <span className={cn('mt-0.5 grid size-6 shrink-0 place-items-center rounded-full', SEVERITY_ICON[item.severity])}>
                           <WarningTriangleIcon className="size-3.5" />
                         </span>
                         <span className="min-w-0">
-                          <span className={cn('inline-flex max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold', SEVERITY_BADGE[item.severity])}>
+                          <span className={cn('inline-block max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold', SEVERITY_BADGE[item.severity])}>
                             {t(SEVERITY_LABEL[item.severity])}
                           </span>
                           <span className="mt-0.5 block truncate text-[13px] font-semibold text-[#1c2a4e]" title={item.title}>
                             {item.title}
                           </span>
-                          <span className="mt-0.5 block truncate text-[12px] text-[#8b95a8] lg:hidden">
-                            {item.assigneeName}
-                            <span className="px-1 text-[#c3ccd8]">·</span>
-                            {formatDate(item.detectedAt, locale)}
-                          </span>
                         </span>
                       </span>
                     </td>
-                    <td className="min-w-0 px-3 py-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="block truncate text-[13px] font-bold text-[#2860B9]" title={item.reference}>
                         {item.reference}
                       </span>
@@ -210,7 +212,7 @@ export function AnomalyList({
                         {item.employeeName}
                       </span>
                     </td>
-                    <td className="hidden min-w-0 px-3 py-3 lg:table-cell">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="flex min-w-0 items-center gap-2">
                         <span className={cn('grid size-7 shrink-0 place-items-center rounded-full text-[10px] font-bold', avatarTone(item.assigneeName))}>
                           {initials(item.assigneeName)}
@@ -220,12 +222,12 @@ export function AnomalyList({
                         </span>
                       </span>
                     </td>
-                    <td className="px-3 py-3">
-                      <span className={cn('inline-flex max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold', STATUS_BADGE[item.status])}>
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                      <span className={cn('inline-block max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold', STATUS_BADGE[item.status])}>
                         {t(STATUS_LABEL[item.status])}
                       </span>
                     </td>
-                    <td className="hidden px-4 py-3 lg:table-cell">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-4">
                       <span className="block truncate text-[13px] tabular-nums text-[#1c2a4e]">
                         {formatDate(item.detectedAt, locale)}
                       </span>

@@ -63,21 +63,29 @@ export function SourceDocumentTable({
         </h2>
       </div>
 
-      <div className="min-h-0 min-w-0 flex-1 overflow-auto">
-        <table className="w-full min-w-[860px] border-collapse text-left">
+      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+        <table className="w-full table-fixed border-collapse text-left">
+          <colgroup>
+            <col className="w-[28%]" />
+            <col className="w-[22%]" />
+            <col className="w-[12%]" />
+            <col className="w-[16%]" />
+            <col className="w-[14%]" />
+            <col className="w-10" />
+          </colgroup>
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="px-4 py-2.5 font-semibold">{t('sourceDocuments.columns.name')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.source')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.fileType')}</th>
-              <th className="px-3 py-2.5 font-semibold">
-                <span className="inline-flex items-center gap-1 text-[#2860B9]">
-                  {t('sourceDocuments.columns.uploadedAt')}
-                  <SortDownIcon className="size-2.5" />
+              <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('sourceDocuments.columns.name')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('sourceDocuments.columns.source')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('sourceDocuments.columns.fileType')}</th>
+              <th className="overflow-hidden px-2 py-2.5 font-semibold sm:px-3">
+                <span className="inline-flex max-w-full min-w-0 items-center gap-1 text-[#2860B9]">
+                  <span className="truncate">{t('sourceDocuments.columns.uploadedAt')}</span>
+                  <SortDownIcon className="size-2.5 shrink-0" />
                 </span>
               </th>
-              <th className="px-3 py-2.5 font-semibold">{t('sourceDocuments.columns.status')}</th>
-              <th className="w-10 px-4 py-2.5">
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('sourceDocuments.columns.status')}</th>
+              <th className="w-10 px-2 py-2.5 sm:px-4">
                 <span className="sr-only">{t('sourceDocuments.columns.actions')}</span>
               </th>
             </tr>
@@ -111,7 +119,7 @@ export function SourceDocumentTable({
                         : 'hover:bg-[#f7fafc]',
                     )}
                   >
-                    <td className="min-w-0 px-4 py-3">
+                    <td className="min-w-0 overflow-hidden px-3 py-3 sm:px-4">
                       <span className="flex min-w-0 items-center gap-2.5">
                         <SourceFileTypeIcon type={item.fileKind} />
                         <span className="min-w-0 truncate text-[13px] font-semibold text-[#1c2a4e]" title={item.fileName}>
@@ -119,24 +127,30 @@ export function SourceDocumentTable({
                         </span>
                       </span>
                     </td>
-                    <td className="min-w-0 px-3 py-3">
-                      <span className="block truncate text-[13px] font-semibold text-[#1c2a4e]">{item.companyName}</span>
-                      <span className="mt-0.5 block truncate text-[12px] text-[#6d7b93]">{item.uploadedBy}</span>
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                      <span className="block truncate text-[13px] font-semibold text-[#1c2a4e]" title={item.companyName}>
+                        {item.companyName}
+                      </span>
+                      <span className="mt-0.5 block truncate text-[12px] text-[#6d7b93]" title={item.uploadedBy}>
+                        {item.uploadedBy}
+                      </span>
                     </td>
-                    <td className="px-3 py-3">
-                      <span className={cn('inline-flex rounded-md px-2 py-0.5 text-[11px] font-bold', FILE_KIND_BADGE[item.fileKind])}>
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                      <span className={cn('inline-block max-w-full truncate rounded-md px-2 py-0.5 text-[11px] font-bold', FILE_KIND_BADGE[item.fileKind])}>
                         {t(FILE_KIND_LABEL[item.fileKind])}
                       </span>
                     </td>
-                    <td className="px-3 py-3">
-                      <span className="text-[13px] tabular-nums text-[#1c2a4e]">{formatDate(item.uploadedAt, locale)}</span>
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                      <span className="block truncate text-[13px] tabular-nums text-[#1c2a4e]">
+                        {formatDate(item.uploadedAt, locale)}
+                      </span>
                     </td>
-                    <td className="px-3 py-3">
-                      <span className={cn('inline-flex rounded-full px-2 py-0.5 text-[11px] font-semibold', STATUS_BADGE[item.status])}>
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                      <span className={cn('inline-block max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold', STATUS_BADGE[item.status])}>
                         {t(STATUS_LABEL[item.status])}
                       </span>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-2 py-3 sm:px-4">
                       <div className="relative" ref={menuId === item.id ? menuRef : undefined}>
                         <button
                           type="button"

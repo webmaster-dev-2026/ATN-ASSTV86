@@ -60,14 +60,22 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
         </span>
       </div>
 
-      <div className="min-h-0 min-w-0 flex-1 overflow-auto">
-        <table className="w-full min-w-[860px] border-collapse text-left">
+      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+        <table className="w-full table-fixed border-collapse text-left">
+          <colgroup>
+            <col className="w-[24%]" />
+            <col className="w-[13%]" />
+            <col className="w-[16%]" />
+            <col className="w-[12%]" />
+            <col className="w-[14%]" />
+            <col className="w-[21%]" />
+          </colgroup>
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="px-4 py-2.5 font-semibold">{t('toValidate.columns.dossier')}</th>
-              <th className="hidden px-3 py-2.5 font-semibold sm:table-cell">{t('toValidate.columns.type')}</th>
-              <th className="hidden px-3 py-2.5 font-semibold md:table-cell">{t('toValidate.columns.reason')}</th>
-              <th className="px-3 py-2.5 font-semibold">
+              <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('toValidate.columns.dossier')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.type')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.reason')}</th>
+              <th className="overflow-hidden px-2 py-2.5 font-semibold sm:px-3">
                 <HeaderFilter
                   label={t('toValidate.columns.priority')}
                   value={filter}
@@ -78,8 +86,8 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                   }))}
                 />
               </th>
-              <th className="px-3 py-2.5 font-semibold">{t('toValidate.columns.deadline')}</th>
-              <th className="hidden px-4 py-2.5 font-semibold lg:table-cell">{t('toValidate.columns.status')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.deadline')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-4">{t('toValidate.columns.status')}</th>
             </tr>
           </thead>
           <tbody>
@@ -120,7 +128,7 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                         : 'hover:bg-[#f7fafc]',
                     )}
                   >
-                    <td className="min-w-0 px-4 py-3">
+                    <td className="min-w-0 overflow-hidden px-3 py-3 sm:px-4">
                       <div className="flex min-w-0 items-center gap-2.5">
                         <span
                           className={cn(
@@ -143,28 +151,20 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                           >
                             {item.companyName}
                           </span>
-                          <span
-                            className="mt-0.5 block truncate text-[11px] text-[#8b95a8] sm:hidden"
-                            title={`${typeLabel} · ${reasonLabel}`}
-                          >
-                            {typeLabel}
-                            <span className="px-1">·</span>
-                            {reasonLabel}
-                          </span>
                         </span>
                       </div>
                     </td>
-                    <td className="hidden min-w-0 px-3 py-3 sm:table-cell">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="block truncate text-[13px] text-[#1c2a4e]" title={typeLabel}>
                         {typeLabel}
                       </span>
                     </td>
-                    <td className="hidden min-w-0 px-3 py-3 md:table-cell">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="block truncate text-[13px] text-[#1c2a4e]" title={reasonLabel}>
                         {reasonLabel}
                       </span>
                     </td>
-                    <td className="min-w-0 px-3 py-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="inline-flex max-w-full items-center gap-1.5 text-[13px] font-medium text-[#1c2a4e]">
                         <span className={cn('size-2 shrink-0 rounded-full', PRIORITY_DOT[item.priority])} />
                         <span className="truncate" title={priorityLabel}>
@@ -172,7 +172,7 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                         </span>
                       </span>
                     </td>
-                    <td className="min-w-0 px-3 py-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="block truncate text-[13px] font-medium tabular-nums text-[#1c2a4e]">
                         {formatDate(item.deadlineAt, locale)}
                       </span>
@@ -185,8 +185,11 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                         {remainingLabel}
                       </span>
                     </td>
-                    <td className="hidden min-w-0 px-4 py-3 lg:table-cell">
-                      <span className="inline-flex max-w-full truncate rounded-full bg-[#fff1e4] px-2 py-1 text-[11px] font-semibold text-[#ea7a1a]">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-4">
+                      <span
+                        className="inline-block max-w-full truncate rounded-full bg-[#fff1e4] px-2 py-1 text-[11px] font-semibold text-[#ea7a1a]"
+                        title={t('toValidate.statusPending')}
+                      >
                         {t('toValidate.statusPending')}
                       </span>
                     </td>

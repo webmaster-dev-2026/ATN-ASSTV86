@@ -132,16 +132,24 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
         </div>
       </div>
 
-      <div className="min-h-0 min-w-0 flex-1 overflow-auto">
-        <table className="w-full min-w-[860px] border-collapse text-left">
+      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+        <table className="w-full table-fixed border-collapse text-left">
+          <colgroup>
+            <col className="w-[14%]" />
+            <col className="w-[22%]" />
+            <col className="w-[14%]" />
+            <col className="w-[16%]" />
+            <col className="w-[20%]" />
+            <col className="w-[14%]" />
+          </colgroup>
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="px-4 py-2.5 font-semibold">{t('inProgress.columns.reference')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('inProgress.columns.employee')}</th>
-              <th className="w-[120px] px-3 py-2.5 font-semibold">{t('inProgress.columns.progress')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('inProgress.columns.status')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('inProgress.columns.lastActivity')}</th>
-              <th className="px-4 py-2.5 font-semibold">{t('inProgress.columns.eta')}</th>
+              <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('inProgress.columns.reference')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.employee')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.progress')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.status')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.lastActivity')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-4">{t('inProgress.columns.eta')}</th>
             </tr>
           </thead>
           <tbody>
@@ -163,12 +171,12 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
 
                 return (
                   <tr key={item.id} className="border-b border-[#f3f6fb] transition-colors duration-200 hover:bg-[#f7fafc]">
-                    <td className="px-4 py-3">
+                    <td className="min-w-0 overflow-hidden px-3 py-3 sm:px-4">
                       <span className="block truncate text-[13px] font-bold text-[#1c2a4e]" title={item.reference}>
                         {item.reference}
                       </span>
                     </td>
-                    <td className="min-w-0 px-3 py-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span className="block truncate text-[13px] font-semibold text-[#1c2a4e]" title={item.employeeName}>
                         {item.employeeName}
                       </span>
@@ -176,7 +184,7 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
                         {item.companyName}
                       </span>
                     </td>
-                    <td className="px-3 py-3">
+                    <td className="overflow-hidden px-2 py-3 sm:px-3">
                       <span className="block text-[12px] font-semibold tabular-nums text-[#1c2a4e]">
                         {item.progress}%
                       </span>
@@ -187,25 +195,26 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
                         />
                       </span>
                     </td>
-                    <td className="px-3 py-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                       <span
                         className={cn(
-                          'inline-flex max-w-full truncate rounded-full px-2 py-1 text-[11px] font-semibold',
+                          'inline-block max-w-full truncate rounded-full px-2 py-1 text-[11px] font-semibold',
                           STATUS_BADGE[item.status],
                         )}
+                        title={t(STATUS_LABEL[item.status])}
                       >
                         {t(STATUS_LABEL[item.status])}
                       </span>
                     </td>
-                    <td className="min-w-0 px-3 py-3">
-                      <span className="block truncate text-[13px] text-[#1c2a4e]">
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                      <span className="block truncate text-[13px] text-[#1c2a4e]" title={t(ACTIVITY_LABEL[item.lastActivity])}>
                         {t(ACTIVITY_LABEL[item.lastActivity])}
                       </span>
-                      <span className="mt-0.5 block text-[12px] tabular-nums text-[#8b95a8]">{lastStamp.time}</span>
+                      <span className="mt-0.5 block truncate text-[12px] tabular-nums text-[#8b95a8]">{lastStamp.time}</span>
                     </td>
-                    <td className="px-4 py-3">
-                      <span className="block text-[13px] font-bold tabular-nums text-[#1c2a4e]">{etaLabel}</span>
-                      <span className="mt-0.5 block text-[12px] tabular-nums text-[#8b95a8]">{etaStamp.time}</span>
+                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-4">
+                      <span className="block truncate text-[13px] font-bold tabular-nums text-[#1c2a4e]">{etaLabel}</span>
+                      <span className="mt-0.5 block truncate text-[12px] tabular-nums text-[#8b95a8]">{etaStamp.time}</span>
                     </td>
                   </tr>
                 )

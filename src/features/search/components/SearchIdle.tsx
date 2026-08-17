@@ -18,15 +18,22 @@ export function SearchIdle({ latest, onSelectQuery }: SearchIdleProps) {
       <div className="flex shrink-0 items-center px-4 py-3 sm:px-5">
         <h2 className="text-[16px] font-bold text-[#1c2a4e]">{t('search.latestTitle')}</h2>
       </div>
-      <div className="min-h-0 flex-1 overflow-auto">
-        <table className="w-full min-w-[720px] border-collapse text-left">
+      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+        <table className="w-full table-fixed border-collapse text-left">
+          <colgroup>
+            <col className="w-[16%]" />
+            <col className="w-[32%]" />
+            <col className="w-[22%]" />
+            <col className="w-[14%]" />
+            <col className="w-[16%]" />
+          </colgroup>
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="px-4 py-2.5 font-semibold">{t('search.columns.type')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('search.columns.result')}</th>
-              <th className="hidden px-3 py-2.5 font-semibold lg:table-cell">{t('search.columns.employee')}</th>
-              <th className="px-3 py-2.5 font-semibold">{t('search.columns.date')}</th>
-              <th className="px-4 py-2.5 font-semibold">{t('search.columns.status')}</th>
+              <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('search.columns.type')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('search.columns.result')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('search.columns.employee')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('search.columns.date')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-4">{t('search.columns.status')}</th>
             </tr>
           </thead>
           <tbody>
@@ -45,12 +52,12 @@ export function SearchIdle({ latest, onSelectQuery }: SearchIdleProps) {
                   }}
                   className="cursor-pointer border-b border-[#f3f6fb] transition-colors duration-200 hover:bg-[#f7fafc]"
                 >
-                  <td className="px-4 py-3">
-                    <span className={cn('inline-flex rounded-full px-2 py-0.5 text-[11px] font-semibold', KIND_BADGE[item.kind])}>
+                  <td className="min-w-0 overflow-hidden px-3 py-3 sm:px-4">
+                    <span className={cn('inline-block max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold', KIND_BADGE[item.kind])}>
                       {t(KIND_LABEL[item.kind])}
                     </span>
                   </td>
-                  <td className="min-w-0 px-3 py-3">
+                  <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                     <span className="block truncate text-[13px] font-semibold text-[#1c2a4e]" title={item.title}>
                       {item.title}
                     </span>
@@ -61,7 +68,7 @@ export function SearchIdle({ latest, onSelectQuery }: SearchIdleProps) {
                       ) : null}
                     </span>
                   </td>
-                  <td className="hidden min-w-0 px-3 py-3 lg:table-cell">
+                  <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
                     <span className="block truncate text-[13px] text-[#1c2a4e]" title={item.employeeName}>
                       {item.employeeName}
                     </span>
@@ -69,11 +76,11 @@ export function SearchIdle({ latest, onSelectQuery }: SearchIdleProps) {
                       {item.companyName}
                     </span>
                   </td>
-                  <td className="px-3 py-3 text-[13px] font-medium tabular-nums text-[#1c2a4e]">
-                    {formatDate(item.at, locale)}
+                  <td className="min-w-0 overflow-hidden px-2 py-3 text-[13px] font-medium tabular-nums text-[#1c2a4e] sm:px-3">
+                    <span className="block truncate">{formatDate(item.at, locale)}</span>
                   </td>
-                  <td className="px-4 py-3">
-                    <span className={cn('inline-flex rounded-full px-2.5 py-1 text-[11px] font-semibold', badge.className)}>
+                  <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-4">
+                    <span className={cn('inline-block max-w-full truncate rounded-full px-2.5 py-1 text-[11px] font-semibold', badge.className)} title={badge.label}>
                       {badge.label}
                     </span>
                   </td>
