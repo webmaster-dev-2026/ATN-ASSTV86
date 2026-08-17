@@ -27,7 +27,7 @@ export function ToValidatePage() {
   const { t } = useI18n()
   const { notify } = useToast()
   const [items, setItems] = useState(initialData.items)
-  const [selectedId, setSelectedId] = useState(initialData.items[0]?.id ?? null)
+  const [selectedId, setSelectedId] = useState<string | null>(initialData.items[0]?.id ?? null)
   const [options, setOptions] = useState<Record<string, string>>({})
   const [notes, setNotes] = useState<Record<string, string>>({})
 
@@ -56,14 +56,14 @@ export function ToValidatePage() {
   }
 
   return (
-    <PageFrame className="overflow-auto xl:overflow-hidden">
-      <div className="flex min-h-0 flex-1 flex-col gap-4">
+    <PageFrame className="xl:overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4">
         <ValidationStatCards summary={summary} />
 
         <div
           className={cn(
             'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
-            selected && 'xl:grid-cols-[minmax(0,1.4fr)_minmax(360px,0.95fr)]',
+            selected && 'xl:grid-cols-[minmax(0,1.4fr)_minmax(0,0.95fr)]',
           )}
         >
           <ValidationQueueTable

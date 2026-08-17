@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
-import { HeaderFilter } from '@/components/ui'
+import { useEffect, useMemo, useState, type ChangeEvent, type ReactNode } from 'react'
 import { formatStamp, interpolate } from '@/features/dossiers/format'
 import { useI18n } from '@/i18n'
 import { cn } from '@/lib/cn'

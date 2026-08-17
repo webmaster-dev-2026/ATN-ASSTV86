@@ -31,7 +31,7 @@ export function SourceDocumentsPage() {
   const { t } = useI18n()
   const { notify } = useToast()
   const [items, setItems] = useState(initialData.items)
-  const [selectedId, setSelectedId] = useState(initialData.items[0]?.id ?? null)
+  const [selectedId, setSelectedId] = useState<string | null>(initialData.items[0]?.id ?? null)
   const [cardFilter, setCardFilter] = useState<CardFilter>('total')
 
   const filtered = useMemo(() => {
@@ -80,14 +80,14 @@ export function SourceDocumentsPage() {
   }
 
   return (
-    <PageFrame className="overflow-auto xl:overflow-hidden">
-      <div className="flex min-h-0 flex-1 flex-col gap-4">
+    <PageFrame className="xl:overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4">
         <SourceDocumentStatCards summary={summary} active={cardFilter} onSelect={setCardFilter} />
 
         <div
           className={cn(
             'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
-            selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(360px,0.9fr)]',
+            selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(0,0.9fr)]',
           )}
         >
           <SourceDocumentTable

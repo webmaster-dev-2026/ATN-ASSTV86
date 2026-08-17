@@ -14,7 +14,7 @@ const initialData = getCompletedData()
 export function CompletedPage() {
   const { t } = useI18n()
   const { notify } = useToast()
-  const [selectedId, setSelectedId] = useState(initialData.items[0]?.id ?? null)
+  const [selectedId, setSelectedId] = useState<string | null>(initialData.items[0]?.id ?? null)
 
   const selected = useMemo(
     () => initialData.items.find((item) => item.id === selectedId) ?? null,
@@ -26,14 +26,14 @@ export function CompletedPage() {
   }
 
   return (
-    <PageFrame className="overflow-auto xl:overflow-hidden">
-      <div className="flex min-h-0 flex-1 flex-col gap-4">
+    <PageFrame className="xl:overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4">
         <CompletedStatCards summary={initialData.summary} />
 
         <div
           className={cn(
             'grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-4',
-            selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.85fr)]',
+            selected && 'xl:grid-cols-[minmax(0,1.55fr)_minmax(0,0.85fr)]',
           )}
         >
           <CompletedQueueTable
