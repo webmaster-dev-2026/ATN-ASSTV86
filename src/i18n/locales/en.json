@@ -1,0 +1,1078 @@
+{
+  "meta": {
+    "title": "ASSTV86 — Sign in",
+    "appName": "myATN ASSTV86"
+  },
+  "common": {
+    "needHelp": "Need help?",
+    "closeNotification": "Close notification",
+    "language": "Language",
+    "french": "Français",
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+  "brand": {
+    "center": "Occupational health center",
+    "locations": "Poitiers - Niort",
+    "tagline": "Digital assistant for the intelligent processing of occupational health files.",
+    "copyright": "© ASSTV 86 - All rights reserved"
+  },
+  "auth": {
+    "welcome": "Welcome",
+    "description": "Sign in to your myATN workspace.",
+    "email": "Email address",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "submit": "Sign in",
+    "submitting": "Signing in...",
+    "or": "or",
+    "sso": "Sign in with SSO",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "success": "Signed in successfully!",
+    "failed": "Sign-in failed",
+    "securityTitle": "Secure data",
+    "securityText": "Protected - Trusted - Compliant"
+  },
+  "validation": {
+    "emailRequired": "Please enter your email",
+    "emailInvalid": "Invalid email address",
+    "passwordRequired": "Please enter your password",
+    "passwordMinLength": "Password must be at least 6 characters"
+  },
+  "errors": {
+    "invalidCredentials": "Incorrect email or password",
+    "accountInactive": "This account is inactive",
+    "accountLocked": "This account is locked"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "dossiers": "Files",
+    "toValidate": "To validate",
+    "anomalies": "Anomalies",
+    "inProgress": "Processing",
+    "completed": "Completed",
+    "search": "Search",
+    "sourceDocuments": "Source documents",
+    "statistics": "Statistics",
+    "settings": "Settings",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainMenu": "Main menu"
+  },
+  "header": {
+    "search": "Search",
+    "searchPlaceholder": "Search...",
+    "clearSearch": "Clear search",
+    "notifications": "Notifications",
+    "userName": "Sophie Martin",
+    "userRole": "Medical secretary",
+    "accountMenu": "Account menu",
+    "logout": "Sign out"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "markAsRead": "Mark as read",
+    "new": "New",
+    "earlier": "Earlier",
+    "empty": "No notifications right now.",
+    "dossierRef": "File",
+    "types": {
+      "dossier": "File received",
+      "validation": "To validate",
+      "anomaly": "Anomaly",
+      "completed": "Completed",
+      "reminder": "Reminder"
+    },
+    "items": {
+      "receivedMoreau": {
+        "title": "New file received",
+        "body": "Jean Moreau, pre-employment visit. The file was submitted this morning and is waiting for a first review."
+      },
+      "validateLeroux": {
+        "title": "Fitness decision needed",
+        "body": "Camille Leroux, periodic visit. A fitness decision must be validated before the end of the day."
+      },
+      "anomalyMarchand": {
+        "title": "Missing identity document",
+        "body": "Hugo Marchand's file has no identity document. Processing is blocked."
+      },
+      "completedBernard": {
+        "title": "File processed",
+        "body": "Claire Bernard, return-to-work visit. The file has been closed and moved to completed."
+      },
+      "assignedPetit": {
+        "title": "File assigned",
+        "body": "Léa Petit's file has been assigned to you for a source document check."
+      },
+      "reminderDupuis": {
+        "title": "Visit scheduled tomorrow",
+        "body": "Pierre Dupuis, pre-return visit. Review the file before the 9:00 appointment."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "received": "Files received",
+    "processed": "Files processed",
+    "toValidate": "To validate",
+    "anomalies": "Anomalies",
+    "vsLast7Days": "vs last 7 days",
+    "recentFiles": "Recent files",
+    "seeMore": "See more",
+    "viewAll": "View all",
+    "validationQueue": "Validation queue",
+    "processingOverview": "Processing overview",
+    "upcomingAppointments": "Upcoming appointments",
+    "atnActivity": "ATN activity",
+    "viewReport": "View report",
+    "last7Days": "Last 7 days",
+    "receivedShort": "Received",
+    "processedShort": "Processed",
+    "total": "Total",
+    "itemsInQueue": "items in queue",
+    "goToValidation": "View all in queue",
+    "queueItemAwaiting": "File \"{name}\" awaiting validation",
+    "queueEmpty": "No files awaiting validation.",
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "medicalVisit": "Medical visit",
+    "doctorPrefix": "Doctor:",
+    "columns": {
+      "fileName": "File name",
+      "source": "Source",
+      "type": "Type",
+      "receivedOn": "Received on",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "toValidate": "To validate",
+      "processing": "Processing",
+      "completed": "Completed",
+      "anomaly": "Anomaly"
+    },
+    "priority": {
+      "priority": "Priority",
+      "normal": "Normal"
+    },
+    "visit": {
+      "embauche": "Initial ATN",
+      "reprise": "Return ATN",
+      "periodique": "Periodic ATN",
+      "speciale": "Special ATN"
+    }
+  },
+  "dossiers": {
+    "queue": {
+      "title": "To process",
+      "all": "All",
+      "search": "Search a worker...",
+      "count": "{count} files",
+      "empty": "No files match the current filters.",
+      "documentsCount": "{count} documents",
+      "headingToProcess": "Dossiers to process ({count})",
+      "headingAll": "All dossiers ({count})",
+      "filter": "Filter",
+      "more": "More",
+      "openList": "Open the file list",
+      "closeList": "Collapse the list",
+      "loading": "Loading files..."
+    },
+    "workspace": {
+      "nav": "File sections",
+      "synthesis": "Summary",
+      "documents": "Documents ({count})",
+      "proposal": "Proposal",
+      "history": "History",
+      "agenda": "Agenda",
+      "information": "Information",
+      "historyEmpty": "No history is available for this file yet.",
+      "agendaEmpty": "No agenda events are scheduled yet.",
+      "actionTitle": "Analysis and proposal",
+      "openAction": "Analysis & proposal",
+      "closeAction": "Close",
+      "document": "Documents",
+      "analysis": "Analysis",
+      "appointment": "Appointment"
+    },
+    "header": {
+      "company": "Company",
+      "visitType": "Exam type",
+      "receivedAt": "Received on",
+      "receivedOn": "Received on",
+      "proposedAt": "Proposed appointment",
+      "noProposal": "No proposal yet",
+      "bornOn": "Born {date} ({age} yrs)",
+      "atDateTime": "{date} at {time}",
+      "center": "Center",
+      "practitioner": "Doctor",
+      "reference": "Reference",
+      "source": "Source"
+    },
+    "documents": {
+      "title": "Documents in the file",
+      "pages": "{count} pages"
+    },
+    "viewer": {
+      "toolbar": "Document tools",
+      "zoomOut": "Zoom out",
+      "zoomIn": "Zoom in",
+      "zoom": "{value}%",
+      "page": "{current} / {total}",
+      "goToPage": "Go to page",
+      "print": "Print file",
+      "download": "Download PDF",
+      "downloaded": "Downloaded {file}",
+      "downloadFailed": "Could not download the PDF"
+    },
+    "report": {
+      "title": "Medical report",
+      "center": "Occupational health - ASSTV 86",
+      "employee": "Worker",
+      "company": "Company",
+      "visitType": "Exam type",
+      "examDate": "Exam date",
+      "doctor": "Doctor",
+      "clinical": "Clinical examination",
+      "clinicalBody": "The worker was examined for the visit indicated above. The clinical exam found no major contraindication to continuing or returning to work, subject to the medical restrictions below.",
+      "clinicalPending": "ATN is reading and matching the documents in this file. The report will appear when analysis is complete.",
+      "restrictions": "Medical restrictions",
+      "noRestrictions": "No medical restriction is recorded in this document.",
+      "conclusion": "Conclusion",
+      "conclusionRestricted": "Temporarily fit, with workplace adjustments. Follow-up according to the restrictions listed.",
+      "conclusionFit": "Fit for work, with no specific restriction. Next visit according to the periodic schedule.",
+      "conclusionBlocked": "The file cannot be concluded yet. Missing documents or details must be added before an appointment can be proposed.",
+      "visitRequestTitle": "Visit request",
+      "visitRequestBody": "The company submitted an occupational health visit request. The exam type, job role and reception date are recorded on this form.",
+      "sickLeaveTitle": "Sick leave certificate",
+      "sickLeaveBody": "The sick leave certificate is attached to date the work interruption and return conditions. ATN matches it with the visit request.",
+      "jobSheetTitle": "Job description",
+      "jobSheetBody": "The sheet describes postures, loads and repetitive tasks on the job. These points are used to assess medical restrictions.",
+      "formTitle": "File form",
+      "formBody": "Administrative form for the file, including the worker, company and requested exam type.",
+      "emailTitle": "Source email",
+      "emailBody": "Cover email for the source documents. ATN attached this content to the worker file."
+    },
+    "paper": {
+      "page": "Page {current} / {total}",
+      "confidential": "Confidential - occupational health",
+      "cerfa": "Cerfa n° 10170*05",
+      "leaveNotice": "Sick leave notice",
+      "insured": "Insured person",
+      "ssn": "Social security number",
+      "ssnValue": "1 85 •• •• ••• •• 28",
+      "prescriber": "Prescribing doctor",
+      "gp": "Dr Claire Morel",
+      "gpCity": "Medical practice, Poitiers",
+      "leavePeriod": "Sick leave period",
+      "from": "From",
+      "to": "To",
+      "duration": "{days} days",
+      "durationLabel": "Duration",
+      "diagnosis": "Medical reason",
+      "diagnosisValue": "Musculoskeletal condition, right upper limb",
+      "outings": "Outings allowed",
+      "outingsYes": "Yes, during usual hours",
+      "partTime": "Therapeutic part-time work",
+      "partTimeNo": "No",
+      "resumeVisit": "Return-to-work visit required",
+      "signature": "Signature and stamp",
+      "jobTitle": "Job title",
+      "jobTitleValue": "Warehouse operator",
+      "site": "Workplace",
+      "requestedBy": "Requested by",
+      "hr": "HR department",
+      "desiredDate": "Preferred date",
+      "motive": "Reason for the request",
+      "constraints": "Job constraints",
+      "handling": "Manual handling",
+      "handlingValue": "Loads up to 15 kg, pallets and cartons",
+      "posture": "Postures",
+      "postureValue": "Prolonged standing, trunk bending",
+      "repeat": "Repetitive movements",
+      "repeatValue": "Picking and labelling at pace",
+      "environment": "Work environment",
+      "environmentValue": "Warehouse, variable temperature",
+      "yes": "Yes",
+      "no": "No",
+      "emailFrom": "From",
+      "emailTo": "To",
+      "emailSubject": "Subject",
+      "emailSubjectValue": "Attachments - occupational health visit - {name}",
+      "emailGreeting": "Hello,",
+      "emailBody1": "Please find attached the file for {name} ({company}) for a {visit}.",
+      "emailBody2": "Please process the request and propose an appointment slot.",
+      "emailSignoff": "Kind regards,",
+      "stampAsstv": "ASSTV 86",
+      "stampMedical": "Occupational health",
+      "findings": "Clinical findings",
+      "findingsBody": "General exam with no acute sign. Pain on exertion of the upper limb and limited range when lifting.",
+      "aptitudeBox": "Fitness opinion",
+      "annexTitle": "Annex",
+      "annexLabel": "Annex to the medical report",
+      "annexIssuedOn": "Issued on {date}",
+      "annexRecommendations": "Workplace arrangement recommendations",
+      "annexRecommendationsBody": "Based on the stated medical restrictions, the company should avoid prolonged static postures and heavy carrying. Alternate sitting and standing, and allow short breaks if pain increases.",
+      "annexRestrictionsApplied": "Restrictions taken into account",
+      "annexNoRestrictions": "No medical restriction is recorded. General prevention recommendations still apply.",
+      "annexMeasures": "Workplace measures",
+      "annexMeasurePosture": "Posture rotation",
+      "annexMeasurePostureValue": "Alternate sitting and standing every 45 to 60 minutes. Avoid prolonged static standing.",
+      "annexMeasureLoad": "Manual handling",
+      "annexMeasureLoadValue": "Limit load carrying to 10 kg. Prefer handling aids (sack truck, pallet jack).",
+      "annexMeasureBreaks": "Breaks",
+      "annexMeasureBreaksValue": "Allow a 5-minute micro-break every 2 hours, or as soon as pain appears.",
+      "annexMeasureStation": "Workstation",
+      "annexMeasureStationValue": "Adjust work surface height and avoid reaching above shoulder level.",
+      "annexFollowUp": "Scheduled review",
+      "annexFollowUpValue": "Follow-up review on {date}, unless symptoms worsen.",
+      "annexEmployerAction": "Expected employer actions",
+      "annexEmployerActionBody": "Inform the line manager, implement the adjustments, and report any difficulty applying them to occupational health.",
+      "annexAdmin": "Administrative and confidentiality notice",
+      "annexAdminBody": "This document is part of the occupational health file and may only be shared with authorised staff. Any copy or external transfer must follow medical confidentiality rules.",
+      "annexDocumentId": "Document identifier",
+      "annexCenter": "Issuing service",
+      "annexClassification": "Classification",
+      "annexClassificationValue": "Confidential — medical secrecy",
+      "annexRecipients": "Authorised recipients",
+      "annexRecipientDoctor": "Occupational physician and ASSTV 86 multidisciplinary team",
+      "annexRecipientHr": "Authorised company HR, for fitness and workplace-adjustment mentions only",
+      "annexRecipientWorker": "The worker concerned, on request",
+      "annexLegalBasis": "Legal basis",
+      "annexLegalBasisValue": "Art. L. 4624-1 et seq. of the Labour Code. Medical confidentiality applies to the entire file.",
+      "annexRetention": "Retention period",
+      "annexRetentionValue": "Kept for the duration of the worker's occupational health follow-up, then archived under the rules for occupational medical records.",
+      "annexCopyRule": "Reproduction",
+      "annexCopyRuleValue": "Any copy, extract or external transfer requires the occupational physician's agreement, except where the law requires otherwise.",
+      "annexContact": "Contact",
+      "annexContactValue": "ASSTV 86 medical secretariat — dossiers@asstv86.fr"
+    },
+    "analysis": {
+      "title": "ATN analysis",
+      "restrictions": "Medical restrictions",
+      "empty": "ATN has not extracted medical restrictions yet.",
+      "pending": "Document content analysis is in progress.",
+      "lifting": "No lifting over 10 kg",
+      "repetitive": "Avoid repetitive movements",
+      "staticPosture": "Limit prolonged static postures",
+      "severityHigh": "High priority",
+      "severityMedium": "Watch",
+      "fitness": "Fitness decision"
+    },
+    "appointment": {
+      "title": "Appointment proposal",
+      "doctor": "Doctor",
+      "center": "Centre",
+      "datetime": "Date and time",
+      "match": "{percent}% match",
+      "accept": "Accept proposal",
+      "changeDoctor": "Change doctor",
+      "changeDate": "Change date",
+      "otherSlots": "See other slots",
+      "back": "Back to proposal",
+      "selectDoctor": "Choose a doctor",
+      "selectDate": "Choose a date",
+      "selectSlot": "Other slots",
+      "accepted": "Appointment accepted",
+      "unavailable": "ATN has not proposed an appointment for this file yet.",
+      "blocked": "An appointment cannot be proposed while documents are missing."
+    },
+    "status": {
+      "toProcess": "To process",
+      "analysing": "Analysing",
+      "readyForAppointment": "Ready for appointment",
+      "blocked": "Blocked",
+      "completed": "Completed"
+    },
+    "fitness": {
+      "fit": "FIT",
+      "unfit": "UNFIT",
+      "pending": "Pending"
+    },
+    "documentType": {
+      "visitRequest": "Visit request",
+      "jobSheet": "Job description",
+      "form": "Form",
+      "email": "Email",
+      "sickLeave": "Sick leave",
+      "medicalReport": "Medical report"
+    },
+    "emptySelection": "Select a worker to process the file.",
+    "toast": {
+      "accepted": "Appointment accepted for",
+      "doctorChanged": "Doctor changed for",
+      "slotChanged": "Slot changed for"
+    }
+  },
+  "toValidate": {
+    "pendingDossiers": "Files awaiting confirmation",
+    "fieldsToConfirm": "Fields to confirm",
+    "urgentDecisions": "Urgent decisions",
+    "total": "Total",
+    "vsYesterday": "vs yesterday",
+    "listTitle": "List to confirm",
+    "filter": "Filter",
+    "filterAll": "All",
+    "columns": {
+      "dossier": "File",
+      "type": "Type",
+      "reason": "Reason",
+      "priority": "Priority",
+      "deadline": "Deadline",
+      "status": "Status"
+    },
+    "reason": {
+      "returnDate": "Return-to-work date",
+      "visitType": "Exam type",
+      "workplace": "Workplace",
+      "employeeName": "Worker identity",
+      "jobTitle": "Job title",
+      "companyName": "Company"
+    },
+    "priority": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "statusPending": "Awaiting confirmation",
+    "remainingOne": "(1 day)",
+    "remainingMany": "({count} days)",
+    "range": "Showing {from} to {to} of {total} files",
+    "empty": "No files awaiting confirmation.",
+    "emptyFilter": "No files match this filter.",
+    "emptySelection": "Select a file to confirm.",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "page": "Page {page}",
+    "summary": "File summary",
+    "examDate": "Exam date",
+    "doctor": "Doctor",
+    "visitType": "Exam type",
+    "company": "Company",
+    "proposal": "ATN proposal (extracted)",
+    "source": "Extraction source",
+    "sourceFile": "{file} (page {page})",
+    "confidence": "Confidence: {percent}%",
+    "alternatives": "Alternative choices",
+    "extraTitle": "Additional information from the document",
+    "notes": "Notes (optional)",
+    "notesPlaceholder": "Enter your notes...",
+    "confirm": "Confirm",
+    "edit": "Edit",
+    "requestMore": "Request more",
+    "skip": "Skip",
+    "extra": {
+      "returnDate": "The file has been analysed. Two different return-to-work dates were found and must be confirmed.",
+      "visitType": "The exam type was extracted from the request. The workplace still needs to be confirmed before approval.",
+      "workplace": "The workplace must be specified before the file can be confirmed.",
+      "employeeName": "The extracted name differs from the name on the request. Confirm identity before continuing.",
+      "jobTitle": "The job title was extracted from the job sheet. Confirm it before concluding.",
+      "companyName": "The company name was extracted from the source documents. Match it before confirming."
+    },
+    "toast": {
+      "confirmed": "File confirmed for {name}.",
+      "skipped": "File skipped for {name}.",
+      "edit": "Edit recorded for {name}.",
+      "requestMore": "Additional information requested for {name}."
+    }
+  },
+  "anomalies": {
+    "listTitle": "Anomaly list",
+    "searchPlaceholder": "Search by anomaly, file...",
+    "reset": "Reset",
+    "detailTitle": "Anomaly details",
+    "detailTab": "Details",
+    "historyTitle": "Handling history",
+    "historyEmpty": "No handling history yet.",
+    "detectedAt": "Detected at {time}",
+    "relatedDossier": "Related file",
+    "visitType": "Exam type",
+    "examDate": "Date",
+    "doctor": "Doctor",
+    "comparison": "Value comparison",
+    "sourceLeft": "Source 1",
+    "sourceRight": "Source 2",
+    "vs": "VS",
+    "suggestionTitle": "ATN suggestion",
+    "actions": "Quick actions",
+    "editValue": "Edit value",
+    "markResolved": "Mark as resolved",
+    "openDossier": "Open file",
+    "emptyFilter": "No anomalies match these filters.",
+    "emptySelection": "Select an anomaly to see details.",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "page": "Page {page}",
+    "range": "Showing {from} to {to} of {total} anomalies",
+    "perPage": "{count} / page",
+    "perPageLabel": "Anomalies per page",
+    "filters": {
+      "severity": "Level",
+      "status": "Status",
+      "type": "Anomaly type",
+      "assignee": "Assignee",
+      "from": "Start date",
+      "to": "End date"
+    },
+    "severity": {
+      "critical": "Critical",
+      "warning": "Warning",
+      "info": "Info"
+    },
+    "status": {
+      "open": "Open",
+      "inProgress": "In progress",
+      "resolved": "Resolved",
+      "blocked": "Blocked"
+    },
+    "summary": {
+      "resolved": "Resolved",
+      "blocked": "Blocked"
+    },
+    "hints": {
+      "critical": "Needs action now",
+      "warning": "Needs follow-up",
+      "resolved": "Today",
+      "blocked": "Needs unlock"
+    },
+    "types": {
+      "inconsistent": "Inconsistent data",
+      "lowConfidence": "Low confidence",
+      "missingDocument": "Missing document",
+      "missingInformation": "Missing information"
+    },
+    "columns": {
+      "anomaly": "Anomaly",
+      "dossier": "File",
+      "severity": "Level",
+      "assignee": "Assignee",
+      "status": "Status",
+      "detected": "Detected on"
+    },
+    "history": {
+      "detected": "Automatically detected by ATN.",
+      "assigned": "Assigned for handling.",
+      "resolved": "Marked as resolved."
+    },
+    "toast": {
+      "edit": "Correction saved for {name}.",
+      "resolved": "Anomaly resolved for {name}."
+    }
+  },
+  "inProgress": {
+    "subtitle": "Track files currently processed by ATN, step by step",
+    "vsYesterday": "vs yesterday",
+    "listTitle": "Files in processing",
+    "searchPlaceholder": "Search by file ID, employee, company...",
+    "export": "Export data",
+    "exported": "Exported {count} files in processing.",
+    "seeDetails": "See details",
+    "seeAllActivity": "See all activity >",
+    "workflowTitle": "ATN processing workflow",
+    "feedTitle": "Real-time activity",
+    "empty": "No files currently in processing.",
+    "emptyFilter": "No files match this filter.",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "range": "Showing {from} to {to} of {total} files",
+    "perPage": "{count} / page",
+    "perPageLabel": "Files per page",
+    "etaHours": "{hours}h {minutes}m",
+    "etaMinutes": "{minutes}m",
+    "cards": {
+      "analysing": "Analysing",
+      "checking": "Checking",
+      "scheduling": "Finding slots"
+    },
+    "filters": {
+      "status": "ATN status",
+      "step": "Current step"
+    },
+    "columns": {
+      "reference": "File ID",
+      "employee": "Employee",
+      "step": "Current step",
+      "progress": "Progress",
+      "status": "ATN status",
+      "lastActivity": "Last activity",
+      "eta": "ETA"
+    },
+    "steps": {
+      "analyse": "Document analysis",
+      "check": "Verification",
+      "schedule": "Find availability"
+    },
+    "status": {
+      "analysing": "Analysing",
+      "checking": "Checking",
+      "scheduling": "Finding slots"
+    },
+    "workflow": {
+      "intake": "Intake",
+      "employee": "Employee",
+      "company": "Company",
+      "classify": "Classification",
+      "analyse": "Document analysis",
+      "check": "Verification",
+      "schedule": "Find availability",
+      "propose": "Propose appointment",
+      "confirm": "Confirmation",
+      "generate": "Generate documents"
+    },
+    "activity": {
+      "ocr": "OCR of medical documents",
+      "extract": "Data extraction",
+      "classify": "Document classification",
+      "verify": "Constraint check",
+      "slots": "Finding available slots",
+      "match": "Matching a doctor"
+    },
+    "feed": {
+      "ocr": "{reference} is being analysed",
+      "extract": "{reference} is extracting data",
+      "classify": "{reference} is classifying documents",
+      "verify": "{reference} is being checked",
+      "slots": "{reference} is finding an appointment",
+      "match": "{reference} is matching a doctor"
+    }
+  },
+  "completed": {
+    "stats": {
+      "dossiers": "Completed files",
+      "dossiersHint": "Total files",
+      "documents": "Documents created",
+      "documentsHint": "Total documents",
+      "sent": "Sent",
+      "sentHint": "Total",
+      "archived": "Archived",
+      "archivedHint": "Total"
+    },
+    "vsLastMonth": "vs last month",
+    "listTitle": "Completed files list",
+    "searchPlaceholder": "Search by file ID, employee name, company...",
+    "filter": "Filter",
+    "filterAll": "All exam types",
+    "columns": {
+      "reference": "File ID",
+      "employee": "Employee",
+      "company": "Company",
+      "visitType": "Exam type",
+      "completedAt": "Completed on",
+      "documents": "Documents",
+      "status": "Final status"
+    },
+    "statusCompleted": "Completed",
+    "range": "Showing {from} to {to} of {total} files",
+    "empty": "No completed files yet.",
+    "emptyFilter": "No files match this filter.",
+    "emptySelection": "Select a file to view details.",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "page": "Page {page}",
+    "detailTitle": "File information",
+    "detailTab": "Details",
+    "createdAt": "Created on {date} at {time}",
+    "completedAtValue": "{date} at {time}",
+    "processTitle": "Completion process",
+    "process": {
+      "created": "File created",
+      "clinical": "Clinical exam",
+      "paraclinical": "Additional tests",
+      "conclusion": "Doctor conclusion",
+      "sent": "Completed and sent"
+    },
+    "documentsTitle": "Created documents ({count})",
+    "docTitles": {
+      "invitation": "Invitation",
+      "email": "Email",
+      "summary": "Summary sheet",
+      "report": "Exam report",
+      "fitness": "Fitness form"
+    },
+    "viewDocument": "Preview document",
+    "downloadDocument": "Download document",
+    "actionsTitle": "Quick actions",
+    "actions": {
+      "preview": "Preview",
+      "exportPdf": "Export PDF",
+      "exportWord": "Export Word",
+      "share": "Share"
+    },
+    "historyTitle": "Recent history",
+    "historyEmpty": "No history for this file yet.",
+    "history": {
+      "sent": "File completed and sent",
+      "concluded": "Doctor signed the conclusion",
+      "attached": "Additional test results attached",
+      "created": "File created"
+    },
+    "toast": {
+      "preview": "Opening preview for {name}.",
+      "exportPdf": "PDF exported for {name}.",
+      "exportWord": "Word exported for {name}.",
+      "share": "Share link created for {name}.",
+      "viewDocument": "Opening {name}.",
+      "downloadDocument": "Downloaded {name}."
+    }
+  },
+  "sourceDocuments": {
+    "total": "Total documents",
+    "analysed": "Analysed",
+    "reviewing": "In review",
+    "error": "Errors",
+    "vsYesterday": "vs yesterday",
+    "searchLabel": "Search documents",
+    "searchPlaceholder": "Search documents",
+    "filters": {
+      "source": "Source",
+      "fileType": "File type",
+      "status": "Status",
+      "uploadedAt": "Upload date",
+      "datePlaceholder": "Select a date range",
+      "all": "All",
+      "more": "Filters"
+    },
+    "listTitle": "Document list ({count})",
+    "listNav": "Document pagination",
+    "columns": {
+      "select": "Select",
+      "name": "File name",
+      "source": "Source",
+      "fileType": "File type",
+      "uploadedAt": "Upload date",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "analysed": "Analysed",
+      "reviewing": "In review",
+      "error": "Error",
+      "uploaded": "Uploaded"
+    },
+    "fileType": {
+      "PDF": "PDF",
+      "PPTX": "PPTX",
+      "DOCX": "DOCX",
+      "JPG": "JPG",
+      "XLSX": "XLSX"
+    },
+    "range": "Showing {from} to {to} of {total} documents",
+    "emptyFilter": "No documents match the filters.",
+    "emptySelection": "Select a document to see details.",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "open": "Open",
+    "download": "Download",
+    "reanalyse": "Re-analyse",
+    "viewDetails": "View details",
+    "uploadedMeta": "{date} at {time} · {size}",
+    "extractTitle": "Extraction summary",
+    "tabs": {
+      "preview": "Preview",
+      "metadata": "Metadata",
+      "history": "History"
+    },
+    "viewer": {
+      "page": "{current} / {total}",
+      "zoom": "{value}%",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "fullscreen": "Full screen"
+    },
+    "meta": {
+      "fileName": "File name",
+      "fileType": "File type",
+      "size": "Size",
+      "pages": "Pages",
+      "pagesValue": "{count} pages",
+      "source": "Source",
+      "uploader": "Uploaded by",
+      "uploadedAt": "Upload date",
+      "dossier": "Related file"
+    },
+    "history": {
+      "uploaded": "The document was uploaded to the system.",
+      "analysed": "ATN finished analysing the document.",
+      "reviewStarted": "The document is under review.",
+      "errorDetected": "An analysis error was detected.",
+      "reanalysed": "A new analysis was requested."
+    },
+    "summary": {
+      "nightWork": "Night-work fitness certificate for {name} ({company}). Conclusion: fit for night shifts, no special restriction.",
+      "jobSheet": "Job sheet for {name} at {company}. Posture, repetition and environment constraints were extracted.",
+      "visitRequest": "Visit request from {company} for {name}. Visit type and requested date were identified.",
+      "sickLeave": "Sick-leave certificate for {name}. Leave period and expected return date were extracted.",
+      "form": "Form for {name} ({company}) was read. Main administrative fields were filled.",
+      "planning": "Schedule from {company} related to {name}. Shifts and working days were identified.",
+      "email": "Cover email from {company} for {name}. The main content was attached to the file.",
+      "error": "The document for {name} ({company}) could not be read. Upload a clearer copy or run analysis again."
+    },
+    "paper": {
+      "center": "Service de santé au travail",
+      "title": "ATTESTATION D'APTITUDE AU TRAVAIL DE NUIT",
+      "employee": "Salarié",
+      "company": "Employeur",
+      "date": "Date",
+      "doctor": "Médecin du travail",
+      "doctorName": "Dr Pierre Martin",
+      "conclusion": "Conclusion",
+      "conclusionBody": "Le salarié est reconnu apte au travail de nuit, sans restriction particulière à la date de l'examen.",
+      "annex": "Annexe: recommandations de suivi et organisation des pauses."
+    },
+    "toast": {
+      "opened": "Opened {name}.",
+      "downloaded": "Downloaded {name}.",
+      "reanalysed": "Re-analysis sent for {name}."
+    }
+  },
+  "settings": {
+    "navTitle": "Settings categories",
+    "relatedTitle": "Related settings",
+    "comingSoon": "This section will be available soon.",
+    "categories": {
+      "general": "General",
+      "users": "Users & roles",
+      "centers": "Centers & doctors",
+      "channels": "Intake channels",
+      "rules": "Business rules",
+      "templates": "Document templates",
+      "notifications": "Notifications"
+    },
+    "sections": {
+      "general": {
+        "title": "General",
+        "description": "General configuration of the ATN system."
+      },
+      "users": {
+        "title": "Users & roles",
+        "description": "Manage accounts, permissions and user roles."
+      },
+      "centers": {
+        "title": "Centers & doctors",
+        "description": "Manage medical centers and assigned doctors."
+      },
+      "channels": {
+        "title": "Intake channels",
+        "description": "Configure channels used to receive files and documents."
+      },
+      "rules": {
+        "title": "Business rules",
+        "description": "Define processing rules for occupational health files."
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Configure system notification channels and content."
+      }
+    },
+    "templates": {
+      "title": "Document templates",
+      "description": "Manage system document templates used in the ATN process.",
+      "add": "Add new template",
+      "preview": "Preview",
+      "edit": "Edit",
+      "duplicate": "Duplicate",
+      "more": "More actions",
+      "archive": "Archive",
+      "updated": "Updated: {date} by {name}",
+      "copyName": "{name} (copy)",
+      "range": "Showing {from} to {to} of {total} templates",
+      "perPage": "{count} / page",
+      "perPageLabel": "Templates per page",
+      "prevPage": "Previous page",
+      "nextPage": "Next page",
+      "listNav": "Document template pagination",
+      "empty": "No document templates yet.",
+      "status": {
+        "active": "In use",
+        "draft": "Draft"
+      },
+      "items": {
+        "invite": {
+          "name": "Invitation letter",
+          "description": "Occupational health invitation letter sent to the employee."
+        },
+        "email": {
+          "name": "Confirmation email",
+          "description": "Email template confirming the occupational health appointment."
+        },
+        "letter": {
+          "name": "Official letter",
+          "description": "Official letter used to share ATN results with the company."
+        },
+        "summary": {
+          "name": "Summary sheet",
+          "description": "Summary sheet of occupational health examination results."
+        },
+        "custom": {
+          "name": "New template",
+          "description": "New document template that is not configured yet."
+        }
+      },
+      "toast": {
+        "preview": "Opened preview of {name}.",
+        "edit": "Opened editor for {name}.",
+        "duplicated": "Duplicated {name}.",
+        "archived": "Archived {name}.",
+        "added": "New template created."
+      }
+    },
+    "related": {
+      "ruleAutomation": {
+        "title": "Rule automation",
+        "description": "Apply business rules when processing files"
+      },
+      "auditLog": {
+        "title": "System log (Audit log)",
+        "description": "Record user actions"
+      },
+      "defaultLanguage": {
+        "title": "Default language",
+        "description": "Default display language of the system"
+      },
+      "systemNotifications": {
+        "title": "System notifications",
+        "description": "Send alerts when important events occur"
+      },
+      "periodicReports": {
+        "title": "Periodic reports",
+        "description": "Send summary reports automatically on a schedule"
+      },
+      "retention": {
+        "title": "Data retention period",
+        "description": "File retention period according to regulation",
+        "years": "{count} years"
+      }
+    }
+  },
+  "statistics": {
+    "received": "Records received",
+    "avgProcessingTime": "Avg. processing time",
+    "anomalyRate": "Anomaly rate",
+    "confirmationRate": "Confirmation rate",
+    "today": "Today",
+    "vsYesterday": "vs yesterday",
+    "vsPrevious30Days": "vs the previous 30 days",
+    "daysUnit": "days",
+    "periods": {
+      "last7Days": "Last 7 days",
+      "last30Days": "Last 30 days",
+      "last90Days": "Last 90 days"
+    },
+    "receivedByDay": "Records received by day ({period})",
+    "byVisitType": "Records by exam type ({period})",
+    "statusDistribution": "Record distribution by status",
+    "anomalyClassification": "Anomaly classification ({period})",
+    "topFacilities": "Most active exam centres ({period})",
+    "total": "Total",
+    "records": "Records",
+    "updated": "Updated: {datetime}",
+    "refresh": "Refresh",
+    "viewAllFacilities": "View all exam centres",
+    "rank": "#",
+    "facility": "Centre",
+    "receivedCount": "Records received",
+    "rate": "Rate",
+    "trend": "Trend",
+    "period": "Period",
+    "status": {
+      "toProcess": "To process",
+      "processing": "Processing",
+      "waitingAppointment": "Waiting for appointment",
+      "completed": "Completed",
+      "blocked": "Blocked"
+    },
+    "visit": {
+      "other": "Other"
+    },
+    "anomalies": {
+      "prolongedRestriction": "Prolonged posture restriction",
+      "missingInfo": "Missing information / documents",
+      "inconsistent": "Inconsistent data",
+      "lowConfidence": "Low extraction confidence",
+      "missingDocument": "Missing document"
+    }
+  },
+  "search": {
+    "subtitle": "Find a file, document, anomaly or worker",
+    "placeholder": "Name, file ID, company, document...",
+    "clear": "Clear search",
+    "scopes": {
+      "all": "All",
+      "dossier": "Files",
+      "document": "Documents",
+      "anomaly": "Anomalies",
+      "employee": "Workers"
+    },
+    "kind": {
+      "dossier": "File",
+      "document": "Document",
+      "anomaly": "Anomaly",
+      "employee": "Worker"
+    },
+    "latestTitle": "Latest items",
+    "resultsTitle": "Results",
+    "empty": "No results match your search.",
+    "emptySelection": "Select a result to see details.",
+    "detailTitle": "Details",
+    "openDossier": "Open file",
+    "openDocument": "Open document",
+    "openAnomaly": "View anomaly",
+    "openEmployee": "View files",
+    "related": "{count} linked items",
+    "range": "Showing {from} to {to} of {total}",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "page": "Page {page}",
+    "listNav": "Results pagination",
+    "columns": {
+      "type": "Type",
+      "result": "Result",
+      "employee": "Worker",
+      "company": "Company",
+      "date": "Date",
+      "status": "Status"
+    },
+    "fields": {
+      "employee": "Worker",
+      "company": "Company",
+      "visitType": "Visit type",
+      "status": "Status",
+      "date": "Date",
+      "source": "Source",
+      "file": "File",
+      "size": "Size",
+      "severity": "Severity",
+      "related": "Linked items"
+    }
+  },
+  "placeholder": {
+    "comingSoon": "This page will be available soon."
+  },
+  "chatbot": {
+    "title": "Assistant",
+    "open": "Open assistant",
+    "close": "Close assistant",
+    "newChat": "New conversation",
+    "untitled": "New conversation",
+    "history": "History",
+    "expand": "Expand panel to the right",
+    "collapse": "Collapse panel",
+    "send": "Send",
+    "attachFile": "Attach a file",
+    "removeFile": "Remove file",
+    "placeholder": "Write a message...",
+    "emptyHistory": "No conversations yet.",
+    "welcomeTitle": "Hello, how can I help?",
+    "welcomeBody": "Ask about files, validations or anomalies.",
+    "thinking": "Thinking",
+    "dragHint": "Drag to move, click to open",
+    "suggestions": {
+      "anomalies": "Which files have anomalies?",
+      "validation": "Summarize the validation queue",
+      "appointments": "What are the upcoming appointments?"
+    }
+  }
+}

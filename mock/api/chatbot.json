@@ -1,0 +1,225 @@
+{
+  "fileReceived": {
+    "fr": "J’ai bien reçu le fichier {names}. Dites-moi si vous souhaitez une lecture, un classement ou un contrôle d’anomalie.",
+    "en": "I received the file {names}. Tell me if you want a reading, a classification or an anomaly check.",
+    "vi": "Tôi đã nhận tệp {names}. Cho tôi biết bạn muốn đọc, phân loại hay kiểm tra bất thường."
+  },
+  "fallback": {
+    "fr": "Je peux vous aider sur les dossiers, les validations, les anomalies et les rendez-vous. Précisez ce que vous souhaitez consulter.",
+    "en": "I can help with files, validations, anomalies and appointments. Tell me what you want to look up.",
+    "vi": "Tôi có thể hỗ trợ về hồ sơ, xác nhận, bất thường và lịch hẹn. Hãy cho biết bạn muốn xem gì."
+  },
+  "intents": [
+    {
+      "id": "anomalies",
+      "keywords": [
+        "anomal",
+        "blocked",
+        "bloqu",
+        "identité",
+        "identity",
+        "manquant",
+        "missing",
+        "bất thường",
+        "bat thuong",
+        "thiếu",
+        "thieu"
+      ],
+      "reply": {
+        "fr": "Un dossier est actuellement bloqué : Thomas Robert (Industrie 86), fiche de poste manquante. Le traitement reste bloqué jusqu’à réception du document.",
+        "en": "One file is currently blocked: Thomas Robert (Industrie 86), missing job sheet. Processing stays blocked until the document is received.",
+        "vi": "Một hồ sơ đang bị chặn: Thomas Robert (Industrie 86), thiếu phiếu vị trí công việc. Việc xử lý sẽ tiếp tục bị chặn cho đến khi nhận được tài liệu."
+      }
+    },
+    {
+      "id": "validation",
+      "keywords": [
+        "valid",
+        "file",
+        "queue",
+        "aptitude",
+        "décision",
+        "decision",
+        "xác nhận",
+        "xac nhan",
+        "hàng đợi",
+        "hang doi"
+      ],
+      "reply": {
+        "fr": "La file de validation contient notamment Marie Dupont (visite de reprise) et Antoine Girard (visite périodique). Une décision d’aptitude doit être prise avant la fin de journée.",
+        "en": "The validation queue includes Marie Dupont (return-to-work visit) and Antoine Girard (periodic visit). A fitness decision should be taken before the end of the day.",
+        "vi": "Hàng đợi xác nhận gồm Marie Dupont (khám tái hòa nhập) và Antoine Girard (khám định kỳ). Cần ra quyết định khả năng lao động trước cuối ngày."
+      }
+    },
+    {
+      "id": "appointments",
+      "keywords": [
+        "rendez-vous",
+        "rdv",
+        "appointment",
+        "visite",
+        "visit",
+        "agenda",
+        "lịch hẹn",
+        "lich hen",
+        "cuộc hẹn",
+        "cuoc hen"
+      ],
+      "reply": {
+        "fr": "Prochain rendez-vous à surveiller : Émilie Moreau, visite de reprise le 14/08/2026 à 10h00 avec Dr Camille Rousseau. Vérifiez le dossier avant l’accueil.",
+        "en": "Next appointment to watch: Émilie Moreau, return-to-work visit on 14/08/2026 at 10:00 with Dr Camille Rousseau. Review the file before reception.",
+        "vi": "Lịch hẹn cần theo dõi: Émilie Moreau, khám tái hòa nhập ngày 14/08/2026 lúc 10h00 với BS Camille Rousseau. Kiểm tra hồ sơ trước khi tiếp đón."
+      }
+    },
+    {
+      "id": "dossiers",
+      "keywords": [
+        "dossier",
+        "file",
+        "recent",
+        "récent",
+        "trait",
+        "process",
+        "hồ sơ",
+        "ho so",
+        "gần đây",
+        "gan day"
+      ],
+      "reply": {
+        "fr": "Les dossiers récents couvrent des visites d’embauche, périodiques et de reprise. Je peux préciser une anomalie, une validation ou un rendez-vous.",
+        "en": "Recent files cover pre-employment, periodic and return-to-work visits. I can go further on an anomaly, a validation or an appointment.",
+        "vi": "Hồ sơ gần đây gồm khám tuyển dụng, định kỳ và tái hòa nhập. Tôi có thể nói rõ hơn về bất thường, xác nhận hoặc lịch hẹn."
+      }
+    }
+  ],
+  "conversations": [
+    {
+      "id": "CHAT-0001",
+      "title": {
+        "fr": "Anomalie Thomas Robert",
+        "en": "Thomas Robert anomaly",
+        "vi": "Bất thường Thomas Robert"
+      },
+      "updatedAt": "2026-08-13T10:14:22+02:00",
+      "messages": [
+        {
+          "id": "MSG-0001",
+          "role": "user",
+          "createdAt": "2026-08-13T10:14:02+02:00",
+          "content": {
+            "fr": "Quels dossiers sont en anomalie ?",
+            "en": "Which files have anomalies?",
+            "vi": "Hồ sơ nào đang bị bất thường?"
+          }
+        },
+        {
+          "id": "MSG-0002",
+          "role": "assistant",
+          "createdAt": "2026-08-13T10:14:22+02:00",
+          "content": {
+            "fr": "Un dossier est actuellement bloqué : Thomas Robert (Industrie 86), fiche de poste manquante. Le traitement reste bloqué jusqu’à réception du document.",
+            "en": "One file is currently blocked: Thomas Robert (Industrie 86), missing job sheet. Processing stays blocked until the document is received.",
+            "vi": "Một hồ sơ đang bị chặn: Thomas Robert (Industrie 86), thiếu phiếu vị trí công việc. Việc xử lý sẽ tiếp tục bị chặn cho đến khi nhận được tài liệu."
+          }
+        }
+      ]
+    },
+    {
+      "id": "CHAT-0002",
+      "title": {
+        "fr": "File de validation",
+        "en": "Validation queue",
+        "vi": "Hàng đợi xác nhận"
+      },
+      "updatedAt": "2026-08-13T09:48:18+02:00",
+      "messages": [
+        {
+          "id": "MSG-0003",
+          "role": "user",
+          "createdAt": "2026-08-13T09:47:50+02:00",
+          "content": {
+            "fr": "Résume la file de validation",
+            "en": "Summarize the validation queue",
+            "vi": "Tóm tắt hàng đợi xác nhận"
+          }
+        },
+        {
+          "id": "MSG-0004",
+          "role": "assistant",
+          "createdAt": "2026-08-13T09:48:18+02:00",
+          "content": {
+            "fr": "La file de validation contient notamment Marie Dupont (visite de reprise) et Antoine Girard (visite périodique). Une décision d’aptitude doit être prise avant la fin de journée.",
+            "en": "The validation queue includes Marie Dupont (return-to-work visit) and Antoine Girard (periodic visit). A fitness decision should be taken before the end of the day.",
+            "vi": "Hàng đợi xác nhận gồm Marie Dupont (khám tái hòa nhập) và Antoine Girard (khám định kỳ). Cần ra quyết định khả năng lao động trước cuối ngày."
+          }
+        }
+      ]
+    },
+    {
+      "id": "CHAT-0003",
+      "title": {
+        "fr": "Prochains rendez-vous",
+        "en": "Upcoming appointments",
+        "vi": "Lịch hẹn sắp tới"
+      },
+      "updatedAt": "2026-08-12T16:22:08+02:00",
+      "messages": [
+        {
+          "id": "MSG-0005",
+          "role": "user",
+          "createdAt": "2026-08-12T16:21:40+02:00",
+          "content": {
+            "fr": "Quels sont les prochains rendez-vous ?",
+            "en": "What are the upcoming appointments?",
+            "vi": "Các lịch hẹn sắp tới là gì?"
+          }
+        },
+        {
+          "id": "MSG-0006",
+          "role": "assistant",
+          "createdAt": "2026-08-12T16:22:08+02:00",
+          "content": {
+            "fr": "Prochain rendez-vous à surveiller : Émilie Moreau, visite de reprise le 14/08/2026 à 10h00 avec Dr Camille Rousseau. Vérifiez le dossier avant l’accueil.",
+            "en": "Next appointment to watch: Émilie Moreau, return-to-work visit on 14/08/2026 at 10:00 with Dr Camille Rousseau. Review the file before reception.",
+            "vi": "Lịch hẹn cần theo dõi: Émilie Moreau, khám tái hòa nhập ngày 14/08/2026 lúc 10h00 với BS Camille Rousseau. Kiểm tra hồ sơ trước khi tiếp đón."
+          }
+        }
+      ]
+    },
+    {
+      "id": "CHAT-0004",
+      "title": {
+        "fr": "ATN_2026_08_13_0003.jpg",
+        "en": "ATN_2026_08_13_0003.jpg",
+        "vi": "ATN_2026_08_13_0003.jpg"
+      },
+      "updatedAt": "2026-08-13T15:02:10+02:00",
+      "messages": [
+        {
+          "id": "MSG-0007",
+          "role": "user",
+          "createdAt": "2026-08-13T15:01:46+02:00",
+          "content": "",
+          "attachments": [
+            {
+              "id": "ATT-0001",
+              "name": "ATN_2026_08_13_0003.jpg",
+              "size": 1258291,
+              "type": "image/jpeg"
+            }
+          ]
+        },
+        {
+          "id": "MSG-0008",
+          "role": "assistant",
+          "createdAt": "2026-08-13T15:02:10+02:00",
+          "content": {
+            "fr": "J’ai bien reçu le fichier ATN_2026_08_13_0003.jpg. Dites-moi si vous souhaitez une lecture, un classement ou un contrôle d’anomalie.",
+            "en": "I received the file ATN_2026_08_13_0003.jpg. Tell me if you want a reading, a classification or an anomaly check.",
+            "vi": "Tôi đã nhận tệp ATN_2026_08_13_0003.jpg. Cho tôi biết bạn muốn đọc, phân loại hay kiểm tra bất thường."
+          }
+        }
+      ]
+    }
+  ]
+}

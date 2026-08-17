@@ -1,0 +1,30 @@
+{
+  "centerSources": {
+    "CTR-POITIERS-01": "Cabinet Médical Poitiers",
+    "CTR-NIORT-01": "Cabinet Médical Niort"
+  },
+  "summary": {
+    "received": { "value": 128, "changePercent": 18 },
+    "processed": { "value": 96, "changePercent": 22 },
+    "toValidate": { "value": 3, "changePercent": -25 },
+    "anomalies": { "value": 1, "changePercent": -50 }
+  },
+  "processingOverview": {
+    "total": 117,
+    "segments": [
+      { "key": "completed", "count": 96, "percent": 82, "color": "#1d4f9a" },
+      { "key": "processing", "count": 18, "percent": 15, "color": "#8b5cf6" },
+      { "key": "toValidate", "count": 3, "percent": 3, "color": "#f97316" },
+      { "key": "anomaly", "count": 1, "percent": 1, "color": "#ef4444" }
+    ]
+  },
+  "activity": [
+    { "date": "2026-08-08", "received": 55, "processed": 34 },
+    { "date": "2026-08-09", "received": 68, "processed": 48 },
+    { "date": "2026-08-10", "received": 46, "processed": 30 },
+    { "date": "2026-08-11", "received": 88, "processed": 56 },
+    { "date": "2026-08-12", "received": 118, "processed": 78 },
+    { "date": "2026-08-13", "received": 150, "processed": 108 },
+    { "date": "2026-08-14", "received": 178, "processed": 128 }
+  ]
+}

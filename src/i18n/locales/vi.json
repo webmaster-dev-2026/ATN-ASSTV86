@@ -1,0 +1,1078 @@
+{
+  "meta": {
+    "title": "ASSTV86 — Đăng nhập",
+    "appName": "myATN ASSTV86"
+  },
+  "common": {
+    "needHelp": "Cần trợ giúp?",
+    "closeNotification": "Đóng thông báo",
+    "language": "Ngôn ngữ",
+    "french": "Français",
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+  "brand": {
+    "center": "Trung tâm sức khỏe nghề nghiệp",
+    "locations": "Poitiers - Niort",
+    "tagline": "Trợ lý số cho xử lý thông minh hồ sơ sức khỏe nghề nghiệp.",
+    "copyright": "© ASSTV 86 - Mọi quyền được bảo lưu"
+  },
+  "auth": {
+    "welcome": "Xin chào",
+    "description": "Đăng nhập vào không gian myATN của bạn.",
+    "email": "Địa chỉ e-mail",
+    "password": "Mật khẩu",
+    "rememberMe": "Ghi nhớ đăng nhập",
+    "forgotPassword": "Quên mật khẩu?",
+    "submit": "Đăng nhập",
+    "submitting": "Đang đăng nhập...",
+    "or": "hoặc",
+    "sso": "Đăng nhập bằng SSO",
+    "showPassword": "Hiện mật khẩu",
+    "hidePassword": "Ẩn mật khẩu",
+    "success": "Đăng nhập thành công!",
+    "failed": "Đăng nhập thất bại",
+    "securityTitle": "Dữ liệu an toàn",
+    "securityText": "Bảo mật - Tin cậy - Tuân thủ"
+  },
+  "validation": {
+    "emailRequired": "Vui lòng nhập e-mail",
+    "emailInvalid": "Địa chỉ e-mail không hợp lệ",
+    "passwordRequired": "Vui lòng nhập mật khẩu",
+    "passwordMinLength": "Mật khẩu phải có ít nhất 6 ký tự"
+  },
+  "errors": {
+    "invalidCredentials": "E-mail hoặc mật khẩu không đúng",
+    "accountInactive": "Tài khoản này đã bị vô hiệu hóa",
+    "accountLocked": "Tài khoản này đã bị khóa"
+  },
+  "nav": {
+    "dashboard": "Bảng điều khiển",
+    "dossiers": "Hồ sơ",
+    "toValidate": "Cần xác nhận",
+    "anomalies": "Bất thường",
+    "inProgress": "Đang xử lý",
+    "completed": "Hoàn tất",
+    "search": "Tìm kiếm",
+    "sourceDocuments": "Tài liệu nguồn",
+    "statistics": "Thống kê",
+    "settings": "Cài đặt",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "mainMenu": "Menu chính"
+  },
+  "header": {
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tìm kiếm...",
+    "clearSearch": "Xóa tìm kiếm",
+    "notifications": "Thông báo",
+    "userName": "Sophie Martin",
+    "userRole": "Thư ký y khoa",
+    "accountMenu": "Menu tài khoản",
+    "logout": "Đăng xuất"
+  },
+  "notifications": {
+    "title": "Thông báo",
+    "markAllRead": "Đánh dấu tất cả đã đọc",
+    "markAsRead": "Đánh dấu đã đọc",
+    "new": "Mới",
+    "earlier": "Trước đó",
+    "empty": "Chưa có thông báo.",
+    "dossierRef": "Hồ sơ",
+    "types": {
+      "dossier": "Hồ sơ đã nhận",
+      "validation": "Cần xác nhận",
+      "anomaly": "Bất thường",
+      "completed": "Hoàn tất",
+      "reminder": "Nhắc nhở"
+    },
+    "items": {
+      "receivedMoreau": {
+        "title": "Hồ sơ mới đã nhận",
+        "body": "Jean Moreau, khám tuyển dụng. Hồ sơ được nộp sáng nay và đang chờ đọc lần đầu."
+      },
+      "validateLeroux": {
+        "title": "Cần quyết định khả năng lao động",
+        "body": "Camille Leroux, khám định kỳ. Quyết định khả năng lao động cần được xác nhận trước cuối ngày."
+      },
+      "anomalyMarchand": {
+        "title": "Thiếu giấy tờ tùy thân",
+        "body": "Hồ sơ của Hugo Marchand không có giấy tờ tùy thân. Việc xử lý đang bị chặn."
+      },
+      "completedBernard": {
+        "title": "Hồ sơ đã xử lý",
+        "body": "Claire Bernard, khám tái hòa nhập. Hồ sơ đã được đóng và chuyển sang hoàn tất."
+      },
+      "assignedPetit": {
+        "title": "Hồ sơ đã được giao",
+        "body": "Hồ sơ của Léa Petit đã được giao cho bạn để kiểm tra tài liệu nguồn."
+      },
+      "reminderDupuis": {
+        "title": "Lịch khám vào ngày mai",
+        "body": "Pierre Dupuis, khám trước tái hòa nhập. Kiểm tra hồ sơ trước cuộc hẹn lúc 9h00."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển",
+    "received": "Hồ sơ đã nhận",
+    "processed": "Hồ sơ đã xử lý",
+    "toValidate": "Cần xác nhận",
+    "anomalies": "Bất thường",
+    "vsLast7Days": "so với 7 ngày trước",
+    "recentFiles": "Hồ sơ gần đây",
+    "seeMore": "Xem thêm",
+    "viewAll": "Xem tất cả",
+    "validationQueue": "Hàng đợi xác nhận",
+    "processingOverview": "Tổng quan xử lý",
+    "upcomingAppointments": "Lịch hẹn sắp tới",
+    "atnActivity": "Hoạt động ATN",
+    "viewReport": "Xem báo cáo",
+    "last7Days": "7 ngày qua",
+    "receivedShort": "Đã nhận",
+    "processedShort": "Đã xử lý",
+    "total": "Tổng",
+    "itemsInQueue": "mục trong hàng đợi",
+    "goToValidation": "Xem tất cả",
+    "queueItemAwaiting": "Hồ sơ \"{name}\" chờ xác nhận",
+    "queueEmpty": "Không có hồ sơ chờ xác nhận.",
+    "today": "Hôm nay",
+    "upcoming": "Sắp tới",
+    "medicalVisit": "Khám sức khỏe",
+    "doctorPrefix": "Bác sĩ:",
+    "columns": {
+      "fileName": "Tên tệp",
+      "source": "Nguồn",
+      "type": "Loại",
+      "receivedOn": "Nhận lúc",
+      "status": "Trạng thái",
+      "actions": "Thao tác"
+    },
+    "status": {
+      "toValidate": "Cần xác nhận",
+      "processing": "Đang xử lý",
+      "completed": "Hoàn tất",
+      "anomaly": "Bất thường"
+    },
+    "priority": {
+      "priority": "Ưu tiên",
+      "normal": "Bình thường"
+    },
+    "visit": {
+      "embauche": "ATN ban đầu",
+      "reprise": "ATN tái hòa nhập",
+      "periodique": "ATN định kỳ",
+      "speciale": "ATN đặc biệt"
+    }
+  },
+  "dossiers": {
+    "queue": {
+      "title": "Cần xử lý",
+      "all": "Tất cả",
+      "search": "Tìm người lao động...",
+      "count": "{count} hồ sơ",
+      "empty": "Không có hồ sơ khớp bộ lọc.",
+      "documentsCount": "{count} tài liệu",
+      "headingToProcess": "Hồ sơ cần xử lý ({count})",
+      "headingAll": "Tất cả hồ sơ ({count})",
+      "filter": "Lọc",
+      "more": "Thêm",
+      "openList": "Mở danh sách hồ sơ",
+      "closeList": "Thu gọn danh sách",
+      "loading": "Đang tải hồ sơ..."
+    },
+    "workspace": {
+      "nav": "Các mục trong hồ sơ",
+      "synthesis": "Tổng hợp",
+      "documents": "Tài liệu ({count})",
+      "proposal": "Đề xuất",
+      "history": "Lịch sử",
+      "agenda": "Lịch",
+      "information": "Thông tin",
+      "historyEmpty": "Chưa có lịch sử cho hồ sơ này.",
+      "agendaEmpty": "Chưa có sự kiện nào trên lịch.",
+      "actionTitle": "Phân tích và đề xuất",
+      "openAction": "Phân tích & đề xuất",
+      "closeAction": "Đóng",
+      "document": "Tài liệu",
+      "analysis": "Phân tích",
+      "appointment": "Lịch hẹn"
+    },
+    "header": {
+      "company": "Công ty",
+      "visitType": "Loại khám",
+      "receivedAt": "Ngày tiếp nhận",
+      "receivedOn": "Tiếp nhận",
+      "proposedAt": "Lịch hẹn đề xuất",
+      "noProposal": "Chưa có đề xuất",
+      "bornOn": "Sinh ngày {date} ({age} tuổi)",
+      "atDateTime": "{date} lúc {time}",
+      "center": "Trung tâm",
+      "practitioner": "Bác sĩ",
+      "reference": "Mã hồ sơ",
+      "source": "Nguồn"
+    },
+    "documents": {
+      "title": "Tài liệu trong hồ sơ",
+      "pages": "{count} trang"
+    },
+    "viewer": {
+      "toolbar": "Công cụ tài liệu",
+      "zoomOut": "Thu nhỏ",
+      "zoomIn": "Phóng to",
+      "zoom": "{value}%",
+      "page": "{current} / {total}",
+      "goToPage": "Chuyển trang",
+      "print": "In tệp",
+      "download": "Tải file PDF",
+      "downloaded": "Đã tải {file}",
+      "downloadFailed": "Không tải được file PDF"
+    },
+    "report": {
+      "title": "Báo cáo y tế",
+      "center": "Y học lao động - ASSTV 86",
+      "employee": "Người lao động",
+      "company": "Doanh nghiệp",
+      "visitType": "Loại khám",
+      "examDate": "Ngày khám",
+      "doctor": "Bác sĩ",
+      "clinical": "Khám lâm sàng",
+      "clinicalBody": "Người lao động được khám trong khuôn khổ loại khám nêu trên. Khám lâm sàng không phát hiện chống chỉ định lớn đối với việc tiếp tục hoặc trở lại làm việc, với điều kiện tuân thủ các hạn chế y tế được nêu bên dưới.",
+      "clinicalPending": "ATN đang đọc và đối chiếu các tài liệu trong hồ sơ. Nội dung báo cáo sẽ hiển thị khi phân tích hoàn tất.",
+      "restrictions": "Hạn chế y tế",
+      "noRestrictions": "Không có hạn chế y tế được ghi nhận trong tài liệu này.",
+      "conclusion": "Kết luận",
+      "conclusionRestricted": "Đủ điều kiện tạm thời, kèm bố trí vị trí làm việc. Kiểm tra lại theo hạn chế đã nêu.",
+      "conclusionFit": "Đủ điều kiện lao động, không hạn chế đặc biệt. Lần khám tiếp theo theo lịch định kỳ.",
+      "conclusionBlocked": "Hồ sơ chưa đủ điều kiện kết luận. Thiếu giấy tờ hoặc thông tin cần bổ sung trước khi đề xuất lịch hẹn.",
+      "visitRequestTitle": "Yêu cầu khám",
+      "visitRequestBody": "Doanh nghiệp gửi yêu cầu khám sức khỏe nghề nghiệp cho người lao động. Loại khám, vị trí làm việc và ngày tiếp nhận được ghi trong phiếu này.",
+      "sickLeaveTitle": "Giấy nghỉ việc",
+      "sickLeaveBody": "Giấy chứng nhận nghỉ việc được đính kèm để xác định ngày ngừng làm việc và điều kiện trở lại vị trí. ATN đối chiếu giấy này với yêu cầu khám.",
+      "jobSheetTitle": "Phiếu vị trí công việc",
+      "jobSheetBody": "Phiếu mô tả tư thế, tải trọng và thao tác lặp lại tại vị trí làm việc. Các yếu tố này được dùng để đánh giá hạn chế y tế.",
+      "formTitle": "Biểu mẫu hồ sơ",
+      "formBody": "Biểu mẫu hành chính của hồ sơ, gồm thông tin người lao động, công ty và loại khám được yêu cầu.",
+      "emailTitle": "E-mail nguồn",
+      "emailBody": "Thư gửi kèm tài liệu nguồn. Nội dung đã được ATN gắn với hồ sơ người lao động."
+    },
+    "paper": {
+      "page": "Trang {current} / {total}",
+      "confidential": "Bảo mật - y học lao động",
+      "cerfa": "Cerfa n° 10170*05",
+      "leaveNotice": "Giấy báo nghỉ việc",
+      "insured": "Người được bảo hiểm",
+      "ssn": "Số bảo hiểm xã hội",
+      "ssnValue": "1 85 •• •• ••• •• 28",
+      "prescriber": "Bác sĩ kê đơn",
+      "gp": "Dr Claire Morel",
+      "gpCity": "Cabinet médical, Poitiers",
+      "leavePeriod": "Thời gian nghỉ việc",
+      "from": "Từ",
+      "to": "Đến",
+      "duration": "{days} ngày",
+      "durationLabel": "Thời lượng",
+      "diagnosis": "Lý do y tế",
+      "diagnosisValue": "Bệnh cơ xương khớp, chi trên bên phải",
+      "outings": "Được ra ngoài",
+      "outingsYes": "Có, trong giờ thông thường",
+      "partTime": "Làm việc bán thời gian điều trị",
+      "partTimeNo": "Không",
+      "resumeVisit": "Cần khám trở lại làm việc",
+      "signature": "Chữ ký và con dấu",
+      "jobTitle": "Vị trí công việc",
+      "jobTitleValue": "Nhân viên kho / vận hành",
+      "site": "Cơ sở",
+      "requestedBy": "Người gửi yêu cầu",
+      "hr": "Phòng nhân sự",
+      "desiredDate": "Ngày mong muốn",
+      "motive": "Lý do yêu cầu",
+      "constraints": "Ràng buộc tại vị trí",
+      "handling": "Bốc xếp thủ công",
+      "handlingValue": "Tải đến 15 kg, pallet và thùng carton",
+      "posture": "Tư thế",
+      "postureValue": "Đứng kéo dài, cúi người",
+      "repeat": "Động tác lặp",
+      "repeatValue": "Gắp hàng và dán nhãn theo nhịp",
+      "environment": "Môi trường",
+      "environmentValue": "Kho, nhiệt độ thay đổi",
+      "yes": "Có",
+      "no": "Không",
+      "emailFrom": "Từ",
+      "emailTo": "Đến",
+      "emailSubject": "Tiêu đề",
+      "emailSubjectValue": "Tài liệu đính kèm - khám sức khỏe nghề nghiệp - {name}",
+      "emailGreeting": "Xin chào,",
+      "emailBody1": "Gửi kèm hồ sơ của {name} ({company}) cho {visit}.",
+      "emailBody2": "Nhờ xử lý yêu cầu và đề xuất một khung giờ khám.",
+      "emailSignoff": "Trân trọng,",
+      "stampAsstv": "ASSTV 86",
+      "stampMedical": "Y học lao động",
+      "findings": "Nhận xét lâm sàng",
+      "findingsBody": "Khám toàn thân không ghi nhận dấu hiệu cấp tính. Còn đau khi gắng sức chi trên và hạn chế biên độ khi mang vác.",
+      "aptitudeBox": "Kết luận khả năng lao động",
+      "annexTitle": "Phụ lục",
+      "annexLabel": "Phụ lục của biên bản khám",
+      "annexIssuedOn": "Lập ngày {date}",
+      "annexRecommendations": "Khuyến nghị bố trí vị trí làm việc",
+      "annexRecommendationsBody": "Căn cứ hạn chế y tế đã nêu, doanh nghiệp cần bố trí công việc tránh tư thế tĩnh kéo dài và hạn chế mang vác. Nên luân phiên ngồi/đứng và cho phép nghỉ ngắn khi đau tăng.",
+      "annexRestrictionsApplied": "Hạn chế y tế được áp dụng",
+      "annexNoRestrictions": "Không ghi nhận hạn chế y tế. Các khuyến nghị phòng ngừa chung vẫn áp dụng.",
+      "annexMeasures": "Biện pháp bố trí công việc",
+      "annexMeasurePosture": "Luân phiên tư thế",
+      "annexMeasurePostureValue": "Luân phiên ngồi và đứng mỗi 45 đến 60 phút. Tránh đứng tĩnh kéo dài.",
+      "annexMeasureLoad": "Mang vác thủ công",
+      "annexMeasureLoadValue": "Giới hạn mang vác 10 kg. Ưu tiên dụng cụ hỗ trợ (xe đẩy, xe nâng tay).",
+      "annexMeasureBreaks": "Nghỉ giải lao",
+      "annexMeasureBreaksValue": "Cho phép nghỉ 5 phút mỗi 2 giờ, hoặc ngay khi đau tăng.",
+      "annexMeasureStation": "Vị trí làm việc",
+      "annexMeasureStationValue": "Điều chỉnh chiều cao mặt bàn và tránh với tay trên vai.",
+      "annexFollowUp": "Tái khám dự kiến",
+      "annexFollowUpValue": "Điểm theo dõi vào {date}, trừ khi triệu chứng nặng hơn.",
+      "annexEmployerAction": "Việc người sử dụng lao động cần làm",
+      "annexEmployerActionBody": "Thông báo cho quản lý trực tiếp, triển khai các điều chỉnh và báo mọi khó khăn thực hiện cho dịch vụ y tế lao động.",
+      "annexAdmin": "Thông tin hành chính và bảo mật",
+      "annexAdminBody": "Tài liệu này thuộc hồ sơ y học lao động, chỉ truyền trong phạm vi đội ngũ được ủy quyền. Mọi sao chép hoặc chuyển giao ra ngoài phải tuân thủ quy định bảo mật y tế.",
+      "annexDocumentId": "Mã tài liệu",
+      "annexCenter": "Đơn vị ban hành",
+      "annexClassification": "Phân loại",
+      "annexClassificationValue": "Bảo mật — bí mật y tế",
+      "annexRecipients": "Người được phép nhận",
+      "annexRecipientDoctor": "Bác sĩ lao động và đội ngũ đa chuyên môn ASSTV 86",
+      "annexRecipientHr": "Phòng nhân sự được ủy quyền của doanh nghiệp, chỉ cho các nội dung khả năng lao động và bố trí công việc",
+      "annexRecipientWorker": "Người lao động liên quan, khi có yêu cầu",
+      "annexLegalBasis": "Căn cứ pháp lý",
+      "annexLegalBasisValue": "Điều L. 4624-1 và các điều tiếp theo của Bộ luật Lao động. Bí mật y tế áp dụng cho toàn bộ hồ sơ.",
+      "annexRetention": "Thời hạn lưu trữ",
+      "annexRetentionValue": "Lưu trong suốt thời gian theo dõi sức khỏe nghề nghiệp của người lao động, sau đó lưu trữ theo quy định hồ sơ y tế lao động.",
+      "annexCopyRule": "Sao chép",
+      "annexCopyRuleValue": "Mọi sao chép, trích xuất hoặc chuyển ra ngoài cần sự đồng ý của bác sĩ lao động, trừ khi pháp luật bắt buộc.",
+      "annexContact": "Liên hệ",
+      "annexContactValue": "Văn thư y tế ASSTV 86 — dossiers@asstv86.fr"
+    },
+    "analysis": {
+      "title": "Phân tích ATN",
+      "restrictions": "Hạn chế y tế",
+      "empty": "ATN chưa trích xuất hạn chế y tế.",
+      "pending": "Đang phân tích nội dung tài liệu.",
+      "lifting": "Cấm mang/vác vật nặng trên 10 kg",
+      "repetitive": "Tránh các động tác lặp lại",
+      "staticPosture": "Hạn chế tư thế tĩnh kéo dài",
+      "severityHigh": "Ưu tiên cao",
+      "severityMedium": "Cần lưu ý",
+      "fitness": "Quyết định khả năng lao động"
+    },
+    "appointment": {
+      "title": "Đề xuất lịch hẹn",
+      "doctor": "Bác sĩ",
+      "center": "Trung tâm",
+      "datetime": "Ngày giờ",
+      "match": "Phù hợp {percent}%",
+      "accept": "Chấp nhận đề xuất",
+      "changeDoctor": "Đổi bác sĩ",
+      "changeDate": "Đổi ngày",
+      "otherSlots": "Xem các khung giờ khác",
+      "back": "Quay lại đề xuất",
+      "selectDoctor": "Chọn bác sĩ",
+      "selectDate": "Chọn ngày",
+      "selectSlot": "Các khung giờ khác",
+      "accepted": "Đã chấp nhận lịch hẹn",
+      "unavailable": "ATN chưa đề xuất lịch hẹn cho hồ sơ này.",
+      "blocked": "Không thể đề xuất lịch khi hồ sơ còn thiếu giấy tờ."
+    },
+    "status": {
+      "toProcess": "Cần xử lý",
+      "analysing": "Đang phân tích",
+      "readyForAppointment": "Chờ lịch hẹn",
+      "blocked": "Bị chặn",
+      "completed": "Hoàn tất"
+    },
+    "fitness": {
+      "fit": "ĐỦ ĐIỀU KIỆN",
+      "unfit": "KHÔNG ĐỦ ĐIỀU KIỆN",
+      "pending": "Đang chờ"
+    },
+    "documentType": {
+      "visitRequest": "Yêu cầu khám",
+      "jobSheet": "Phiếu vị trí công việc",
+      "form": "Biểu mẫu",
+      "email": "E-mail",
+      "sickLeave": "Giấy nghỉ việc",
+      "medicalReport": "Báo cáo y tế"
+    },
+    "emptySelection": "Chọn một người lao động để xử lý hồ sơ.",
+    "toast": {
+      "accepted": "Đã chấp nhận lịch hẹn cho",
+      "doctorChanged": "Đã đổi bác sĩ cho",
+      "slotChanged": "Đã đổi khung giờ cho"
+    }
+  },
+  "toValidate": {
+    "pendingDossiers": "Hồ sơ chờ xác nhận",
+    "fieldsToConfirm": "Trường cần xác nhận",
+    "urgentDecisions": "Quyết định khẩn",
+    "total": "Tổng số",
+    "vsYesterday": "so với hôm qua",
+    "listTitle": "Danh sách cần xác nhận",
+    "filter": "Lọc",
+    "filterAll": "Tất cả",
+    "columns": {
+      "dossier": "Hồ sơ",
+      "type": "Loại",
+      "reason": "Lý do",
+      "priority": "Ưu tiên",
+      "deadline": "Hạn xử lý",
+      "status": "Trạng thái"
+    },
+    "reason": {
+      "returnDate": "Ngày tái hòa nhập",
+      "visitType": "Loại khám",
+      "workplace": "Nơi làm việc",
+      "employeeName": "Họ tên người lao động",
+      "jobTitle": "Vị trí công việc",
+      "companyName": "Doanh nghiệp"
+    },
+    "priority": {
+      "high": "Cao",
+      "medium": "Trung bình",
+      "low": "Thấp"
+    },
+    "statusPending": "Chờ xác nhận",
+    "remainingOne": "(1 ngày)",
+    "remainingMany": "({count} ngày)",
+    "range": "Hiển thị {from} đến {to} trong tổng số {total} hồ sơ",
+    "empty": "Không có hồ sơ chờ xác nhận.",
+    "emptyFilter": "Không có hồ sơ khớp bộ lọc.",
+    "emptySelection": "Chọn một hồ sơ để xác nhận.",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "page": "Trang {page}",
+    "summary": "Tóm tắt hồ sơ",
+    "examDate": "Ngày khám",
+    "doctor": "Bác sĩ",
+    "visitType": "Loại khám",
+    "company": "Doanh nghiệp",
+    "proposal": "Đề xuất ATN (được trích xuất)",
+    "source": "Nguồn trích xuất",
+    "sourceFile": "{file} (trang {page})",
+    "confidence": "Độ tin cậy: {percent}%",
+    "alternatives": "Lựa chọn thay thế",
+    "extraTitle": "Thông tin bổ sung từ tài liệu",
+    "notes": "Ghi chú (tùy chọn)",
+    "notesPlaceholder": "Nhập ghi chú của bạn...",
+    "confirm": "Xác nhận",
+    "edit": "Chỉnh sửa",
+    "requestMore": "Yêu cầu bổ sung",
+    "skip": "Bỏ qua",
+    "extra": {
+      "returnDate": "Hồ sơ đã được phân tích. Phát hiện hai ngày tái hòa nhập khác nhau, cần xác nhận trước khi tiếp tục.",
+      "visitType": "Loại khám được trích xuất từ yêu cầu. Nơi làm việc còn thiếu và cần xác nhận trước khi duyệt.",
+      "workplace": "Nơi làm việc phải được nêu rõ trước khi xác nhận hồ sơ.",
+      "employeeName": "Tên trích xuất khác với tên trên yêu cầu. Cần xác nhận danh tính trước khi tiếp tục.",
+      "jobTitle": "Vị trí công việc được trích xuất từ phiếu vị trí. Cần xác nhận trước khi kết luận.",
+      "companyName": "Tên doanh nghiệp được trích xuất từ tài liệu nguồn. Cần đối chiếu trước khi xác nhận."
+    },
+    "toast": {
+      "confirmed": "Đã xác nhận hồ sơ {name}.",
+      "skipped": "Đã bỏ qua hồ sơ {name}.",
+      "edit": "Đã ghi nhận chỉnh sửa cho {name}.",
+      "requestMore": "Đã gửi yêu cầu bổ sung cho {name}."
+    }
+  },
+  "anomalies": {
+    "listTitle": "Danh sách bất thường",
+    "searchPlaceholder": "Tìm theo bất thường, hồ sơ...",
+    "reset": "Đặt lại",
+    "detailTitle": "Chi tiết bất thường",
+    "detailTab": "Chi tiết",
+    "historyTitle": "Lịch sử xử lý",
+    "historyEmpty": "Chưa có lịch sử xử lý.",
+    "detectedAt": "Phát hiện lúc {time}",
+    "relatedDossier": "Hồ sơ liên quan",
+    "visitType": "Loại khám",
+    "examDate": "Ngày",
+    "doctor": "Bác sĩ",
+    "comparison": "So sánh giá trị",
+    "sourceLeft": "Nguồn 1",
+    "sourceRight": "Nguồn 2",
+    "vs": "VS",
+    "suggestionTitle": "Đề xuất xử lý từ ATN",
+    "actions": "Thao tác nhanh",
+    "editValue": "Sửa giá trị",
+    "markResolved": "Đánh dấu đã xử lý",
+    "openDossier": "Mở hồ sơ",
+    "emptyFilter": "Không có bất thường khớp bộ lọc.",
+    "emptySelection": "Chọn một bất thường để xem chi tiết.",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "page": "Trang {page}",
+    "range": "Hiển thị {from} đến {to} trong tổng số {total} bất thường",
+    "perPage": "{count} / trang",
+    "perPageLabel": "Số bất thường mỗi trang",
+    "filters": {
+      "severity": "Mức độ",
+      "status": "Trạng thái",
+      "type": "Loại bất thường",
+      "assignee": "Người phụ trách",
+      "from": "Từ ngày",
+      "to": "Đến ngày"
+    },
+    "severity": {
+      "critical": "Nghiêm trọng",
+      "warning": "Cảnh báo",
+      "info": "Thông tin"
+    },
+    "status": {
+      "open": "Chưa xử lý",
+      "inProgress": "Đang xử lý",
+      "resolved": "Đã xử lý",
+      "blocked": "Chặn xử lý"
+    },
+    "summary": {
+      "resolved": "Đã xử lý",
+      "blocked": "Chặn xử lý"
+    },
+    "hints": {
+      "critical": "Cần xử lý ngay",
+      "warning": "Cần theo dõi",
+      "resolved": "Hôm nay",
+      "blocked": "Cần mở khóa"
+    },
+    "types": {
+      "inconsistent": "Dữ liệu không khớp",
+      "lowConfidence": "Độ tin cậy thấp",
+      "missingDocument": "Thiếu tài liệu",
+      "missingInformation": "Thiếu thông tin"
+    },
+    "columns": {
+      "anomaly": "Bất thường",
+      "dossier": "Hồ sơ",
+      "severity": "Mức độ",
+      "assignee": "Người phụ trách",
+      "status": "Trạng thái",
+      "detected": "Ngày phát hiện"
+    },
+    "history": {
+      "detected": "Hệ thống tự động phát hiện bất thường.",
+      "assigned": "Đã gán người phụ trách xử lý.",
+      "resolved": "Đã đánh dấu xử lý xong."
+    },
+    "toast": {
+      "edit": "Đã ghi nhận chỉnh sửa cho {name}.",
+      "resolved": "Đã xử lý bất thường của {name}."
+    }
+  },
+  "inProgress": {
+    "subtitle": "Theo dõi các hồ sơ đang được ATN xử lý theo từng bước",
+    "vsYesterday": "so với hôm qua",
+    "listTitle": "Danh sách hồ sơ đang xử lý",
+    "searchPlaceholder": "Tìm theo mã hồ sơ, nhân viên, doanh nghiệp...",
+    "export": "Xuất dữ liệu",
+    "exported": "Đã xuất {count} hồ sơ đang xử lý.",
+    "seeDetails": "Xem chi tiết",
+    "seeAllActivity": "Xem tất cả hoạt động >",
+    "workflowTitle": "Quy trình xử lý ATN",
+    "feedTitle": "Hoạt động thời gian thực",
+    "empty": "Không có hồ sơ đang xử lý.",
+    "emptyFilter": "Không có hồ sơ khớp bộ lọc.",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "range": "Hiển thị {from} đến {to} trong tổng số {total} hồ sơ",
+    "perPage": "{count} / trang",
+    "perPageLabel": "Số hồ sơ mỗi trang",
+    "etaHours": "{hours}h {minutes}m",
+    "etaMinutes": "{minutes}m",
+    "cards": {
+      "analysing": "Đang phân tích",
+      "checking": "Đang kiểm tra",
+      "scheduling": "Tìm lịch hẹn"
+    },
+    "filters": {
+      "status": "Trạng thái ATN",
+      "step": "Bước xử lý"
+    },
+    "columns": {
+      "reference": "Mã hồ sơ",
+      "employee": "Nhân viên",
+      "step": "Bước hiện tại",
+      "progress": "Tiến độ",
+      "status": "Trạng thái ATN",
+      "lastActivity": "Hoạt động cuối",
+      "eta": "ETA"
+    },
+    "steps": {
+      "analyse": "Phân tích tài liệu",
+      "check": "Kiểm tra",
+      "schedule": "Tìm lịch trống"
+    },
+    "status": {
+      "analysing": "Đang phân tích",
+      "checking": "Đang kiểm tra",
+      "scheduling": "Tìm lịch hẹn"
+    },
+    "workflow": {
+      "intake": "Tiếp nhận",
+      "employee": "Nhân viên",
+      "company": "Doanh nghiệp",
+      "classify": "Phân loại",
+      "analyse": "Phân tích tài liệu",
+      "check": "Kiểm tra",
+      "schedule": "Tìm lịch trống",
+      "propose": "Đề xuất lịch hẹn",
+      "confirm": "Xác nhận",
+      "generate": "Sinh tài liệu"
+    },
+    "activity": {
+      "ocr": "OCR tài liệu y tế",
+      "extract": "Trích xuất thông tin",
+      "classify": "Phân loại tài liệu",
+      "verify": "Kiểm tra ràng buộc",
+      "slots": "Tìm lịch trống",
+      "match": "Ghép bác sĩ"
+    },
+    "feed": {
+      "ocr": "{reference} đang được phân tích",
+      "extract": "{reference} đang trích xuất dữ liệu",
+      "classify": "{reference} đang phân loại tài liệu",
+      "verify": "{reference} đang được kiểm tra",
+      "slots": "{reference} đang tìm lịch hẹn",
+      "match": "{reference} đang ghép lịch bác sĩ"
+    }
+  },
+  "completed": {
+    "stats": {
+      "dossiers": "Hồ sơ hoàn tất",
+      "dossiersHint": "Tổng số hồ sơ",
+      "documents": "Tài liệu đã tạo",
+      "documentsHint": "Tổng số tài liệu",
+      "sent": "Đã gửi",
+      "sentHint": "Tổng số",
+      "archived": "Đã lưu trữ",
+      "archivedHint": "Tổng số"
+    },
+    "vsLastMonth": "so với tháng trước",
+    "listTitle": "Danh sách hồ sơ hoàn tất",
+    "searchPlaceholder": "Tìm kiếm theo mã hồ sơ, tên nhân viên, doanh nghiệp...",
+    "filter": "Bộ lọc",
+    "filterAll": "Tất cả loại khám",
+    "columns": {
+      "reference": "Mã hồ sơ",
+      "employee": "Nhân viên",
+      "company": "Doanh nghiệp",
+      "visitType": "Loại khám",
+      "completedAt": "Ngày hoàn tất",
+      "documents": "Tài liệu tạo",
+      "status": "Trạng thái cuối"
+    },
+    "statusCompleted": "Hoàn tất",
+    "range": "Hiển thị {from} đến {to} trong tổng số {total} hồ sơ",
+    "empty": "Chưa có hồ sơ hoàn tất.",
+    "emptyFilter": "Không có hồ sơ khớp bộ lọc.",
+    "emptySelection": "Chọn một hồ sơ để xem thông tin.",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "page": "Trang {page}",
+    "detailTitle": "Thông tin hồ sơ",
+    "detailTab": "Thông tin",
+    "createdAt": "Tạo ngày {date} lúc {time}",
+    "completedAtValue": "{date} lúc {time}",
+    "processTitle": "Quy trình hoàn tất",
+    "process": {
+      "created": "Tạo hồ sơ",
+      "clinical": "Khám lâm sàng",
+      "paraclinical": "Cận lâm sàng",
+      "conclusion": "Bác sĩ kết luận",
+      "sent": "Hoàn tất & gửi"
+    },
+    "documentsTitle": "Tài liệu đã tạo ({count})",
+    "docTitles": {
+      "invitation": "Giấy mời",
+      "email": "Email",
+      "summary": "Phiếu tổng hợp",
+      "report": "Báo cáo khám",
+      "fitness": "Phiếu kết luận"
+    },
+    "viewDocument": "Xem trước tài liệu",
+    "downloadDocument": "Tải tài liệu",
+    "actionsTitle": "Tác vụ nhanh",
+    "actions": {
+      "preview": "Xem trước",
+      "exportPdf": "Xuất PDF",
+      "exportWord": "Xuất Word",
+      "share": "Chia sẻ"
+    },
+    "historyTitle": "Lịch sử gần đây",
+    "historyEmpty": "Chưa có lịch sử cho hồ sơ này.",
+    "history": {
+      "sent": "Hồ sơ được hoàn tất và gửi",
+      "concluded": "Bác sĩ đã ký kết luận",
+      "attached": "Kết quả cận lâm sàng đã được đính kèm",
+      "created": "Hồ sơ được tạo"
+    },
+    "toast": {
+      "preview": "Đang mở xem trước hồ sơ {name}.",
+      "exportPdf": "Đã xuất PDF cho {name}.",
+      "exportWord": "Đã xuất Word cho {name}.",
+      "share": "Đã tạo liên kết chia sẻ cho {name}.",
+      "viewDocument": "Đang mở {name}.",
+      "downloadDocument": "Đã tải {name}."
+    }
+  },
+  "sourceDocuments": {
+    "total": "Tổng tài liệu",
+    "analysed": "Đã phân tích",
+    "reviewing": "Đang rà soát",
+    "error": "Lỗi",
+    "vsYesterday": "so với hôm qua",
+    "searchLabel": "Tìm kiếm tài liệu",
+    "searchPlaceholder": "Tìm kiếm tài liệu",
+    "filters": {
+      "source": "Nguồn",
+      "fileType": "Loại tệp",
+      "status": "Trạng thái",
+      "uploadedAt": "Ngày tải lên",
+      "datePlaceholder": "Chọn khoảng thời gian",
+      "all": "Tất cả",
+      "more": "Bộ lọc"
+    },
+    "listTitle": "Danh sách tài liệu ({count})",
+    "listNav": "Phân trang tài liệu",
+    "columns": {
+      "select": "Chọn",
+      "name": "Tên tài liệu",
+      "source": "Nguồn",
+      "fileType": "Loại tệp",
+      "uploadedAt": "Ngày tải lên",
+      "status": "Trạng thái",
+      "actions": "Thao tác"
+    },
+    "status": {
+      "analysed": "Đã phân tích",
+      "reviewing": "Đang rà soát",
+      "error": "Lỗi",
+      "uploaded": "Đã tải lên"
+    },
+    "fileType": {
+      "PDF": "PDF",
+      "PPTX": "PPTX",
+      "DOCX": "DOCX",
+      "JPG": "JPG",
+      "XLSX": "XLSX"
+    },
+    "range": "Hiển thị {from} đến {to} trong tổng số {total} tài liệu",
+    "emptyFilter": "Không có tài liệu khớp bộ lọc.",
+    "emptySelection": "Chọn một tài liệu để xem chi tiết.",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "open": "Mở",
+    "download": "Tải xuống",
+    "reanalyse": "Phân tích lại",
+    "viewDetails": "Xem chi tiết",
+    "uploadedMeta": "{date} lúc {time} · {size}",
+    "extractTitle": "Tóm tắt trích xuất",
+    "tabs": {
+      "preview": "Xem trước",
+      "metadata": "Siêu dữ liệu",
+      "history": "Lịch sử"
+    },
+    "viewer": {
+      "page": "{current} / {total}",
+      "zoom": "{value}%",
+      "zoomIn": "Phóng to",
+      "zoomOut": "Thu nhỏ",
+      "fullscreen": "Toàn màn hình"
+    },
+    "meta": {
+      "fileName": "Tên tệp",
+      "fileType": "Loại tệp",
+      "size": "Dung lượng",
+      "pages": "Số trang",
+      "pagesValue": "{count} trang",
+      "source": "Nguồn",
+      "uploader": "Người tải lên",
+      "uploadedAt": "Ngày tải lên",
+      "dossier": "Hồ sơ liên quan"
+    },
+    "history": {
+      "uploaded": "Tài liệu đã được tải lên hệ thống.",
+      "analysed": "ATN đã hoàn tất phân tích tài liệu.",
+      "reviewStarted": "Tài liệu đang được rà soát.",
+      "errorDetected": "Phát hiện lỗi khi phân tích tài liệu.",
+      "reanalysed": "Đã gửi yêu cầu phân tích lại."
+    },
+    "summary": {
+      "nightWork": "Giấy chứng nhận khả năng làm việc ban đêm của {name} ({company}). Kết luận: đủ điều kiện làm ca đêm, không hạn chế đặc biệt.",
+      "jobSheet": "Phiếu vị trí việc làm của {name} tại {company}. Các ràng buộc tư thế, thao tác lặp và môi trường đã được trích xuất.",
+      "visitRequest": "Yêu cầu khám từ {company} cho {name}. Loại khám và ngày mong muốn đã được nhận diện.",
+      "sickLeave": "Giấy nghỉ việc của {name}. Thời gian nghỉ và ngày dự kiến tái hòa nhập đã được trích xuất.",
+      "form": "Mẫu đơn của {name} ({company}) đã được đọc. Các trường hành chính chính đã được điền.",
+      "planning": "Bảng kế hoạch từ {company} liên quan đến {name}. Các ca và ngày làm việc đã được nhận diện.",
+      "email": "Thư kèm tài liệu từ {company} cho hồ sơ của {name}. Nội dung chính đã được gắn với hồ sơ.",
+      "error": "Không đọc được tài liệu của {name} ({company}). Cần tải lại bản rõ hơn hoặc phân tích lại."
+    },
+    "paper": {
+      "center": "Service de santé au travail",
+      "title": "ATTESTATION D'APTITUDE AU TRAVAIL DE NUIT",
+      "employee": "Salarié",
+      "company": "Employeur",
+      "date": "Date",
+      "doctor": "Médecin du travail",
+      "doctorName": "Dr Pierre Martin",
+      "conclusion": "Conclusion",
+      "conclusionBody": "Le salarié est reconnu apte au travail de nuit, sans restriction particulière à la date de l'examen.",
+      "annex": "Annexe: recommandations de suivi et organisation des pauses."
+    },
+    "toast": {
+      "opened": "Đã mở {name}.",
+      "downloaded": "Đã tải {name}.",
+      "reanalysed": "Đã gửi phân tích lại cho {name}."
+    }
+  },
+  "settings": {
+    "navTitle": "Danh mục cài đặt",
+    "relatedTitle": "Cài đặt liên quan",
+    "comingSoon": "Phần này sẽ sớm khả dụng.",
+    "categories": {
+      "general": "Chung",
+      "users": "Người dùng & vai trò",
+      "centers": "Trung tâm & bác sĩ",
+      "channels": "Kênh tiếp nhận",
+      "rules": "Quy tắc nghiệp vụ",
+      "templates": "Mẫu tài liệu",
+      "notifications": "Thông báo"
+    },
+    "sections": {
+      "general": {
+        "title": "Chung",
+        "description": "Cấu hình chung của hệ thống ATN."
+      },
+      "users": {
+        "title": "Người dùng & vai trò",
+        "description": "Quản lý tài khoản, quyền hạn và vai trò người dùng."
+      },
+      "centers": {
+        "title": "Trung tâm & bác sĩ",
+        "description": "Quản lý trung tâm y tế và bác sĩ phụ trách."
+      },
+      "channels": {
+        "title": "Kênh tiếp nhận",
+        "description": "Cấu hình các kênh tiếp nhận hồ sơ và tài liệu."
+      },
+      "rules": {
+        "title": "Quy tắc nghiệp vụ",
+        "description": "Định nghĩa quy tắc xử lý hồ sơ sức khỏe nghề nghiệp."
+      },
+      "notifications": {
+        "title": "Thông báo",
+        "description": "Cấu hình kênh và nội dung thông báo hệ thống."
+      }
+    },
+    "templates": {
+      "title": "Mẫu tài liệu",
+      "description": "Quản lý các mẫu tài liệu hệ thống sử dụng trong quy trình ATN.",
+      "add": "Thêm mẫu mới",
+      "preview": "Xem trước",
+      "edit": "Chỉnh sửa",
+      "duplicate": "Nhân bản",
+      "more": "Thêm thao tác",
+      "archive": "Lưu trữ",
+      "updated": "Cập nhật: {date} bởi {name}",
+      "copyName": "{name} (bản sao)",
+      "range": "Hiển thị {from} đến {to} trong tổng số {total} mẫu",
+      "perPage": "{count} / trang",
+      "perPageLabel": "Số mẫu mỗi trang",
+      "prevPage": "Trang trước",
+      "nextPage": "Trang sau",
+      "listNav": "Phân trang mẫu tài liệu",
+      "empty": "Chưa có mẫu tài liệu.",
+      "status": {
+        "active": "Đang sử dụng",
+        "draft": "Bản nháp"
+      },
+      "items": {
+        "invite": {
+          "name": "Giấy mời",
+          "description": "Mẫu giấy mời khám sức khỏe nghề nghiệp gửi cho người lao động."
+        },
+        "email": {
+          "name": "Email xác nhận",
+          "description": "Mẫu email xác nhận lịch hẹn khám sức khỏe nghề nghiệp."
+        },
+        "letter": {
+          "name": "Công văn",
+          "description": "Mẫu công văn trao đổi với doanh nghiệp về kết quả ATN."
+        },
+        "summary": {
+          "name": "Phiếu tổng hợp",
+          "description": "Phiếu tổng hợp kết quả khám sức khỏe nghề nghiệp."
+        },
+        "custom": {
+          "name": "Mẫu mới",
+          "description": "Mẫu tài liệu mới chưa được cấu hình."
+        }
+      },
+      "toast": {
+        "preview": "Đã mở xem trước {name}.",
+        "edit": "Đã mở chỉnh sửa {name}.",
+        "duplicated": "Đã nhân bản {name}.",
+        "archived": "Đã lưu trữ {name}.",
+        "added": "Đã tạo mẫu mới."
+      }
+    },
+    "related": {
+      "ruleAutomation": {
+        "title": "Tự động hóa quy tắc",
+        "description": "Áp dụng quy tắc nghiệp vụ khi xử lý hồ sơ"
+      },
+      "auditLog": {
+        "title": "Nhật ký hệ thống (Audit log)",
+        "description": "Ghi nhận thao tác của người dùng"
+      },
+      "defaultLanguage": {
+        "title": "Ngôn ngữ mặc định",
+        "description": "Ngôn ngữ hiển thị mặc định của hệ thống"
+      },
+      "systemNotifications": {
+        "title": "Thông báo hệ thống",
+        "description": "Gửi thông báo khi có sự kiện quan trọng"
+      },
+      "periodicReports": {
+        "title": "Gửi báo cáo định kỳ",
+        "description": "Báo cáo tổng hợp gửi tự động theo lịch"
+      },
+      "retention": {
+        "title": "Thời gian lưu trữ dữ liệu",
+        "description": "Thời hạn lưu trữ hồ sơ theo quy định",
+        "years": "{count} năm"
+      }
+    }
+  },
+  "statistics": {
+    "received": "Hồ sơ tiếp nhận",
+    "avgProcessingTime": "Thời gian xử lý TB",
+    "anomalyRate": "Tỷ lệ bất thường",
+    "confirmationRate": "Tỷ lệ xác nhận",
+    "today": "Hôm nay",
+    "vsYesterday": "so với hôm qua",
+    "vsPrevious30Days": "so với 30 ngày trước",
+    "daysUnit": "ngày",
+    "periods": {
+      "last7Days": "7 ngày qua",
+      "last30Days": "30 ngày qua",
+      "last90Days": "90 ngày qua"
+    },
+    "receivedByDay": "Số lượng hồ sơ tiếp nhận theo ngày ({period})",
+    "byVisitType": "Số lượng hồ sơ theo loại khám ({period})",
+    "statusDistribution": "Phân bổ hồ sơ theo trạng thái",
+    "anomalyClassification": "Phân loại bất thường ({period})",
+    "topFacilities": "Top cơ sở khám hoạt động nhiều nhất ({period})",
+    "total": "Tổng số",
+    "records": "Hồ sơ",
+    "updated": "Cập nhật: {datetime}",
+    "refresh": "Làm mới",
+    "viewAllFacilities": "Xem tất cả cơ sở khám",
+    "rank": "#",
+    "facility": "Cơ sở khám",
+    "receivedCount": "Hồ sơ tiếp nhận",
+    "rate": "Tỷ lệ",
+    "trend": "Xu hướng",
+    "period": "Kỳ",
+    "status": {
+      "toProcess": "Cần xử lý",
+      "processing": "Đang xử lý",
+      "waitingAppointment": "Chờ lịch hẹn",
+      "completed": "Hoàn tất",
+      "blocked": "Bị chặn"
+    },
+    "visit": {
+      "other": "Khám khác"
+    },
+    "anomalies": {
+      "prolongedRestriction": "Hạn chế tư thế kéo dài",
+      "missingInfo": "Thiếu thông tin/giấy tờ",
+      "inconsistent": "Dữ liệu không khớp",
+      "lowConfidence": "Độ tin cậy thấp",
+      "missingDocument": "Thiếu tài liệu"
+    }
+  },
+  "search": {
+    "subtitle": "Tìm hồ sơ, tài liệu, bất thường hoặc người lao động",
+    "placeholder": "Tên, mã hồ sơ, doanh nghiệp, tài liệu...",
+    "clear": "Xóa tìm kiếm",
+    "scopes": {
+      "all": "Tất cả",
+      "dossier": "Hồ sơ",
+      "document": "Tài liệu",
+      "anomaly": "Bất thường",
+      "employee": "Người lao động"
+    },
+    "kind": {
+      "dossier": "Hồ sơ",
+      "document": "Tài liệu",
+      "anomaly": "Bất thường",
+      "employee": "Người lao động"
+    },
+    "latestTitle": "Mục gần nhất",
+    "resultsTitle": "Kết quả",
+    "empty": "Không có kết quả phù hợp với tìm kiếm.",
+    "emptySelection": "Chọn một kết quả để xem chi tiết.",
+    "detailTitle": "Chi tiết",
+    "openDossier": "Mở hồ sơ",
+    "openDocument": "Mở tài liệu",
+    "openAnomaly": "Xem bất thường",
+    "openEmployee": "Xem hồ sơ",
+    "related": "{count} mục liên quan",
+    "range": "Hiển thị từ {from} đến {to} trên {total}",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "page": "Trang {page}",
+    "listNav": "Phân trang kết quả",
+    "columns": {
+      "type": "Loại",
+      "result": "Kết quả",
+      "employee": "Người lao động",
+      "company": "Doanh nghiệp",
+      "date": "Ngày",
+      "status": "Trạng thái"
+    },
+    "fields": {
+      "employee": "Người lao động",
+      "company": "Doanh nghiệp",
+      "visitType": "Loại khám",
+      "status": "Trạng thái",
+      "date": "Ngày",
+      "source": "Nguồn",
+      "file": "Tệp",
+      "size": "Dung lượng",
+      "severity": "Mức độ",
+      "related": "Mục liên quan"
+    }
+  },
+  "placeholder": {
+    "comingSoon": "Trang này sẽ sớm khả dụng."
+  },
+  "chatbot": {
+    "title": "Trợ lý",
+    "open": "Mở trợ lý",
+    "close": "Đóng trợ lý",
+    "newChat": "Cuộc trò chuyện mới",
+    "untitled": "Cuộc trò chuyện mới",
+    "history": "Lịch sử",
+    "expand": "Mở rộng bảng bên phải",
+    "collapse": "Thu gọn bảng",
+    "send": "Gửi",
+    "attachFile": "Đính kèm tệp",
+    "removeFile": "Gỡ tệp",
+    "placeholder": "Nhập tin nhắn...",
+    "emptyHistory": "Chưa có cuộc trò chuyện.",
+    "welcomeTitle": "Xin chào, tôi có thể giúp gì?",
+    "welcomeBody": "Hỏi về hồ sơ, xác nhận hoặc bất thường.",
+    "thinking": "Đang suy nghĩ",
+    "dragHint": "Kéo để di chuyển, bấm để mở",
+    "suggestions": {
+      "anomalies": "Hồ sơ nào đang bị bất thường?",
+      "validation": "Tóm tắt hàng đợi xác nhận",
+      "appointments": "Các lịch hẹn sắp tới là gì?"
+    }
+  }
+}

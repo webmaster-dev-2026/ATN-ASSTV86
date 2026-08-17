@@ -1,0 +1,116 @@
+{
+  "anomalies": [
+    {
+      "id": "ANO-0001",
+      "dossier_id": "DOS-0001",
+      "type": "INCONSISTENT_DATA",
+      "field_name": "return_date",
+      "title": "Date de reprise incohérente",
+      "message": "Deux dates de reprise différentes ont été détectées.",
+      "severity": "WARNING",
+      "status": "OPEN",
+      "assigned_to": "USR-0001"
+    },
+    {
+      "id": "ANO-0002",
+      "dossier_id": "DOS-0002",
+      "type": "LOW_CONFIDENCE",
+      "field_name": "employee_name",
+      "title": "Identification du salarié à confirmer",
+      "message": "Le niveau de confiance est insuffisant pour confirmer automatiquement le salarié.",
+      "severity": "WARNING",
+      "status": "OPEN",
+      "assigned_to": "USR-0002"
+    },
+    {
+      "id": "ANO-0003",
+      "dossier_id": "DOS-0004",
+      "type": "MISSING_DOCUMENT",
+      "field_name": null,
+      "title": "Fiche de poste manquante",
+      "message": "La fiche de poste est nécessaire pour poursuivre le traitement.",
+      "severity": "CRITICAL",
+      "status": "OPEN",
+      "assigned_to": "USR-0001"
+    },
+    {
+      "id": "ANO-0004",
+      "dossier_id": "DOS-0004",
+      "type": "MISSING_INFORMATION",
+      "field_name": "job_title",
+      "title": "Poste non renseigné",
+      "message": "Le poste du salarié doit être complété.",
+      "severity": "WARNING",
+      "status": "OPEN",
+      "assigned_to": "USR-0001"
+    },
+    {
+      "id": "ANO-0005",
+      "dossier_id": "DOS-0005",
+      "type": "INCONSISTENT_DATA",
+      "field_name": "company_name",
+      "title": "Entreprise vérifiée",
+      "message": "L'incohérence détectée a été corrigée par l'utilisateur.",
+      "severity": "WARNING",
+      "status": "RESOLVED",
+      "assigned_to": "USR-0003",
+      "resolved_by": "USR-0005"
+    },
+    {
+      "id": "ANO-0006",
+      "dossier_id": "DOS-0006",
+      "type": "MISSING_INFORMATION",
+      "field_name": "workplace",
+      "title": "Lieu de travail manquant",
+      "message": "Le lieu de travail doit être précisé avant validation.",
+      "severity": "WARNING",
+      "status": "OPEN",
+      "assigned_to": "USR-0002"
+    },
+    {
+      "id": "ANO-0007",
+      "dossier_id": "DOS-0007",
+      "type": "LOW_CONFIDENCE",
+      "field_name": "return_date",
+      "title": "Date de reprise à confirmer",
+      "message": "La date extraite nécessite une validation manuelle.",
+      "severity": "WARNING",
+      "status": "OPEN",
+      "assigned_to": "USR-0004"
+    },
+    {
+      "id": "ANO-0008",
+      "dossier_id": "DOS-0008",
+      "type": "MISSING_DOCUMENT",
+      "field_name": null,
+      "title": "Justificatif d'identité manquant",
+      "message": "Un justificatif complémentaire est recommandé.",
+      "severity": "INFO",
+      "status": "OPEN",
+      "assigned_to": "USR-0005"
+    },
+    {
+      "id": "ANO-0009",
+      "dossier_id": "DOS-0009",
+      "type": "INCONSISTENT_DATA",
+      "field_name": "employee_name",
+      "title": "Nom du salarié divergent",
+      "message": "Le nom extrait diffère du nom saisi dans la demande.",
+      "severity": "WARNING",
+      "status": "OPEN",
+      "assigned_to": "USR-0002"
+    },
+    {
+      "id": "ANO-0010",
+      "dossier_id": "DOS-0010",
+      "type": "MISSING_INFORMATION",
+      "field_name": "phone",
+      "title": "Téléphone salarié manquant",
+      "message": "L'anomalie a été corrigée avant finalisation.",
+      "severity": "INFO",
+      "status": "RESOLVED",
+      "assigned_to": "USR-0003",
+      "resolved_by": "USR-0005"
+    }
+  ]
+}

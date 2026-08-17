@@ -1,0 +1,103 @@
+{
+  "updatedAt": "2026-08-13T14:36:00+02:00",
+  "summary": {
+    "received": { "value": 1268, "changePercent": 18 },
+    "avgProcessingDays": { "value": 2.6, "changePercent": -14 },
+    "anomalyRate": { "value": 3.8, "changePercent": 0.9 },
+    "confirmationRate": { "value": 92.4, "changePercent": 3.5 }
+  },
+  "receivedByDay": [
+    { "date": "2026-07-19", "count": 48 },
+    { "date": "2026-07-20", "count": 52 },
+    { "date": "2026-07-21", "count": 41 },
+    { "date": "2026-07-22", "count": 63 },
+    { "date": "2026-07-23", "count": 71 },
+    { "date": "2026-07-24", "count": 58 },
+    { "date": "2026-07-25", "count": 36 },
+    { "date": "2026-07-26", "count": 29 },
+    { "date": "2026-07-27", "count": 67 },
+    { "date": "2026-07-28", "count": 74 },
+    { "date": "2026-07-29", "count": 82 },
+    { "date": "2026-07-30", "count": 91 },
+    { "date": "2026-07-31", "count": 78 },
+    { "date": "2026-08-01", "count": 88 },
+    { "date": "2026-08-02", "count": 69 },
+    { "date": "2026-08-03", "count": 97 },
+    { "date": "2026-08-04", "count": 104 },
+    { "date": "2026-08-05", "count": 118 },
+    { "date": "2026-08-06", "count": 86 },
+    { "date": "2026-08-07", "count": 129 },
+    { "date": "2026-08-08", "count": 154 },
+    { "date": "2026-08-09", "count": 121 },
+    { "date": "2026-08-10", "count": 136 },
+    { "date": "2026-08-11", "count": 98 },
+    { "date": "2026-08-12", "count": 112 },
+    { "date": "2026-08-13", "count": 108 },
+    { "date": "2026-08-14", "count": 76 },
+    { "date": "2026-08-15", "count": 84 },
+    { "date": "2026-08-16", "count": 119 },
+    { "date": "2026-08-17", "count": 126 },
+    { "date": "2026-08-18", "count": 102 }
+  ],
+  "byVisitType": [
+    { "key": "periodique", "count": 612, "percent": 48.3 },
+    { "key": "speciale", "count": 312, "percent": 24.6 },
+    { "key": "embauche", "count": 198, "percent": 15.6 },
+    { "key": "reprise", "count": 96, "percent": 7.6 },
+    { "key": "other", "count": 50, "percent": 3.9 }
+  ],
+  "statusDistribution": {
+    "total": 1268,
+    "segments": [
+      { "key": "toProcess", "count": 286, "percent": 22.6, "color": "#f97316" },
+      { "key": "processing", "count": 198, "percent": 15.6, "color": "#3b82f6" },
+      { "key": "waitingAppointment", "count": 142, "percent": 11.2, "color": "#8b5cf6" },
+      { "key": "completed", "count": 612, "percent": 48.3, "color": "#22c55e" },
+      { "key": "blocked", "count": 30, "percent": 2.3, "color": "#ef4444" }
+    ]
+  },
+  "anomalyClassification": [
+    { "key": "prolongedRestriction", "count": 68, "percent": 29.6 },
+    { "key": "missingInfo", "count": 52, "percent": 22.6 },
+    { "key": "inconsistent", "count": 42, "percent": 18.3 },
+    { "key": "lowConfidence", "count": 38, "percent": 16.5 },
+    { "key": "missingDocument", "count": 30, "percent": 13.0 }
+  ],
+  "topFacilities": [
+    {
+      "id": "CTR-POITIERS-01",
+      "name": "Centre de santé au travail de Poitiers",
+      "count": 412,
+      "percent": 32.5,
+      "trend": [28, 31, 29, 36, 34, 41, 38, 44, 42, 48, 45, 52]
+    },
+    {
+      "id": "CTR-NIORT-01",
+      "name": "Centre de santé au travail de Niort",
+      "count": 286,
+      "percent": 22.6,
+      "trend": [18, 22, 20, 24, 26, 23, 29, 27, 31, 30, 34, 36]
+    },
+    {
+      "id": "CTR-CHATELLERAULT-01",
+      "name": "Centre de santé au travail de Châtellerault",
+      "count": 198,
+      "percent": 15.6,
+      "trend": [12, 14, 13, 16, 15, 18, 17, 19, 21, 20, 22, 24]
+    },
+    {
+      "id": "CTR-THOUARS-01",
+      "name": "Centre de santé au travail de Thouars",
+      "count": 154,
+      "percent": 12.1,
+      "trend": [8, 10, 9, 12, 11, 13, 14, 12, 15, 16, 14, 18]
+    },
+    {
+      "id": "CTR-PARTHENAY-01",
+      "name": "Centre de santé au travail de Parthenay",
+      "count": 96,
+      "percent": 7.6,
+      "trend": [5, 6, 5, 7, 8, 6, 9, 8, 10, 9, 11, 12]
+    }
+  ]
+}

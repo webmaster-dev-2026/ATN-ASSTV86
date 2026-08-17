@@ -1,0 +1,124 @@
+{
+  "dossier_results": [
+    {
+      "id": "RES-0001",
+      "dossier_id": "DOS-0001",
+      "employee_name": "Marie Dupont",
+      "company_name": "ACME Industries",
+      "visit_type": "VISITE_REPRISE",
+      "visit_type_label": "Visite de reprise",
+      "documents_complete": true,
+      "anomaly_count": 1,
+      "status": "TO_VALIDATE",
+      "summary": "Le dossier est analysé. Une incohérence concernant la date de reprise doit être validée."
+    },
+    {
+      "id": "RES-0002",
+      "dossier_id": "DOS-0002",
+      "employee_name": "Paul Lefèvre",
+      "company_name": "Groupe Atlantique",
+      "visit_type": "VISITE_EMBAUCHE",
+      "visit_type_label": "Visite d'embauche",
+      "documents_complete": true,
+      "anomaly_count": 1,
+      "status": "ANALYSING",
+      "summary": "L'analyse documentaire est en cours."
+    },
+    {
+      "id": "RES-0003",
+      "dossier_id": "DOS-0003",
+      "employee_name": "Julie Bernard",
+      "company_name": "Meca Ouest",
+      "visit_type": "VISITE_REPRISE",
+      "visit_type_label": "Visite de reprise",
+      "documents_complete": true,
+      "anomaly_count": 0,
+      "status": "READY_FOR_APPOINTMENT",
+      "summary": "Le dossier est complet et prêt pour la recherche d'un rendez-vous."
+    },
+    {
+      "id": "RES-0004",
+      "dossier_id": "DOS-0004",
+      "employee_name": "Thomas Robert",
+      "company_name": "Industrie 86",
+      "visit_type": "VISITE_EMBAUCHE",
+      "visit_type_label": "Visite d'embauche",
+      "documents_complete": false,
+      "anomaly_count": 2,
+      "status": "BLOCKED",
+      "summary": "Le dossier est bloqué en raison d'informations et de documents manquants."
+    },
+    {
+      "id": "RES-0005",
+      "dossier_id": "DOS-0005",
+      "employee_name": "Émilie Moreau",
+      "company_name": "Logistique Deux-Sèvres",
+      "visit_type": "VISITE_REPRISE",
+      "visit_type_label": "Visite de reprise",
+      "documents_complete": true,
+      "anomaly_count": 0,
+      "status": "COMPLETED",
+      "summary": "Le dossier a été contrôlé et finalisé."
+    },
+    {
+      "id": "RES-0006",
+      "dossier_id": "DOS-0006",
+      "employee_name": "Antoine Girard",
+      "company_name": "Poitiers Tech",
+      "visit_type": "VISITE_PERIODIQUE",
+      "visit_type_label": "Visite périodique",
+      "documents_complete": true,
+      "anomaly_count": 1,
+      "status": "TO_VALIDATE",
+      "summary": "Le dossier nécessite une validation du lieu de travail."
+    },
+    {
+      "id": "RES-0007",
+      "dossier_id": "DOS-0007",
+      "employee_name": "Camille Roux",
+      "company_name": "Santé Plus Vienne",
+      "visit_type": "VISITE_REPRISE",
+      "visit_type_label": "Visite de reprise",
+      "documents_complete": true,
+      "anomaly_count": 1,
+      "status": "ANALYSING",
+      "summary": "Analyse en cours avec confirmation de la date de reprise."
+    },
+    {
+      "id": "RES-0008",
+      "dossier_id": "DOS-0008",
+      "employee_name": "Nicolas Petit",
+      "company_name": "Niort Services",
+      "visit_type": "VISITE_EMBAUCHE",
+      "visit_type_label": "Visite d'embauche",
+      "documents_complete": true,
+      "anomaly_count": 1,
+      "status": "READY_FOR_APPOINTMENT",
+      "summary": "Dossier prêt pour proposition de rendez-vous."
+    },
+    {
+      "id": "RES-0009",
+      "dossier_id": "DOS-0009",
+      "employee_name": "Laura Fontaine",
+      "company_name": "Banque Régionale Ouest",
+      "visit_type": "VISITE_PERIODIQUE",
+      "visit_type_label": "Visite périodique",
+      "documents_complete": true,
+      "anomaly_count": 1,
+      "status": "TO_VALIDATE",
+      "summary": "Le nom du salarié doit être confirmé avant poursuite."
+    },
+    {
+      "id": "RES-0010",
+      "dossier_id": "DOS-0010",
+      "employee_name": "Hugo Lambert",
+      "company_name": "Agri Deux-Sèvres",
+      "visit_type": "VISITE_REPRISE",
+      "visit_type_label": "Visite de reprise",
+      "documents_complete": true,
+      "anomaly_count": 0,
+      "status": "COMPLETED",
+      "summary": "Le dossier a été finalisé avec rendez-vous validé."
+    }
+  ]
+}

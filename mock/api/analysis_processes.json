@@ -1,0 +1,97 @@
+
+{
+  "analysis_processes": [
+    {
+      "id": "ANL-0001",
+      "dossier_id": "DOS-0001",
+      "current_step": "DOSSIER_CONTROL",
+      "current_step_label": "Contrôle du dossier",
+      "progress": 75,
+      "status": "WAITING_VALIDATION",
+      "started_at": "2026-08-13T08:31:00+02:00"
+    },
+    {
+      "id": "ANL-0002",
+      "dossier_id": "DOS-0002",
+      "current_step": "DOCUMENT_ANALYSIS",
+      "current_step_label": "Analyse documentaire",
+      "progress": 45,
+      "status": "PROCESSING",
+      "started_at": "2026-08-13T08:46:00+02:00"
+    },
+    {
+      "id": "ANL-0003",
+      "dossier_id": "DOS-0003",
+      "current_step": "AVAILABILITY_SEARCH",
+      "current_step_label": "Recherche de disponibilités",
+      "progress": 85,
+      "status": "PROCESSING",
+      "started_at": "2026-08-13T09:01:00+02:00"
+    },
+    {
+      "id": "ANL-0004",
+      "dossier_id": "DOS-0004",
+      "current_step": "DOSSIER_CONTROL",
+      "current_step_label": "Contrôle du dossier",
+      "progress": 60,
+      "status": "BLOCKED",
+      "started_at": "2026-08-13T09:16:00+02:00"
+    },
+    {
+      "id": "ANL-0005",
+      "dossier_id": "DOS-0005",
+      "current_step": "COMPLETED",
+      "current_step_label": "Traitement terminé",
+      "progress": 100,
+      "status": "COMPLETED",
+      "started_at": "2026-08-12T14:31:00+02:00",
+      "completed_at": "2026-08-12T14:38:00+02:00"
+    },
+    {
+      "id": "ANL-0006",
+      "dossier_id": "DOS-0006",
+      "current_step": "DOSSIER_CONTROL",
+      "current_step_label": "Contrôle du dossier",
+      "progress": 70,
+      "status": "WAITING_VALIDATION",
+      "started_at": "2026-08-13T09:21:00+02:00"
+    },
+    {
+      "id": "ANL-0007",
+      "dossier_id": "DOS-0007",
+      "current_step": "DOCUMENT_ANALYSIS",
+      "current_step_label": "Analyse documentaire",
+      "progress": 35,
+      "status": "PROCESSING",
+      "started_at": "2026-08-13T09:29:00+02:00"
+    },
+    {
+      "id": "ANL-0008",
+      "dossier_id": "DOS-0008",
+      "current_step": "AVAILABILITY_SEARCH",
+      "current_step_label": "Recherche de disponibilités",
+      "progress": 90,
+      "status": "PROCESSING",
+      "started_at": "2026-08-13T09:33:00+02:00"
+    },
+    {
+      "id": "ANL-0009",
+      "dossier_id": "DOS-0009",
+      "current_step": "DOCUMENT_ANALYSIS",
+      "current_step_label": "Analyse documentaire",
+      "progress": 55,
+      "status": "WAITING_VALIDATION",
+      "started_at": "2026-08-13T09:37:00+02:00"
+    },
+    {
+      "id": "ANL-0010",
+      "dossier_id": "DOS-0010",
+      "current_step": "COMPLETED",
+      "current_step_label": "Traitement terminé",
+      "progress": 100,
+      "status": "COMPLETED",
+      "started_at": "2026-08-12T15:11:00+02:00",
+      "completed_at": "2026-08-12T15:40:00+02:00"
+    }
+  ]
+}

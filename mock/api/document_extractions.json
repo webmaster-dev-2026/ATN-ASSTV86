@@ -1,0 +1,114 @@
+{
+  "document_extractions": [
+    {
+      "id": "EXT-0001",
+      "dossier_id": "DOS-0001",
+      "document_id": "DOC-0001",
+      "field_name": "employee_name",
+      "field_label": "Salarié",
+      "field_value": "Marie Dupont",
+      "confidence": 0.98,
+      "source_text": "Salariée : Marie Dupont",
+      "status": "VALIDATED"
+    },
+    {
+      "id": "EXT-0002",
+      "dossier_id": "DOS-0001",
+      "document_id": "DOC-0001",
+      "field_name": "return_date",
+      "field_label": "Date de reprise",
+      "field_value": "2026-08-22",
+      "confidence": 0.72,
+      "source_text": "Reprise prévue le 22 août 2026",
+      "status": "TO_VALIDATE"
+    },
+    {
+      "id": "EXT-0003",
+      "dossier_id": "DOS-0002",
+      "document_id": "DOC-0002",
+      "field_name": "job_title",
+      "field_label": "Poste",
+      "field_value": "Technicien de maintenance",
+      "confidence": 0.94,
+      "source_text": "Poste : Technicien de maintenance",
+      "status": "SUGGESTED"
+    },
+    {
+      "id": "EXT-0004",
+      "dossier_id": "DOS-0003",
+      "document_id": "DOC-0003",
+      "field_name": "visit_type",
+      "field_label": "Type de visite",
+      "field_value": "VISITE_REPRISE",
+      "confidence": 0.96,
+      "source_text": "Demande de visite de reprise",
+      "status": "VALIDATED"
+    },
+    {
+      "id": "EXT-0005",
+      "dossier_id": "DOS-0004",
+      "document_id": "DOC-0004",
+      "field_name": "company_name",
+      "field_label": "Entreprise",
+      "field_value": "Industrie 86",
+      "confidence": 0.89,
+      "source_text": "Entreprise : Industrie 86",
+      "status": "VALIDATED"
+    },
+    {
+      "id": "EXT-0006",
+      "dossier_id": "DOS-0005",
+      "document_id": "DOC-0005",
+      "field_name": "employee_name",
+      "field_label": "Salarié",
+      "field_value": "Émilie Moreau",
+      "confidence": 0.97,
+      "source_text": "Salariée : Émilie Moreau",
+      "status": "VALIDATED"
+    },
+    {
+      "id": "EXT-0007",
+      "dossier_id": "DOS-0006",
+      "document_id": "DOC-0006",
+      "field_name": "visit_type",
+      "field_label": "Type de visite",
+      "field_value": "VISITE_PERIODIQUE",
+      "confidence": 0.93,
+      "source_text": "Visite périodique demandée",
+      "status": "TO_VALIDATE"
+    },
+    {
+      "id": "EXT-0008",
+      "dossier_id": "DOS-0007",
+      "document_id": "DOC-0007",
+      "field_name": "return_date",
+      "field_label": "Date de reprise",
+      "field_value": "2026-08-28",
+      "confidence": 0.81,
+      "source_text": "Reprise le 28/08/2026",
+      "status": "SUGGESTED"
+    },
+    {
+      "id": "EXT-0009",
+      "dossier_id": "DOS-0008",
+      "document_id": "DOC-0008",
+      "field_name": "job_title",
+      "field_label": "Poste",
+      "field_value": "Chargé d'accueil",
+      "confidence": 0.95,
+      "source_text": "Poste : Chargé d'accueil",
+      "status": "VALIDATED"
+    },
+    {
+      "id": "EXT-0010",
+      "dossier_id": "DOS-0010",
+      "document_id": "DOC-0010",
+      "field_name": "company_name",
+      "field_label": "Entreprise",
+      "field_value": "Agri Deux-Sèvres",
+      "confidence": 0.99,
+      "source_text": "Entreprise : Agri Deux-Sèvres",
+      "status": "VALIDATED"
+    }
+  ]
+}

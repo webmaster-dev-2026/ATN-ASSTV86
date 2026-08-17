@@ -1,0 +1,10 @@
+export const FAB_SIZE = 56
+export const FAB_MARGIN = 16
+export const DRAG_THRESHOLD = 6
+export const PANEL_WIDTH = 380
+export const PANEL_HEIGHT = 560
+export const VIEWPORT_MARGIN = 12
+export const PANEL_GAP = 12
+export const REPLY_DELAY_MS = 720
+export const TITLE_MAX = 42
+export const DOCK_LAYOUT_QUERY = '(min-width: 1500px)'
