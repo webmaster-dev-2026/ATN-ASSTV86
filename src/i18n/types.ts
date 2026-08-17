@@ -1,6 +1,6 @@
 import type fr from '@/i18n/locales/fr.json'
 
-export const LOCALES = ['fr', 'en', 'vi'] as const
+export const LOCALES = ['fr', 'en'] as const
 
 export type Locale = (typeof LOCALES)[number]
 

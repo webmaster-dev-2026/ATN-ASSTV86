@@ -2,16 +2,14 @@ import { useEffect, useState, type CSSProperties } from 'react'
 import { cn } from '@/lib/cn'
 import { LOCALES, useI18n, type Locale } from '@/i18n'
 
-const LOCALE_LABEL: Record<Locale, 'common.french' | 'common.english' | 'common.vietnamese'> = {
+const LOCALE_LABEL: Record<Locale, 'common.french' | 'common.english'> = {
   fr: 'common.french',
   en: 'common.english',
-  vi: 'common.vietnamese',
 }
 
 const LOCALE_CODE: Record<Locale, string> = {
   fr: 'FR',
   en: 'EN',
-  vi: 'VI',
 }
 
 function FrenchFlag() {
@@ -36,26 +34,11 @@ function EnglishFlag() {
   )
 }
 
-function VietnameseFlag() {
-  return (
-    <svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 size-full" aria-hidden>
-      <rect width="30" height="20" fill="#DA251D" />
-      <polygon
-        fill="#FFFF00"
-        points="15,3.6 16.76,9.02 22.5,9.02 17.87,12.36 19.63,17.8 15,14.46 10.37,17.8 12.13,12.36 7.5,9.02 13.24,9.02"
-      />
-    </svg>
-  )
-}
-
 function FlagGraphic({ locale }: { locale: Locale }) {
-  if (locale === 'fr') {
-    return <FrenchFlag />
-  }
   if (locale === 'en') {
     return <EnglishFlag />
   }
-  return <VietnameseFlag />
+  return <FrenchFlag />
 }
 
 function LocaleFlag({ locale, className }: { locale: Locale; className?: string }) {
@@ -118,7 +101,7 @@ export function LanguageSwitcher({ variant = 'default', collapsed = false }: Lan
 
     return (
       <div
-        className="relative grid grid-cols-3 rounded-full bg-white/[0.08] p-1 shadow-[inset_0_1px_2px_rgba(8,24,56,0.18)] ring-1 ring-inset ring-white/12"
+        className="relative grid grid-cols-2 rounded-full bg-white/[0.08] p-1 shadow-[inset_0_1px_2px_rgba(8,24,56,0.18)] ring-1 ring-inset ring-white/12"
         role="group"
         aria-label={t('common.language')}
       >
