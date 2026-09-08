@@ -94,11 +94,32 @@ function deadlineIso(date: string, time = '09:00') {
   return `${date}T${time}:00+02:00`
 }
 
+function shiftIsoDate(value: string, days: number) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})/)
+  if (!match) {
+    return value
+  }
+  const date = new Date(`${match[1]}-${match[2]}-${match[3]}T12:00:00`)
+  date.setDate(date.getDate() + days)
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 function alternativesFor(reason: ReasonKind, value: string, visitType: string): ValidationOption[] {
   if (reason === 'visitType') {
     const selected = VISIT_ALTERNATIVES.includes(value) ? value : visitType
     const ids = [selected, ...VISIT_ALTERNATIVES.filter((item) => item !== selected)]
     return ids.map((id) => ({ id, value: id }))
+  }
+
+  if (reason === 'returnDate' && /^\d{4}-\d{2}-\d{2}/.test(value)) {
+    const alt = shiftIsoDate(value, 5)
+    return [
+      { id: value, value },
+      { id: alt, value: alt },
+    ]
   }
 
   return [{ id: value, value }]
@@ -188,6 +209,7 @@ export function getToValidateData(): ToValidateData {
         ? deadlineIso(appointment.appointment_date, appointment.start_time)
         : dossier.created_at,
       examDate: dossier.created_at,
+      analyzedAt: dossier.created_at,
       doctor: userById.get(dossier.professional_id) ?? appointment?.professional_name ?? dossier.professional_id,
       fieldsToConfirm,
       confidence: extraction ? Math.round(extraction.confidence * 100) : null,

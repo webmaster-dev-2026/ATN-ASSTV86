@@ -161,6 +161,7 @@ export function ChatPanel({ variant, className }: ChatPanelProps) {
       name: file.name,
       size: file.size,
       type: file.type,
+      file,
     }))
 
     if (next.length > 0) {

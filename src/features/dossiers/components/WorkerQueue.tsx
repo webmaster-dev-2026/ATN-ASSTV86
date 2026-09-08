@@ -2,15 +2,21 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { visitLabel } from '@/features/dashboard/format'
 import { useI18n } from '@/i18n'
 import { cn } from '@/lib/cn'
-import { formatDate, initials, interpolate, needsAction } from '../format'
+import { formatDate, initials, interpolate, needsAction, pageNumbers } from '../format'
 import type { DossierCase, QueueFilter } from '../types'
-import { ChevronDownIcon, FilterIcon, MoreVerticalIcon, SearchIcon } from './DossierIcons'
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  FilterIcon,
+  SearchIcon,
+} from './DossierIcons'
 import { StatusBadge } from './StatusBadge'
 
-const PAGE_DOWN = 10
-const PAGE_UP = 20
-const EDGE_PX = 4
-const LOAD_MS = 450
+const PAGE_SIZES = [10, 25, 50] as const
+
+const selectClass =
+  'h-7 w-[76px] cursor-pointer appearance-none rounded-md border border-[#e4ecf6] bg-white py-0 pl-1.5 pr-5 text-[11px] font-medium text-[#1c2a4e] transition-colors duration-200 hover:border-[#c5d4ea] focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30 [&::-ms-expand]:hidden'
 
 interface WorkerQueueProps {
   cases: DossierCase[]
@@ -24,16 +30,9 @@ export function WorkerQueue({ cases, selectedId, onSelect }: WorkerQueueProps) {
   const [filter, setFilter] = useState<QueueFilter>('needsAction')
   const [open, setOpen] = useState(false)
   const [filterOpen, setFilterOpen] = useState(false)
-  const [moreOpen, setMoreOpen] = useState(false)
-  const [range, setRange] = useState({ offset: 0, limit: PAGE_DOWN })
-  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState<(typeof PAGE_SIZES)[number]>(10)
   const menuRef = useRef<HTMLDivElement>(null)
-  const listRef = useRef<HTMLUListElement>(null)
-  const pagingLockRef = useRef(false)
-  const lastScrollTopRef = useRef(0)
-  const rangeRef = useRef(range)
-  const itemCountRef = useRef(0)
-  const loadTimerRef = useRef(0)
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -54,123 +53,19 @@ export function WorkerQueue({ cases, selectedId, onSelect }: WorkerQueueProps) {
 
   const headingKey = filter === 'all' ? 'dossiers.queue.headingAll' : 'dossiers.queue.headingToProcess'
   const heading = interpolate(t(headingKey), { count: filtered.length })
-  const offset = Math.min(range.offset, Math.max(0, filtered.length))
-  const visible = filtered.slice(offset, offset + range.limit)
-
-  rangeRef.current = { offset, limit: range.limit }
-  itemCountRef.current = filtered.length
-
-  useEffect(() => {
-    window.clearTimeout(loadTimerRef.current)
-    setLoading(false)
-    setRange({ offset: 0, limit: PAGE_DOWN })
-  }, [filter, query])
+  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize))
+  const currentPage = Math.min(page, pageCount)
+  const start = (currentPage - 1) * pageSize
+  const visible = filtered.slice(start, start + pageSize)
 
   useEffect(() => {
-    if (loading) {
-      return
-    }
-    const el = listRef.current
-    if (!el) {
-      return
-    }
-    el.scrollTop = 0
-    lastScrollTopRef.current = 0
-    pagingLockRef.current = false
-  }, [loading, open, range.limit, range.offset])
-
-  useEffect(() => () => window.clearTimeout(loadTimerRef.current), [])
-
-  useEffect(() => {
-    const el = listRef.current
-    if (!el) {
-      return
-    }
-
-    const applyRange = (nextOffset: number, nextLimit: number) => {
-      if (pagingLockRef.current) {
-        return
-      }
-      const total = itemCountRef.current
-      const clampedOffset = Math.min(Math.max(nextOffset, 0), Math.max(0, total))
-      const current = rangeRef.current
-      if (clampedOffset === current.offset && nextLimit === current.limit) {
-        return
-      }
-      if (clampedOffset >= total) {
-        return
-      }
-      pagingLockRef.current = true
-      setLoading(true)
-      window.clearTimeout(loadTimerRef.current)
-      loadTimerRef.current = window.setTimeout(() => {
-        setRange({ offset: clampedOffset, limit: nextLimit })
-        setLoading(false)
-      }, LOAD_MS)
-    }
-
-    const goDown = () => {
-      const current = rangeRef.current
-      if (current.offset + current.limit >= itemCountRef.current) {
-        return
-      }
-      applyRange(current.offset + current.limit, PAGE_DOWN)
-    }
-
-    const goUp = () => {
-      const current = rangeRef.current
-      if (current.offset <= 0) {
-        return
-      }
-      applyRange(Math.max(0, current.offset - PAGE_DOWN), PAGE_UP)
-    }
-
-    const onScroll = () => {
-      if (pagingLockRef.current) {
-        return
-      }
-      const delta = el.scrollTop - lastScrollTopRef.current
-      lastScrollTopRef.current = el.scrollTop
-      const atBottom = el.scrollHeight - el.clientHeight - el.scrollTop <= EDGE_PX
-      const atTop = el.scrollTop <= EDGE_PX
-      if (delta > 0 && atBottom) {
-        goDown()
-      } else if (delta < 0 && atTop) {
-        goUp()
-      }
-    }
-
-    const onWheel = (event: WheelEvent) => {
-      if (pagingLockRef.current) {
-        return
-      }
-      const atBottom = el.scrollHeight - el.clientHeight - el.scrollTop <= EDGE_PX
-      const atTop = el.scrollTop <= EDGE_PX
-      if (event.deltaY > 0 && atBottom) {
-        const current = rangeRef.current
-        if (current.offset + current.limit < itemCountRef.current) {
-          event.preventDefault()
-          goDown()
-        }
-      } else if (event.deltaY < 0 && atTop && rangeRef.current.offset > 0) {
-        event.preventDefault()
-        goUp()
-      }
-    }
-
-    el.addEventListener('scroll', onScroll, { passive: true })
-    el.addEventListener('wheel', onWheel, { passive: false })
-    return () => {
-      el.removeEventListener('scroll', onScroll)
-      el.removeEventListener('wheel', onWheel)
-    }
-  }, [open])
+    setPage(1)
+  }, [filter, query, pageSize])
 
   useEffect(() => {
     const onPointerDown = (event: PointerEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setFilterOpen(false)
-        setMoreOpen(false)
       }
     }
     document.addEventListener('pointerdown', onPointerDown)
@@ -201,24 +96,10 @@ export function WorkerQueue({ cases, selectedId, onSelect }: WorkerQueueProps) {
             aria-expanded={filterOpen}
             onClick={(event) => {
               event.stopPropagation()
-              setMoreOpen(false)
               setFilterOpen((current) => !current)
             }}
           >
             <FilterIcon className="size-4" />
-          </button>
-          <button
-            type="button"
-            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc]"
-            aria-label={t('dossiers.queue.more')}
-            aria-expanded={moreOpen}
-            onClick={(event) => {
-              event.stopPropagation()
-              setFilterOpen(false)
-              setMoreOpen((current) => !current)
-            }}
-          >
-            <MoreVerticalIcon className="size-4" />
           </button>
 
           {filterOpen ? (
@@ -247,21 +128,6 @@ export function WorkerQueue({ cases, selectedId, onSelect }: WorkerQueueProps) {
               ))}
             </div>
           ) : null}
-
-          {moreOpen ? (
-            <div className="absolute right-0 top-9 z-20 w-56 rounded-xl border border-[#e4ecf6] bg-white p-2 shadow-[0_8px_24px_rgba(28,42,78,0.12)]">
-              <label className="relative block">
-                <span className="sr-only">{t('dossiers.queue.search')}</span>
-                <SearchIcon className="pointer-events-none absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#8b95a8]" />
-                <input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder={t('dossiers.queue.search')}
-                  className="h-9 w-full rounded-lg border border-[#e4ecf6] bg-[#f7f9fd] py-0 pl-8 pr-2 text-[13px] font-medium text-[#1c2a4e] outline-none placeholder:text-[#8b95a8] focus:border-brand-500 focus:bg-white"
-                />
-              </label>
-            </div>
-          ) : null}
         </div>
       </div>
 
@@ -271,25 +137,24 @@ export function WorkerQueue({ cases, selectedId, onSelect }: WorkerQueueProps) {
           open ? 'flex max-h-[min(70dvh,520px)] xl:max-h-none' : 'hidden',
         )}
       >
-        <ul
-          ref={listRef}
-          aria-busy={loading}
-          className={cn(
-            'min-h-0 flex-1 overflow-y-auto px-2 py-2',
-            loading && 'flex flex-col overflow-hidden',
-          )}
-        >
+        <div className="shrink-0 px-2 pb-1 pt-2">
+          <label className="relative block">
+            <span className="sr-only">{t('dossiers.queue.search')}</span>
+            <SearchIcon className="pointer-events-none absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#8b95a8]" />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={t('dossiers.queue.search')}
+              className="h-9 w-full rounded-lg border border-[#e4ecf6] bg-[#f7f9fd] py-0 pl-8 pr-2 text-[13px] font-medium text-[#1c2a4e] outline-none placeholder:text-[#8b95a8] focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/30"
+            />
+          </label>
+        </div>
+
+        <ul className="min-h-0 flex-1 overflow-y-auto px-2 py-2">
           {filtered.length === 0 ? (
             <li className="px-3 py-10 text-center text-[13px] font-medium text-[#8b95a8]">
               {t('dossiers.queue.empty')}
-            </li>
-          ) : loading ? (
-            <li className="flex min-h-full flex-1 flex-col items-center justify-center gap-2 text-[12px] font-medium text-[#8b95a8]">
-              <span
-                className="size-5 animate-spin rounded-full border-2 border-[#d9e8fb] border-t-[#1d4f9a]"
-                aria-hidden
-              />
-              {t('dossiers.queue.loading')}
             </li>
           ) : (
             visible.map((item) => {
@@ -338,6 +203,67 @@ export function WorkerQueue({ cases, selectedId, onSelect }: WorkerQueueProps) {
             })
           )}
         </ul>
+
+        <div className="flex shrink-0 items-center justify-end gap-1 border-t border-[#eef3f9] px-1.5 py-1.5">
+          <nav className="flex shrink-0 items-center" aria-label={t('dossiers.queue.listNav')}>
+            <button
+              type="button"
+              className="grid size-6 cursor-pointer place-items-center rounded-md text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label={t('dossiers.queue.prevPage')}
+              disabled={currentPage <= 1}
+              onClick={() => setPage((value) => Math.max(1, value - 1))}
+            >
+              <ChevronLeftIcon className="size-3" />
+            </button>
+            {pageNumbers(currentPage, pageCount).map((item, index) =>
+              item === 'ellipsis' ? (
+                <span
+                  key={`ellipsis-${index}`}
+                  className="grid size-6 place-items-center text-[11px] font-semibold text-[#8b95a8]"
+                >
+                  …
+                </span>
+              ) : (
+                <button
+                  key={item}
+                  type="button"
+                  aria-current={item === currentPage ? 'page' : undefined}
+                  className={cn(
+                    'grid size-6 cursor-pointer place-items-center rounded-md text-[11px] font-semibold transition-colors',
+                    item === currentPage ? 'bg-[#2860B9] text-white' : 'text-[#5b6b82] hover:bg-[#eef5fc]',
+                  )}
+                  onClick={() => setPage(item)}
+                >
+                  {item}
+                </button>
+              ),
+            )}
+            <button
+              type="button"
+              className="grid size-6 cursor-pointer place-items-center rounded-md text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label={t('dossiers.queue.nextPage')}
+              disabled={currentPage >= pageCount}
+              onClick={() => setPage((value) => Math.min(pageCount, value + 1))}
+            >
+              <ChevronRightIcon className="size-3" />
+            </button>
+          </nav>
+          <div className="relative shrink-0">
+            <select
+              className={selectClass}
+              value={pageSize}
+              aria-label={t('dossiers.queue.perPageLabel')}
+              onChange={(event) => setPageSize(Number(event.target.value) as (typeof PAGE_SIZES)[number])}
+            >
+              {PAGE_SIZES.map((size) => (
+                <option key={size} value={size}>
+                  {interpolate(t('dossiers.queue.perPage'), { count: size })}
+                </option>
+              ))}
+            </select>
+            <ChevronDownIcon className="pointer-events-none absolute right-1 top-1/2 size-3 -translate-y-1/2 text-[#8b95a8]" />
+          </div>
+        </div>
       </div>
     </aside>
   )

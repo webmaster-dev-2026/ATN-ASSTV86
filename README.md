@@ -32,8 +32,9 @@ src/
     dashboard/    # trang Tableau de bord
   routes/         # khai báo routes
   lib/            # tiện ích chung (cn)
-  i18n/           # ngôn ngữ: fr, en
+  i18n/           # ngôn ngữ: fr, en, vi
     locales/
       fr.json
       en.json
+      vi.json
 ```

@@ -25,6 +25,7 @@ export interface ValidationItem {
   priority: PriorityKind
   deadlineAt: string
   examDate: string
+  analyzedAt: string
   doctor: string
   fieldsToConfirm: number
   confidence: number | null

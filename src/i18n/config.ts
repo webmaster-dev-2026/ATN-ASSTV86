@@ -1,5 +1,6 @@
 import en from '@/i18n/locales/en.json'
 import fr from '@/i18n/locales/fr.json'
+import vi from '@/i18n/locales/vi.json'
 import type { Locale, Messages } from '@/i18n/types'
 import { LOCALES } from '@/i18n/types'
 
@@ -9,11 +10,13 @@ export const STORAGE_KEY = 'asstv86.locale'
 export const INTL_LOCALES: Record<Locale, string> = {
   fr: 'fr-FR',
   en: 'en-GB',
+  vi: 'vi-VN',
 }
 
 export const messagesByLocale: Record<Locale, Messages> = {
   fr,
   en,
+  vi,
 }
 
 export function isLocale(value: string | null | undefined): value is Locale {
@@ -35,6 +38,9 @@ export function detectLocale(): Locale {
   }
 
   const browserLanguage = window.navigator.language.toLowerCase()
+  if (browserLanguage.startsWith('vi')) {
+    return 'vi'
+  }
   if (browserLanguage.startsWith('en')) {
     return 'en'
   }

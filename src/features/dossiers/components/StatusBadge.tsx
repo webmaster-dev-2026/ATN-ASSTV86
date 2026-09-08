@@ -9,7 +9,7 @@ export function StatusBadge({ status }: { status: DossierCaseStatus }) {
   return (
     <span
       className={cn(
-        'inline-flex max-w-full truncate rounded-full px-2.5 py-0.5 text-[11px] font-semibold',
+        'inline-flex max-w-full truncate rounded-full px-2 py-0.5 text-[10px] font-semibold',
         STATUS_STYLES[status],
       )}
     >

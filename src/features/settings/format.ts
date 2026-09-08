@@ -7,6 +7,7 @@ import type {
 } from './types'
 
 export const CATEGORY_LABEL: Record<SettingsCategoryId, TranslationKey> = {
+  profile: 'settings.categories.profile',
   general: 'settings.categories.general',
   users: 'settings.categories.users',
   centers: 'settings.categories.centers',
@@ -17,6 +18,7 @@ export const CATEGORY_LABEL: Record<SettingsCategoryId, TranslationKey> = {
 }
 
 export const CATEGORY_TITLE: Record<SettingsCategoryId, TranslationKey> = {
+  profile: 'settings.sections.profile.title',
   general: 'settings.sections.general.title',
   users: 'settings.sections.users.title',
   centers: 'settings.sections.centers.title',
@@ -27,6 +29,7 @@ export const CATEGORY_TITLE: Record<SettingsCategoryId, TranslationKey> = {
 }
 
 export const CATEGORY_DESCRIPTION: Record<SettingsCategoryId, TranslationKey> = {
+  profile: 'settings.sections.profile.description',
   general: 'settings.sections.general.description',
   users: 'settings.sections.users.description',
   centers: 'settings.sections.centers.description',
@@ -70,6 +73,7 @@ export const TEMPLATE_TONE: Record<TemplateTone, string> = {
 }
 
 export const CATEGORIES: SettingsCategoryId[] = [
+  'profile',
   'general',
   'users',
   'centers',

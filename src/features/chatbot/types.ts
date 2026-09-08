@@ -6,6 +6,8 @@ export interface ChatAttachment {
   name: string
   size: number
   type: string
+  /** Live File blob for upload; omitted when persisting chat history. */
+  file?: File
 }
 
 export interface ChatMessage {

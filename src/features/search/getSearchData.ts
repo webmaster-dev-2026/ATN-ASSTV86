@@ -7,7 +7,7 @@ import { getSourceDocumentsData } from '@/features/source-documents/getSourceDoc
 import { getToValidateData } from '@/features/to-validate/getToValidateData'
 import type { SearchCatalog, SearchDossierState, SearchHit } from './types'
 
-function dossierHref(state: SearchDossierState) {
+function dossierHref(state: SearchDossierState, dossierId?: string) {
   if (state === 'toProcess') {
     return '/a-valider'
   }
@@ -17,7 +17,7 @@ function dossierHref(state: SearchDossierState) {
   if (state === 'completed') {
     return '/termines'
   }
-  return '/dossiers'
+  return dossierId ? `/dossiers/${dossierId}` : '/dossiers'
 }
 
 function fromCaseStatus(status: DossierCaseStatus): SearchDossierState {
@@ -84,7 +84,7 @@ export function getSearchData(): SearchCatalog {
       companyName: item.companyName,
       visitType: item.visitType,
       at: item.receivedAt,
-      href: dossierHref(state),
+      href: dossierHref(state, item.id),
       dossierState: state,
       source: item.source,
     })

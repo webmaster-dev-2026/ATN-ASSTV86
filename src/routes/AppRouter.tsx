@@ -1,8 +1,9 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppLayout } from '@/components/layout/AppLayout'
 import { AnomaliesPage } from '@/pages/AnomaliesPage'
 import { CompletedPage } from '@/pages/CompletedPage'
 import { DashboardPage } from '@/pages/DashboardPage'
+import { DossierDetailPage } from '@/pages/DossierDetailPage'
 import { DossiersPage } from '@/pages/DossiersPage'
 import { InProgressPage } from '@/pages/InProgressPage'
 import { LoginPage } from '@/pages/LoginPage'
@@ -26,6 +27,7 @@ export function AppRouter() {
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/dossiers" element={<DossiersPage />} />
+          <Route path="/dossiers/:dossierId" element={<DossierDetailPage />} />
           <Route path="/a-valider" element={<ToValidatePage />} />
           <Route path="/anomalies" element={<AnomaliesPage />} />
           <Route path="/traitement-en-cours" element={<InProgressPage />} />
@@ -34,6 +36,14 @@ export function AppRouter() {
           <Route path="/documents-sources" element={<SourceDocumentsPage />} />
           <Route path="/statistiques" element={<StatisticsPage />} />
           <Route path="/parametres" element={<SettingsPage />} />
+          <Route
+            path="/profil"
+            element={<Navigate to="/parametres?category=profile" replace />}
+          />
+          <Route
+            path="/changer-mot-de-passe"
+            element={<Navigate to="/parametres?category=profile#password" replace />}
+          />
         </Route>
       </Route>
 

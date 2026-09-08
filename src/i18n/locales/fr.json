@@ -69,7 +69,70 @@
     "userName": "Sophie Martin",
     "userRole": "Secrétaire médicale",
     "accountMenu": "Menu du compte",
+    "myProfile": "Mon profil",
+    "changePassword": "Changer le mot de passe",
     "logout": "Déconnexion"
+  },
+  "profile": {
+    "title": "Mon profil",
+    "subtitle": "Informations de votre compte depuis le système.",
+    "loading": "Chargement du profil…",
+    "loadError": "Impossible de charger le profil. Veuillez réessayer.",
+    "timelineTitle": "Historique d'activité",
+    "editProfile": "Modifier les informations",
+    "edit": {
+      "title": "Modifier le profil",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "cancel": "Annuler",
+      "success": "Profil mis à jour avec succès.",
+      "errors": {
+        "fullNameRequired": "Veuillez saisir le nom complet",
+        "forbidden": "Vous n'êtes pas autorisé à modifier ce profil",
+        "failed": "Impossible de mettre à jour le profil. Veuillez réessayer."
+      }
+    },
+    "fields": {
+      "userId": "Identifiant",
+      "email": "E-mail",
+      "fullName": "Nom complet",
+      "role": "Rôle",
+      "status": "Statut",
+      "phone": "Téléphone",
+      "createdAt": "Créé le",
+      "updatedAt": "Mis à jour le",
+      "lastLoginAt": "Dernière connexion"
+    }
+  },
+  "changePassword": {
+    "title": "Changer le mot de passe",
+    "subtitle": "Saisissez le mot de passe actuel et un nouveau mot de passe (≥ 8 caractères).",
+    "hint": "Saisissez le mot de passe actuel et un nouveau mot de passe (≥ 8 caractères), avec au moins 1 majuscule, au moins 1 caractère spécial, et au maximum 20 caractères.",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le nouveau mot de passe",
+    "submit": "Mettre à jour",
+    "submitting": "Mise à jour…",
+    "success": "Mot de passe modifié avec succès.",
+    "rules": {
+      "title": "Remarque :",
+      "minLength": "Au moins 8 caractères",
+      "maxLength": "Pas plus de 20 caractères",
+      "uppercase": "Au moins 1 majuscule",
+      "special": "Au moins 1 caractère spécial"
+    },
+    "errors": {
+      "currentRequired": "Veuillez saisir le mot de passe actuel",
+      "newRequired": "Veuillez saisir un nouveau mot de passe",
+      "newMinLength": "Le nouveau mot de passe doit contenir au moins 8 caractères",
+      "newMaxLength": "Le nouveau mot de passe ne doit pas dépasser 20 caractères",
+      "newUppercase": "Le nouveau mot de passe doit contenir au moins 1 majuscule",
+      "newSpecial": "Le nouveau mot de passe doit contenir au moins 1 caractère spécial",
+      "confirmRequired": "Veuillez confirmer le nouveau mot de passe",
+      "confirmMismatch": "La confirmation ne correspond pas",
+      "invalidCurrent": "Mot de passe actuel incorrect ou nouveau mot de passe invalide",
+      "failed": "Impossible de changer le mot de passe. Veuillez réessayer."
+    }
   },
   "notifications": {
     "title": "Notifications",
@@ -169,7 +232,7 @@
     "queue": {
       "title": "À traiter",
       "all": "Tous",
-      "search": "Rechercher un salarié...",
+      "search": "Rechercher par nom, n°...",
       "count": "{count} dossiers",
       "empty": "Aucun dossier ne correspond aux filtres.",
       "documentsCount": "{count} documents",
@@ -179,7 +242,13 @@
       "more": "Plus",
       "openList": "Ouvrir la liste des dossiers",
       "closeList": "Réduire la liste",
-      "loading": "Chargement des dossiers..."
+      "loading": "Chargement des dossiers...",
+      "range": "{from}–{to} / {total}",
+      "prevPage": "Page précédente",
+      "nextPage": "Page suivante",
+      "perPage": "{count}/page",
+      "perPageLabel": "Dossiers par page",
+      "listNav": "Pagination de la liste des dossiers"
     },
     "workspace": {
       "nav": "Sections du dossier",
@@ -214,7 +283,8 @@
     },
     "documents": {
       "title": "Documents du dossier",
-      "pages": "{count} pages"
+      "pages": "{count} pages",
+      "add": "Ajouter un document"
     },
     "viewer": {
       "toolbar": "Outils du document",
@@ -401,6 +471,75 @@
       "medicalReport": "Compte-rendu médical"
     },
     "emptySelection": "Sélectionnez un salarié pour traiter le dossier.",
+    "subtitle": "Gérer et traiter les demandes de visite",
+    "newRequest": "Nouvelle demande",
+    "countLabel": "{count} dossiers",
+    "resetFilters": "Réinitialiser",
+    "searchPlaceholder": "Rechercher par salarié, entreprise, n° dossier...",
+    "filters": {
+      "status": "Statut",
+      "visitType": "Type de visite",
+      "priority": "Priorité",
+      "company": "Entreprise",
+      "receivedDate": "Date de réception"
+    },
+    "columns": {
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "visitType": "Type de visite",
+      "status": "Statut",
+      "priority": "Priorité",
+      "receivedOn": "Reçu le",
+      "proposedAt": "RDV proposé",
+      "actions": "Actions"
+    },
+    "priority": {
+      "high": "Haute",
+      "normal": "Normale",
+      "low": "Basse"
+    },
+    "listNav": "Pagination des dossiers",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "perPage": "{count} / page",
+    "perPageLabel": "Dossiers par page",
+    "empty": "Aucun dossier pour le moment.",
+    "emptyFilter": "Aucun dossier ne correspond aux filtres.",
+    "openDossier": "Ouvrir le dossier",
+    "backToList": "Retour aux dossiers",
+    "actions": {
+      "analyse": "Analyser",
+      "propose": "Proposer un RDV",
+      "more": "Plus d'actions"
+    },
+    "create": {
+      "title": "Nouvelle demande",
+      "chooseTitle": "Comment souhaitez-vous créer une nouvelle demande ?",
+      "uploadTitle": "Importer des fichiers",
+      "uploadDesc": "PDF, EML, MSG, DOCX, JPG, PNG… Nous extrayons automatiquement les informations et créons le dossier.",
+      "uploadCta": "Importer des fichiers",
+      "manualTitle": "Saisie manuelle",
+      "manualDesc": "Créer une demande en saisissant les informations en texte.",
+      "manualCta": "Saisir manuellement",
+      "breadcrumbUpload": "Nouvelle demande > Import de fichiers",
+      "breadcrumbManual": "Nouvelle demande > Saisie manuelle",
+      "dropzone": "Glissez-déposez vos fichiers ici ou",
+      "browse": "Parcourir",
+      "formats": "PDF, EML, MSG, DOCX, JPG, PNG (Max 10 fichiers, 20 Mo chacun)",
+      "selectedFiles": "Fichiers sélectionnés ({count})",
+      "clearAll": "Tout effacer",
+      "removeFile": "Retirer le fichier",
+      "sender": "Expéditeur",
+      "subject": "Objet",
+      "content": "Contenu de la demande",
+      "attachments": "Pièces jointes",
+      "addFiles": "Ajouter des fichiers",
+      "cancel": "Annuler",
+      "submit": "Créer la demande",
+      "close": "Fermer",
+      "back": "Retour",
+      "created": "Demande créée avec succès."
+    },
     "toast": {
       "accepted": "Rendez-vous accepté pour",
       "doctorChanged": "Médecin modifié pour",
@@ -408,17 +547,31 @@
     }
   },
   "toValidate": {
+    "subtitle": "Confirmer les champs extraits avant de poursuivre le traitement",
     "pendingDossiers": "Dossiers en attente",
     "fieldsToConfirm": "Champs à valider",
     "urgentDecisions": "Décisions urgentes",
     "total": "Total",
     "vsYesterday": "par rapport à hier",
-    "listTitle": "Liste à valider",
+    "listTitle": "File de validation",
+    "searchPlaceholder": "Rechercher par salarié, entreprise, n° dossier...",
+    "resetFilters": "Réinitialiser",
+    "perPage": "{count}/page",
+    "perPageLabel": "Dossiers par page",
+    "selectAll": "Tout sélectionner",
     "filter": "Filtrer",
     "filterAll": "Tous",
+    "filters": {
+      "priority": "Priorité",
+      "reason": "Motif",
+      "visitType": "Type de visite",
+      "company": "Entreprise"
+    },
     "columns": {
       "dossier": "Dossier",
-      "type": "Type",
+      "employee": "Salarié",
+      "company": "Entreprise",
+      "type": "Type de visite",
       "reason": "Motif",
       "priority": "Priorité",
       "deadline": "Échéance",
@@ -437,9 +590,12 @@
       "medium": "Moyenne",
       "low": "Basse"
     },
-    "statusPending": "En attente",
+    "statusPending": "En attente de confirmation",
+    "remainingToday": "(aujourd'hui)",
     "remainingOne": "(1 jour)",
     "remainingMany": "({count} jours)",
+    "overdueOne": "(-1 jour)",
+    "overdueMany": "(-{count} jours)",
     "range": "Affichage de {from} à {to} sur {total} dossiers",
     "empty": "Aucun dossier en attente de validation.",
     "emptyFilter": "Aucun dossier ne correspond au filtre.",
@@ -447,7 +603,11 @@
     "prevPage": "Page précédente",
     "nextPage": "Page suivante",
     "page": "Page {page}",
-    "summary": "Synthèse du dossier",
+    "detailTitle": "Détail du dossier",
+    "tabDetails": "Détails du dossier",
+    "tabHistory": "Historique",
+    "historyEmpty": "Aucun historique pour le moment.",
+    "summary": "Informations clés",
     "examDate": "Date de visite",
     "doctor": "Médecin",
     "visitType": "Type de visite",
@@ -455,17 +615,22 @@
     "proposal": "Proposition ATN (extraite)",
     "source": "Source d'extraction",
     "sourceFile": "{file} (page {page})",
-    "confidence": "Confiance : {percent}%",
+    "analyzedOn": "Analysé le {date}",
+    "confidence": "Confiance {percent}%",
     "alternatives": "Autres choix",
-    "extraTitle": "Informations complémentaires du document",
+    "addDate": "Ajouter une autre date",
+    "addOption": "Ajouter une autre valeur",
+    "addOptionPlaceholder": "Saisir une valeur...",
+    "addOptionConfirm": "Ajouter",
+    "extraTitle": "Informations complémentaires",
     "notes": "Notes (optionnel)",
-    "notesPlaceholder": "Saisissez vos notes...",
+    "notesPlaceholder": "Ajouter une note...",
     "confirm": "Valider",
     "edit": "Modifier",
     "requestMore": "Demander un complément",
     "skip": "Ignorer",
     "extra": {
-      "returnDate": "Le dossier est analysé. Deux dates de reprise différentes ont été détectées et doivent être validées.",
+      "returnDate": "Deux dates de reprise différentes ont été trouvées dans le dossier et doivent être confirmées.",
       "visitType": "Le type de visite a été extrait de la demande. Le lieu de travail doit encore être précisé avant validation.",
       "workplace": "Le lieu de travail doit être précisé avant validation du dossier.",
       "employeeName": "Le nom extrait diffère du nom saisi dans la demande. L'identité doit être confirmée avant poursuite.",
@@ -833,6 +998,7 @@
     "relatedTitle": "Paramètres associés",
     "comingSoon": "Cette section sera bientôt disponible.",
     "categories": {
+      "profile": "Mon profil",
       "general": "Général",
       "users": "Utilisateurs & rôles",
       "centers": "Centres & médecins",
@@ -842,6 +1008,10 @@
       "notifications": "Notifications"
     },
     "sections": {
+      "profile": {
+        "title": "Mon profil",
+        "description": "Informations du compte et changement de mot de passe."
+      },
       "general": {
         "title": "Général",
         "description": "Configuration générale du système ATN."
@@ -1069,6 +1239,9 @@
     "welcomeBody": "Posez une question sur les dossiers, les validations ou les anomalies.",
     "thinking": "Réflexion en cours",
     "dragHint": "Glisser pour déplacer, cliquer pour ouvrir",
+    "error": "Impossible d'obtenir une réponse. Veuillez réessayer.",
+    "questionRequired": "Posez une question textuelle pour interroger l'assistant.",
+    "analyzeAttachmentsQuestion": "Analyse les fichiers joints et résume ce qu'il faut faire.",
     "suggestions": {
       "anomalies": "Quels dossiers sont en anomalie ?",
       "validation": "Résume la file de validation",

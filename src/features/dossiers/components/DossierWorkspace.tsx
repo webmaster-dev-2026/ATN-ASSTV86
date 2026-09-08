@@ -9,7 +9,6 @@ import { DocumentReader } from './DocumentReader'
 import { DossierActionPanel } from './DossierActionPanel'
 import { DossierDocuments } from './DossierDocuments'
 import { DossierHeader, type WorkspaceTab } from './DossierHeader'
-import { TargetIcon } from './DossierIcons'
 import { StatusBadge } from './StatusBadge'
 
 interface DossierWorkspaceProps {
@@ -68,11 +67,6 @@ export function DossierWorkspace({
     }
   }
 
-  const openActionPanel = () => {
-    setActionOpen(true)
-    setTab('proposal')
-  }
-
   const showDocuments = tab === 'documents' || tab === 'synthesis' || tab === 'proposal'
 
   const analysisPanel = <AtnAnalysisPanel dossier={dossier} />
@@ -99,37 +93,35 @@ export function DossierWorkspace({
   ]
 
   return (
-    <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3">
+    <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-2">
       <DossierHeader
         dossier={dossier}
         proposedSlot={selectedSlot}
         activeTab={tab}
         onTabChange={handleTabChange}
+        onAnalyse={() => {
+          setActionOpen(true)
+          setTab('synthesis')
+        }}
+        onPropose={() => {
+          setActionOpen(true)
+          setTab('proposal')
+        }}
       />
 
-      <div className="relative flex min-h-0 min-w-0 flex-1 flex-col gap-3 overflow-y-auto lg:flex-row lg:flex-nowrap lg:overflow-hidden">
+      <div className="relative flex min-h-0 min-w-0 flex-1 flex-col gap-2 overflow-y-auto lg:flex-row lg:flex-nowrap lg:overflow-hidden">
         {showDocuments ? (
-          <div className="flex min-h-[55dvh] min-w-0 flex-1 flex-row gap-3 lg:min-h-0">
+          <div className="flex min-h-[55dvh] min-w-0 flex-1 flex-row gap-2 lg:min-h-0">
             <DossierDocuments
               documents={dossier.documents}
               selectedId={document?.id ?? null}
               onSelect={setDocumentId}
             />
             {document ? (
-              <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
+              <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden rounded-xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
                 <div className="flex h-full min-h-0 min-w-0 flex-col">
                   <DocumentReader dossier={dossier} document={document} />
                 </div>
-                {actionOpen ? null : (
-                  <button
-                    type="button"
-                    onClick={openActionPanel}
-                    className="absolute right-3 top-3 z-10 inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-[#1d4f9a] px-3.5 py-2 text-[12px] font-semibold text-white shadow-[0_6px_16px_rgba(29,79,154,0.28)] transition-colors hover:bg-[#163e7a] print:hidden"
-                  >
-                    <TargetIcon className="size-3.5" />
-                    {t('dossiers.workspace.openAction')}
-                  </button>
-                )}
                 <DossierActionPanel open={actionOpen} onClose={closeActionPanel}>
                   {analysisPanel}
                   {appointmentPanel}

@@ -7,13 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Env (keep .env.example)
+.env
+.env.local
+.env.*.local
+
 node_modules/
 dist
 dist-ssr
 *.local
 
-# Local-only Vietnamese locale — do not push
-src/i18n/locales/vi.json
+# Keep i18n locale files in git (fr / en / vi). Do not ignore JSON here.
+!src/i18n/locales/
+!src/i18n/locales/*.json
 
 # Editor directories and files
 .vscode/*

@@ -61,8 +61,7 @@ function Icon({ name, className = 'size-4' }: { name: IconName; className?: stri
 
 export function LoginForm() {
   const { t } = useI18n()
-  const { values, errors, isSubmitting, rememberMe, setField, setRememberMe, handleSubmit } =
-    useLogin()
+  const { values, errors, isSubmitting, setField, handleSubmit } = useLogin()
   const [showPassword, setShowPassword] = useState(false)
 
   return (
@@ -130,21 +129,7 @@ export function LoginForm() {
         ) : null}
       </div>
 
-      <div className="flex items-center justify-between gap-3 pt-0.5 text-[12px] font-semibold">
-        <label className="inline-flex min-w-0 cursor-pointer items-center gap-2.5 text-[#7d8799]">
-          <input
-            type="checkbox"
-            checked={rememberMe}
-            onChange={(event) => setRememberMe(event.target.checked)}
-            className="peer sr-only"
-          />
-          <span className="grid size-4 place-items-center rounded-[4px] border border-[#c5d0e0] bg-white text-transparent transition-colors duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] peer-checked:border-[#2860B9] peer-checked:bg-[#2860B9] peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[#2860B9]/30">
-            <svg className="size-2.5" viewBox="0 0 12 12" fill="none" aria-hidden>
-              <path d="m2 6 2.7 2.7L10 3.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-          <span>{t('auth.rememberMe')}</span>
-        </label>
+      <div className="flex items-center justify-end pt-0.5 text-[12px] font-semibold">
         <button
           type="button"
           className="shrink-0 rounded text-[#2860B9] transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[#1f529e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2860B9]/30"

@@ -24,9 +24,16 @@ function AppShell() {
     typeof window !== 'undefined' ? window.matchMedia(DESKTOP_QUERY).matches : true,
   )
 
-  const currentItem = NAV_ITEMS.find((item) => item.path === location.pathname)
+  const currentItem =
+    NAV_ITEMS.find((item) => item.path === location.pathname) ??
+    NAV_ITEMS.find((item) => item.path !== '/' && location.pathname.startsWith(`${item.path}/`))
   const pageTitle = currentItem ? t(currentItem.labelKey) : t('nav.dashboard')
-  const pageSubtitle = currentItem?.subtitleKey ? t(currentItem.subtitleKey) : undefined
+  const pageSubtitle =
+    currentItem?.path === '/dossiers' && location.pathname !== '/dossiers'
+      ? undefined
+      : currentItem?.subtitleKey
+        ? t(currentItem.subtitleKey)
+        : undefined
   const menuOpen = isDesktop ? !collapsed : mobileOpen
   const occupyChatLayout = mode === 'docked' && dockAsLayout
 

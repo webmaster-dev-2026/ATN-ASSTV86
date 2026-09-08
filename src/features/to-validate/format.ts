@@ -33,6 +33,12 @@ export const PRIORITY_DOT: Record<PriorityKind, string> = {
   low: 'bg-[#16a34a]',
 }
 
+export const PRIORITY_PILL: Record<PriorityKind, string> = {
+  high: 'bg-[#fde2e2] text-[#e54848]',
+  medium: 'bg-[#fff1e4] text-[#ea7a1a]',
+  low: 'bg-[#e8f0fe] text-[#1d4f9a]',
+}
+
 export const AVATAR_TONES = [
   'bg-[#d9e8fb] text-[#1d4f9a]',
   'bg-[#ffe8d2] text-[#c96512]',

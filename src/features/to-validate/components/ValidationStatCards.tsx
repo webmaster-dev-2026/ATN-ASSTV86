@@ -16,14 +16,14 @@ const METRICS: {
     changeKey: 'pendingChange',
     labelKey: 'toValidate.pendingDossiers',
     icon: <FolderGearIcon className="size-4" />,
-    iconClass: 'bg-[#ffe8d2] text-[#ea7a1a]',
+    iconClass: 'bg-[#e8f0fb] text-[#2860B9]',
   },
   {
     valueKey: 'fieldsToConfirm',
     changeKey: 'fieldsChange',
     labelKey: 'toValidate.fieldsToConfirm',
     icon: <FileEditIcon className="size-4" />,
-    iconClass: 'bg-[#d9e8fb] text-[#1d4f9a]',
+    iconClass: 'bg-[#e8f0fb] text-[#2860B9]',
   },
   {
     valueKey: 'urgentDecisions',
@@ -53,7 +53,7 @@ export function ValidationStatCards({ summary }: ValidationStatCardsProps) {
         return (
           <article
             key={item.valueKey}
-            className="flex items-center justify-between gap-3 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_1px_2px_rgba(28,42,78,0.04)]"
+            className="flex items-center justify-between gap-3 rounded-xl border border-[#e8eef6] bg-white px-3.5 py-2.5 shadow-[0_1px_2px_rgba(28,42,78,0.04)]"
           >
           <div className="min-w-0">
             <p className="truncate text-[12px] font-semibold text-[#6d7b93]">{t(item.labelKey)}</p>

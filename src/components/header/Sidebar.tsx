@@ -30,7 +30,9 @@ export function Sidebar({ open, collapsed, onClose }: SidebarProps) {
 
   const updatePill = useCallback(() => {
     const list = listRef.current
-    const activeItem = NAV_ITEMS.find((item) => item.path === location.pathname)
+    const activeItem =
+      NAV_ITEMS.find((item) => item.path === location.pathname) ??
+      NAV_ITEMS.find((item) => item.path !== '/' && location.pathname.startsWith(`${item.path}/`))
     const el = activeItem ? itemRefs.current[activeItem.id] : null
     if (!list || !el) {
       return

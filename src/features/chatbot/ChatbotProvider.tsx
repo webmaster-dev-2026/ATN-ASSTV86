@@ -6,13 +6,21 @@ import {
   useState,
   type ReactNode,
 } from 'react'
+import {
+  askAssistantApi,
+  isApiError,
+  uploadDossierDocumentsApi,
+  uploadRequestFilesApi,
+  type AssistantAskOut,
+} from '@/api'
 import { detectLocale, useI18n } from '@/i18n'
 import { ChatbotContext } from './ChatbotContext'
-import { FAB_MARGIN, FAB_SIZE, REPLY_DELAY_MS, TITLE_MAX } from './constants'
+import { FAB_MARGIN, FAB_SIZE, TITLE_MAX } from './constants'
 import { getSeedConversations } from './getChatbotData'
-import { createAssistantReply } from './replies'
 import { loadChatbotState, saveChatbotState } from './storage'
 import type { ChatAttachment, ChatMessage, ChatMode, Conversation, FabPosition } from './types'
+
+const DOS_ID_RE = /\bDOS-[A-Za-z0-9-]+\b/i
 
 function createId() {
   return crypto.randomUUID()
@@ -59,16 +67,56 @@ function clampFabPosition(position: FabPosition): FabPosition {
   }
 }
 
+/** Prefer ID mentioned in the question; else page context. */
+function resolveDossierId(question: string, contextId: string | null): string | null {
+  const match = question.match(DOS_ID_RE)
+  if (match) {
+    return match[0]
+  }
+  return contextId
+}
+
+function formatAssistantContent(response: AssistantAskOut): string {
+  const parts = [response.answer.trim()]
+
+  const next = response.suggested_next_action?.trim()
+  if (next) {
+    parts.push(next)
+  }
+
+  const sources = response.sources?.map((item) => item.trim()).filter(Boolean) ?? []
+  if (sources.length > 0) {
+    parts.push(sources.join(' · '))
+  }
+
+  return parts.filter(Boolean).join('\n\n')
+}
+
+/** Persist only serializable attachment metadata (drop File blobs). */
+function toStoredAttachments(attachments: ChatAttachment[]): ChatAttachment[] {
+  return attachments.map(({ id, name, size, type }) => ({ id, name, size, type }))
+}
+
+function collectUploadFiles(attachments: ChatAttachment[]): File[] {
+  return attachments.map((item) => item.file).filter((file): file is File => Boolean(file))
+}
+
 export function ChatbotProvider({ children }: { children: ReactNode }) {
-  const { locale } = useI18n()
+  const { t } = useI18n()
   const [mode, setMode] = useState<ChatMode>('closed')
   const [historyOpen, setHistoryOpen] = useState(false)
   const [thinking, setThinking] = useState(false)
   const [conversations, setConversations] = useState<Conversation[]>([])
   const [activeId, setActiveId] = useState<string | null>(null)
+  const [dossierId, setDossierId] = useState<string | null>(null)
   const [fabPosition, setFabPositionState] = useState<FabPosition>(defaultFabPosition)
   const [hydrated, setHydrated] = useState(false)
-  const replyTimerRef = useRef<number | null>(null)
+  const abortRef = useRef<AbortController | null>(null)
+  const dossierIdRef = useRef<string | null>(null)
+
+  useEffect(() => {
+    dossierIdRef.current = dossierId
+  }, [dossierId])
 
   useEffect(() => {
     const stored = loadChatbotState()
@@ -103,9 +151,7 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     return () => {
-      if (replyTimerRef.current) {
-        window.clearTimeout(replyTimerRef.current)
-      }
+      abortRef.current?.abort()
     }
   }, [])
 
@@ -150,6 +196,22 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
     setHistoryOpen(false)
   }, [])
 
+  const appendAssistantMessage = useCallback((targetId: string, content: string) => {
+    const reply: ChatMessage = {
+      id: createId(),
+      role: 'assistant',
+      content,
+      createdAt: nowIso(),
+    }
+    setConversations((current) =>
+      current.map((item) =>
+        item.id === targetId
+          ? { ...item, updatedAt: reply.createdAt, messages: [...item.messages, reply] }
+          : item,
+      ),
+    )
+  }, [])
+
   const sendMessage = useCallback(
     (raw: string, attachments: ChatAttachment[] = []) => {
       const content = raw.trim()
@@ -157,12 +219,15 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
         return
       }
 
+      const storedAttachments =
+        attachments.length > 0 ? toStoredAttachments(attachments) : undefined
+
       const userMessage: ChatMessage = {
         id: createId(),
         role: 'user',
         content,
         createdAt: nowIso(),
-        attachments: attachments.length > 0 ? attachments : undefined,
+        attachments: storedAttachments,
       }
 
       const titleSource = content || attachments[0]?.name || ''
@@ -195,31 +260,84 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
       })
 
       setHistoryOpen(false)
-      setThinking(true)
 
-      if (replyTimerRef.current) {
-        window.clearTimeout(replyTimerRef.current)
+      const uploadFiles = collectUploadFiles(attachments)
+      const question =
+        content ||
+        (uploadFiles.length > 0 ? t('chatbot.analyzeAttachmentsQuestion') : '')
+
+      if (!question) {
+        appendAssistantMessage(targetId!, t('chatbot.questionRequired'))
+        return
       }
 
-      replyTimerRef.current = window.setTimeout(() => {
-        const reply: ChatMessage = {
-          id: createId(),
-          role: 'assistant',
-          content: createAssistantReply(content, locale, attachments),
-          createdAt: nowIso(),
+      abortRef.current?.abort()
+      const controller = new AbortController()
+      abortRef.current = controller
+      setThinking(true)
+
+      void (async () => {
+        try {
+          let resolvedDossierId = resolveDossierId(question, dossierIdRef.current)
+
+          if (uploadFiles.length > 0) {
+            if (resolvedDossierId) {
+              await uploadDossierDocumentsApi(
+                resolvedDossierId,
+                { files: uploadFiles },
+                { signal: controller.signal },
+              )
+            } else {
+              const uploaded = await uploadRequestFilesApi(
+                {
+                  files: uploadFiles,
+                  channel: 'CHATBOT',
+                  subject: question,
+                  raw_content: question,
+                },
+                { signal: controller.signal },
+              )
+              if (typeof uploaded.dossier_id === 'string' && uploaded.dossier_id) {
+                resolvedDossierId = uploaded.dossier_id
+                setDossierId(uploaded.dossier_id)
+              }
+            }
+          }
+
+          if (controller.signal.aborted) {
+            return
+          }
+
+          const response = await askAssistantApi(
+            {
+              question,
+              dossier_id: resolvedDossierId,
+            },
+            { signal: controller.signal },
+          )
+          if (controller.signal.aborted) {
+            return
+          }
+          appendAssistantMessage(targetId!, formatAssistantContent(response))
+        } catch (err) {
+          if (controller.signal.aborted) {
+            return
+          }
+          // Session expired → AuthProvider logs out; don't flash the BE message.
+          if (isApiError(err) && err.status === 401) {
+            return
+          }
+          const message = isApiError(err) ? err.message : t('chatbot.error')
+          appendAssistantMessage(targetId!, message || t('chatbot.error'))
+        } finally {
+          if (abortRef.current === controller) {
+            abortRef.current = null
+            setThinking(false)
+          }
         }
-        setConversations((current) =>
-          current.map((item) =>
-            item.id === targetId
-              ? { ...item, updatedAt: reply.createdAt, messages: [...item.messages, reply] }
-              : item,
-          ),
-        )
-        setThinking(false)
-        replyTimerRef.current = null
-      }, REPLY_DELAY_MS)
+      })()
     },
-    [activeId, locale, thinking],
+    [activeId, appendAssistantMessage, t, thinking],
   )
 
   const setFabPosition = useCallback((position: FabPosition) => {
@@ -234,6 +352,7 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
       activeConversation,
       historyOpen,
       thinking,
+      dossierId,
       fabPosition,
       fabSize: FAB_SIZE,
       openFloat,
@@ -243,6 +362,7 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
       newChat,
       selectConversation,
       setHistoryOpen,
+      setDossierId,
       sendMessage,
       setFabPosition,
     }),
@@ -253,6 +373,7 @@ export function ChatbotProvider({ children }: { children: ReactNode }) {
       activeConversation,
       historyOpen,
       thinking,
+      dossierId,
       fabPosition,
       openFloat,
       close,

@@ -6,7 +6,6 @@ import {
   ACTIVITY_LABEL,
   STATUS_BADGE,
   STATUS_LABEL,
-  STEP_BAR,
   STEP_LABEL,
   formatEta,
   pageNumbers,
@@ -135,18 +134,16 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
       <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
         <table className="w-full table-fixed border-collapse text-left">
           <colgroup>
-            <col className="w-[14%]" />
-            <col className="w-[22%]" />
-            <col className="w-[14%]" />
             <col className="w-[16%]" />
-            <col className="w-[20%]" />
-            <col className="w-[14%]" />
+            <col className="w-[24%]" />
+            <col className="w-[18%]" />
+            <col className="w-[24%]" />
+            <col className="w-[18%]" />
           </colgroup>
           <thead className="sticky top-0 bg-white">
             <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
               <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('inProgress.columns.reference')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.employee')}</th>
-              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.progress')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.status')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('inProgress.columns.lastActivity')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-4">{t('inProgress.columns.eta')}</th>
@@ -155,7 +152,7 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
           <tbody>
             {visible.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-12 text-center text-[13px] font-medium text-[#8b95a8]">
+                <td colSpan={5} className="px-4 py-12 text-center text-[13px] font-medium text-[#8b95a8]">
                   {t(items.length === 0 ? 'inProgress.empty' : 'inProgress.emptyFilter')}
                 </td>
               </tr>
@@ -182,17 +179,6 @@ export function ProcessingTable({ items, onExport }: ProcessingTableProps) {
                       </span>
                       <span className="mt-0.5 block truncate text-[12px] text-[#6d7b93]" title={item.companyName}>
                         {item.companyName}
-                      </span>
-                    </td>
-                    <td className="overflow-hidden px-2 py-3 sm:px-3">
-                      <span className="block text-[12px] font-semibold tabular-nums text-[#1c2a4e]">
-                        {item.progress}%
-                      </span>
-                      <span className="mt-1 block h-1.5 overflow-hidden rounded-full bg-[#eef3f9]">
-                        <span
-                          className={cn('block h-full rounded-full', STEP_BAR[item.step])}
-                          style={{ width: `${item.progress}%` }}
-                        />
                       </span>
                     </td>
                     <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">

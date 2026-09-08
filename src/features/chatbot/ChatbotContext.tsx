@@ -8,6 +8,8 @@ export interface ChatbotContextValue {
   activeConversation: Conversation | null
   historyOpen: boolean
   thinking: boolean
+  /** Optional dossier context for assistant ask (e.g. selected file). */
+  dossierId: string | null
   fabPosition: FabPosition
   fabSize: number
   openFloat: () => void
@@ -17,6 +19,7 @@ export interface ChatbotContextValue {
   newChat: () => void
   selectConversation: (id: string) => void
   setHistoryOpen: (open: boolean) => void
+  setDossierId: (dossierId: string | null) => void
   sendMessage: (content: string, attachments?: ChatAttachment[]) => void
   setFabPosition: (position: FabPosition) => void
 }

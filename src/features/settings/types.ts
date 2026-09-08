@@ -1,4 +1,5 @@
 export type SettingsCategoryId =
+  | 'profile'
   | 'general'
   | 'users'
   | 'centers'

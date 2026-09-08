@@ -9,6 +9,7 @@ import type {
   DossierCase,
   DossierCaseStatus,
   DossierDocument,
+  DossierPriority,
   DossiersData,
   FitnessDecision,
   MedicalRestriction,
@@ -25,6 +26,7 @@ interface MockDossier {
   company_name: string
   visit_type: string
   status: string
+  priority?: string
   created_at: string
 }
 
@@ -49,6 +51,19 @@ const STATUS_MAP: Record<string, DossierCaseStatus> = {
   READY_FOR_APPOINTMENT: 'readyForAppointment',
   COMPLETED: 'completed',
   BLOCKED: 'blocked',
+}
+
+const PRIORITY_MAP: Record<string, DossierPriority> = {
+  HIGH: 'high',
+  NORMAL: 'normal',
+  LOW: 'low',
+}
+
+function priorityFor(value: string | undefined, index = 0): DossierPriority {
+  if (value && PRIORITY_MAP[value]) {
+    return PRIORITY_MAP[value]
+  }
+  return (['normal', 'high', 'low'] as const)[index % 3]
 }
 
 const FILE_SIZES: Record<FileKind, string> = {
@@ -77,6 +92,7 @@ interface ExtraSeed {
   company: string
   visitType: string
   status: DossierCaseStatus
+  priority?: DossierPriority
   source: string
   receivedAt: string
 }
@@ -332,6 +348,7 @@ function toCase(params: {
   companyName: string
   visitType: string
   status: DossierCaseStatus
+  priority: DossierPriority
   receivedAt: string
   source: string
   centerName: string
@@ -352,6 +369,7 @@ function toCase(params: {
     companyName: params.companyName,
     visitType: params.visitType,
     status: params.status,
+    priority: params.priority,
     receivedAt: params.receivedAt,
     source: params.source,
     centerName: params.centerName,
@@ -396,7 +414,7 @@ export function getDossiersData(): DossiersData {
     docsByDossier.set(document.dossier_id, list)
   }
 
-  const seedCases = dossiers.map((dossier) => {
+  const seedCases = dossiers.map((dossier, index) => {
     const practitioner = userById.get(dossier.professional_id) ?? DOCTORS[0]
     const uploadedBy = userById.get(dossier.professional_id) ?? 'Sophie Martin'
 
@@ -407,6 +425,7 @@ export function getDossiersData(): DossiersData {
       companyName: dossier.company_name,
       visitType: dossier.visit_type,
       status: STATUS_MAP[dossier.status] ?? 'toProcess',
+      priority: priorityFor(dossier.priority, index),
       receivedAt: dossier.created_at,
       source: centerSources[dossier.center_id] ?? dossier.center_name,
       centerName: dossier.center_name,
@@ -428,6 +447,7 @@ export function getDossiersData(): DossiersData {
       companyName: seed.company,
       visitType: seed.visitType,
       status: seed.status,
+      priority: seed.priority ?? priorityFor(undefined, index + 1),
       receivedAt: seed.receivedAt,
       source: seed.source,
       centerName: DOCTOR_CENTERS[practitioner],

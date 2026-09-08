@@ -111,6 +111,22 @@ export function ChevronDownIcon({ className = 'size-4' }: { className?: string }
   )
 }
 
+export function ChevronLeftIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg {...common} className={className}>
+      <path {...stroke} d="m14.5 6.5-5.5 5.5 5.5 5.5" />
+    </svg>
+  )
+}
+
+export function ChevronRightIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg {...common} className={className}>
+      <path {...stroke} d="m9.5 6.5 5.5 5.5-5.5 5.5" />
+    </svg>
+  )
+}
+
 export function FilterIcon({ className = 'size-4' }: { className?: string }) {
   return (
     <svg {...common} className={className}>

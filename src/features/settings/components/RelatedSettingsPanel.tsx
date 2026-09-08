@@ -7,9 +7,10 @@ import { ChevronDownIcon } from './SettingsIcons'
 
 const RETENTION_OPTIONS: RetentionYears[] = [1, 5, 10, 15]
 
-const LOCALE_LABEL: Record<Locale, 'common.french' | 'common.english'> = {
+const LOCALE_LABEL: Record<Locale, 'common.french' | 'common.english' | 'common.vietnamese'> = {
   fr: 'common.french',
   en: 'common.english',
+  vi: 'common.vietnamese',
 }
 
 interface RelatedSettingsPanelProps {
@@ -228,10 +229,22 @@ function EnglishFlag() {
   )
 }
 
+function VietnameseFlag() {
+  return (
+    <svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 size-full" aria-hidden>
+      <rect width="30" height="20" fill="#DA251D" />
+      <polygon
+        fill="#FFFF00"
+        points="15,3.6 16.76,9.02 22.5,9.02 17.87,12.36 19.63,17.8 15,14.46 10.37,17.8 12.13,12.36 7.5,9.02 13.24,9.02"
+      />
+    </svg>
+  )
+}
+
 function LocaleFlag({ locale }: { locale: Locale }) {
   return (
     <span className="relative block h-3.5 w-5 shrink-0 overflow-hidden rounded-[3px] ring-1 ring-black/5">
-      {locale === 'en' ? <EnglishFlag /> : <FrenchFlag />}
+      {locale === 'fr' ? <FrenchFlag /> : locale === 'en' ? <EnglishFlag /> : <VietnameseFlag />}
     </span>
   )
 }

@@ -7,6 +7,8 @@ export type DossierCaseStatus =
   | 'blocked'
   | 'completed'
 
+export type DossierPriority = 'high' | 'normal' | 'low'
+
 export type FitnessDecision = 'fit' | 'unfit' | 'pending'
 
 export type RestrictionKind = 'lifting' | 'repetitive' | 'staticPosture'
@@ -48,6 +50,7 @@ export interface DossierCase {
   companyName: string
   visitType: string
   status: DossierCaseStatus
+  priority: DossierPriority
   receivedAt: string
   source: string
   centerName: string

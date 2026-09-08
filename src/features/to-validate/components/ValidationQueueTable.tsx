@@ -1,28 +1,34 @@
-import { useEffect, useMemo, useState } from 'react'
-import { HeaderFilter } from '@/components/ui'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { visitLabel } from '@/features/dashboard/format'
+import { ChevronDownIcon, SearchIcon } from '@/features/dossiers/components/DossierIcons'
 import { formatDate, initials, interpolate } from '@/features/dossiers/format'
-import { useI18n, type TranslationKey } from '@/i18n'
+import { useI18n } from '@/i18n'
 import { cn } from '@/lib/cn'
 import {
-  PRIORITY_DOT,
   PRIORITY_KEYS,
+  PRIORITY_PILL,
   REASON_KEYS,
   avatarTone,
   pageNumbers,
   remainingDays,
 } from '../format'
-import type { QueueFilter, ValidationItem } from '../types'
+import type { PriorityKind, ReasonKind, ValidationItem } from '../types'
 import { ChevronLeftIcon, ChevronRightIcon } from './ValidationIcons'
 
-const PAGE_SIZE = 8
-
-const FILTERS: Array<{ value: QueueFilter; labelKey: TranslationKey }> = [
-  { value: 'all', labelKey: 'toValidate.filterAll' },
-  { value: 'high', labelKey: 'toValidate.priority.high' },
-  { value: 'medium', labelKey: 'toValidate.priority.medium' },
-  { value: 'low', labelKey: 'toValidate.priority.low' },
+const PAGE_SIZES = [10, 20, 50] as const
+const PRIORITIES: PriorityKind[] = ['high', 'medium', 'low']
+const REASONS: ReasonKind[] = [
+  'returnDate',
+  'visitType',
+  'workplace',
+  'employeeName',
+  'jobTitle',
+  'companyName',
 ]
+const VISIT_TYPES = ['VISITE_PERIODIQUE', 'VISITE_EMBAUCHE', 'VISITE_REPRISE', 'VISITE_SPECIALE'] as const
+
+const selectClass =
+  'h-9 min-w-[120px] cursor-pointer appearance-none rounded-lg border border-[#e4ecf6] bg-white py-0 pl-3 pr-8 text-[13px] font-medium text-[#1c2a4e] transition-colors duration-200 hover:border-[#c5d4ea] focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30 [&::-ms-expand]:hidden'
 
 interface ValidationQueueTableProps {
   items: ValidationItem[]
@@ -32,60 +38,154 @@ interface ValidationQueueTableProps {
 
 export function ValidationQueueTable({ items, selectedId, onSelect }: ValidationQueueTableProps) {
   const { t, locale } = useI18n()
-  const [filter, setFilter] = useState<QueueFilter>('all')
+  const [query, setQuery] = useState('')
+  const [priority, setPriority] = useState<PriorityKind | 'all'>('all')
+  const [reason, setReason] = useState<ReasonKind | 'all'>('all')
+  const [visitType, setVisitType] = useState<string>('all')
+  const [company, setCompany] = useState('all')
   const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState<(typeof PAGE_SIZES)[number]>(10)
 
-  const filtered = useMemo(
-    () => (filter === 'all' ? items : items.filter((item) => item.priority === filter)),
-    [filter, items],
+  const companies = useMemo(
+    () => [...new Set(items.map((item) => item.companyName))].sort((a, b) => a.localeCompare(b)),
+    [items],
   )
 
-  const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
+  const filtered = useMemo(() => {
+    const needle = query.trim().toLowerCase()
+    return items.filter((item) => {
+      const matchesQuery =
+        !needle ||
+        item.employeeName.toLowerCase().includes(needle) ||
+        item.companyName.toLowerCase().includes(needle) ||
+        item.reference.toLowerCase().includes(needle) ||
+        item.id.toLowerCase().includes(needle)
+      const matchesPriority = priority === 'all' || item.priority === priority
+      const matchesReason = reason === 'all' || item.reason === reason
+      const matchesVisit = visitType === 'all' || item.visitType === visitType
+      const matchesCompany = company === 'all' || item.companyName === company
+      return matchesQuery && matchesPriority && matchesReason && matchesVisit && matchesCompany
+    })
+  }, [company, items, priority, query, reason, visitType])
+
+  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize))
   const currentPage = Math.min(page, pageCount)
-  const start = (currentPage - 1) * PAGE_SIZE
-  const visible = filtered.slice(start, start + PAGE_SIZE)
-  const from = filtered.length === 0 ? 0 : start + 1
-  const to = start + visible.length
+  const start = (currentPage - 1) * pageSize
+  const visible = filtered.slice(start, start + pageSize)
 
   useEffect(() => {
     setPage(1)
-  }, [filter, items.length])
+  }, [query, priority, reason, visitType, company, pageSize, items.length])
+
+  const resetFilters = () => {
+    setQuery('')
+    setPriority('all')
+    setReason('all')
+    setVisitType('all')
+    setCompany('all')
+  }
+
+  const hasFilters =
+    query.trim() !== '' ||
+    priority !== 'all' ||
+    reason !== 'all' ||
+    visitType !== 'all' ||
+    company !== 'all'
 
   return (
     <section className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(28,42,78,0.04)]">
-      <div className="flex shrink-0 items-center gap-2 px-4 py-3 sm:px-5">
-        <h2 className="truncate text-[16px] font-bold text-[#1c2a4e]">{t('toValidate.listTitle')}</h2>
-        <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-[#d9e8fb] px-2 py-0.5 text-[12px] font-bold text-[#1d4f9a]">
-          {filtered.length}
-        </span>
+      <div className="flex shrink-0 flex-col gap-3 border-b border-[#eef3f9] px-4 py-3 sm:px-5">
+        <div className="flex flex-col gap-2 xl:flex-row xl:items-center">
+          <label className="relative min-w-0 flex-1">
+            <span className="sr-only">{t('toValidate.searchPlaceholder')}</span>
+            <SearchIcon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#8b95a8]" />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={t('toValidate.searchPlaceholder')}
+              className="h-9 w-full rounded-lg border border-[#e4ecf6] bg-[#f7fafc] py-0 pl-9 pr-3 text-[13px] text-[#1c2a4e] placeholder:text-[#8b95a8] focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/30"
+            />
+          </label>
+          <div className="flex flex-wrap items-center gap-2">
+            <FilterSelect
+              label={t('toValidate.filters.priority')}
+              value={priority}
+              onChange={(value) => setPriority(value as PriorityKind | 'all')}
+            >
+              <option value="all">{t('toValidate.filters.priority')}</option>
+              {PRIORITIES.map((value) => (
+                <option key={value} value={value}>
+                  {t(PRIORITY_KEYS[value])}
+                </option>
+              ))}
+            </FilterSelect>
+            <FilterSelect
+              label={t('toValidate.filters.reason')}
+              value={reason}
+              onChange={(value) => setReason(value as ReasonKind | 'all')}
+            >
+              <option value="all">{t('toValidate.filters.reason')}</option>
+              {REASONS.map((value) => (
+                <option key={value} value={value}>
+                  {t(REASON_KEYS[value])}
+                </option>
+              ))}
+            </FilterSelect>
+            <FilterSelect
+              label={t('toValidate.filters.visitType')}
+              value={visitType}
+              onChange={setVisitType}
+            >
+              <option value="all">{t('toValidate.filters.visitType')}</option>
+              {VISIT_TYPES.map((value) => (
+                <option key={value} value={value}>
+                  {visitLabel(value, t)}
+                </option>
+              ))}
+            </FilterSelect>
+            <FilterSelect label={t('toValidate.filters.company')} value={company} onChange={setCompany}>
+              <option value="all">{t('toValidate.filters.company')}</option>
+              {companies.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </FilterSelect>
+          </div>
+        </div>
+
+        {hasFilters ? (
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="cursor-pointer text-[12px] font-semibold text-[#1d4f9a] hover:underline"
+            >
+              {t('toValidate.resetFilters')}
+            </button>
+          </div>
+        ) : null}
       </div>
 
       <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
         <table className="w-full table-fixed border-collapse text-left">
           <colgroup>
-            <col className="w-[24%]" />
-            <col className="w-[13%]" />
+            <col className="w-[20%]" />
             <col className="w-[16%]" />
-            <col className="w-[12%]" />
             <col className="w-[14%]" />
-            <col className="w-[21%]" />
+            <col className="w-[14%]" />
+            <col className="w-[12%]" />
+            <col className="w-[12%]" />
+            <col className="w-[12%]" />
           </colgroup>
-          <thead className="sticky top-0 bg-white">
-            <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#8b95a8]">
-              <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('toValidate.columns.dossier')}</th>
+          <thead className="sticky top-0 z-10 bg-white">
+            <tr className="border-y border-[#eef3f9] text-[12px] font-semibold text-[#1d4f9a]">
+              <th className="truncate px-3 py-2.5 font-semibold sm:px-4">{t('toValidate.columns.employee')}</th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.company')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.type')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.reason')}</th>
-              <th className="overflow-hidden px-2 py-2.5 font-semibold sm:px-3">
-                <HeaderFilter
-                  label={t('toValidate.columns.priority')}
-                  value={filter}
-                  onChange={setFilter}
-                  options={FILTERS.map((option) => ({
-                    value: option.value,
-                    label: t(option.labelKey),
-                  }))}
-                />
-              </th>
+              <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.priority')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-3">{t('toValidate.columns.deadline')}</th>
               <th className="truncate px-2 py-2.5 font-semibold sm:px-4">{t('toValidate.columns.status')}</th>
             </tr>
@@ -93,7 +193,7 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
           <tbody>
             {visible.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-12 text-center text-[13px] font-medium text-[#8b95a8]">
+                <td colSpan={7} className="px-4 py-12 text-center text-[13px] font-medium text-[#8b95a8]">
                   {t(items.length === 0 ? 'toValidate.empty' : 'toValidate.emptyFilter')}
                 </td>
               </tr>
@@ -102,9 +202,15 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                 const selected = item.id === selectedId
                 const days = remainingDays(item.deadlineAt)
                 const remainingLabel =
-                  days === 1
-                    ? t('toValidate.remainingOne')
-                    : interpolate(t('toValidate.remainingMany'), { count: days })
+                  days === 0
+                    ? t('toValidate.remainingToday')
+                    : days === 1
+                      ? t('toValidate.remainingOne')
+                      : days === -1
+                        ? t('toValidate.overdueOne')
+                        : days > 1
+                          ? interpolate(t('toValidate.remainingMany'), { count: days })
+                          : interpolate(t('toValidate.overdueMany'), { count: Math.abs(days) })
                 const typeLabel = visitLabel(item.visitType, t)
                 const reasonLabel = t(REASON_KEYS[item.reason])
                 const priorityLabel = t(PRIORITY_KEYS[item.priority])
@@ -122,72 +228,80 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
                       }
                     }}
                     className={cn(
-                      'cursor-pointer border-b border-[#f3f6fb] transition-colors duration-200',
-                      selected
-                        ? 'bg-[#F0F7FF]'
-                        : 'hover:bg-[#f7fafc]',
+                      'group cursor-pointer border-b border-[#f3f6fb] transition-colors duration-200',
+                      selected ? 'bg-[#F0F7FF]' : 'hover:bg-[#f7fafc]',
                     )}
                   >
-                    <td className="min-w-0 overflow-hidden px-3 py-3 sm:px-4">
+                    <td className="min-w-0 overflow-hidden px-3 py-2.5 sm:px-4">
                       <div className="flex min-w-0 items-center gap-2.5">
                         <span
                           className={cn(
-                            'grid size-8 shrink-0 place-items-center rounded-full text-[11px] font-bold sm:size-9 sm:text-[12px]',
+                            'grid size-8 shrink-0 place-items-center rounded-full text-[11px] font-bold',
                             avatarTone(item.employeeName),
                           )}
                         >
                           {initials(item.employeeName)}
                         </span>
-                        <span className="min-w-0">
+                        <span className="min-w-0 overflow-hidden">
                           <span
-                            className="block truncate text-[13px] font-semibold text-[#1c2a4e]"
+                            className={cn(
+                              'block truncate text-[13px] font-medium text-[#1c2a4e] transition-all',
+                              selected
+                                ? 'font-bold text-[#1d4f9a]'
+                                : 'group-hover:font-bold group-hover:text-[#1d4f9a]',
+                            )}
                             title={item.employeeName}
                           >
                             {item.employeeName}
                           </span>
-                          <span
-                            className="mt-0.5 block truncate text-[12px] text-[#6d7b93]"
-                            title={item.companyName}
-                          >
-                            {item.companyName}
+                          <span className="mt-0.5 block truncate text-[11px] tabular-nums text-[#8b95a8]">
+                            #{item.reference}
                           </span>
                         </span>
                       </div>
                     </td>
-                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-2.5 sm:px-3">
+                      <span className="block truncate text-[13px] text-[#1c2a4e]" title={item.companyName}>
+                        {item.companyName}
+                      </span>
+                    </td>
+                    <td className="min-w-0 overflow-hidden px-2 py-2.5 sm:px-3">
                       <span className="block truncate text-[13px] text-[#1c2a4e]" title={typeLabel}>
                         {typeLabel}
                       </span>
                     </td>
-                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
+                    <td className="min-w-0 overflow-hidden px-2 py-2.5 sm:px-3">
                       <span className="block truncate text-[13px] text-[#1c2a4e]" title={reasonLabel}>
                         {reasonLabel}
                       </span>
                     </td>
-                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
-                      <span className="inline-flex max-w-full items-center gap-1.5 text-[13px] font-medium text-[#1c2a4e]">
-                        <span className={cn('size-2 shrink-0 rounded-full', PRIORITY_DOT[item.priority])} />
-                        <span className="truncate" title={priorityLabel}>
-                          {priorityLabel}
-                        </span>
+                    <td className="min-w-0 overflow-hidden px-2 py-2.5 sm:px-3">
+                      <span
+                        className={cn(
+                          'inline-block max-w-full truncate rounded-full px-2 py-0.5 text-[11px] font-semibold',
+                          PRIORITY_PILL[item.priority],
+                        )}
+                        title={priorityLabel}
+                      >
+                        {priorityLabel}
                       </span>
                     </td>
-                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-3">
-                      <span className="block truncate text-[13px] font-medium tabular-nums text-[#1c2a4e]">
+                    <td className="min-w-0 overflow-hidden px-2 py-2.5 sm:px-3">
+                      <span className="block truncate text-[12px] font-medium tabular-nums text-[#1c2a4e]">
                         {formatDate(item.deadlineAt, locale)}
                       </span>
                       <span
                         className={cn(
-                          'mt-0.5 block truncate text-[12px] font-semibold tabular-nums',
-                          days <= 2 ? 'text-[#e54848]' : 'text-[#8b95a8]',
+                          'mt-0.5 block truncate text-[11px] font-semibold tabular-nums',
+                          days <= 0 ? 'text-[#e54848]' : days <= 2 ? 'text-[#ea7a1a]' : 'text-[#8b95a8]',
                         )}
                       >
                         {remainingLabel}
                       </span>
                     </td>
-                    <td className="min-w-0 overflow-hidden px-2 py-3 sm:px-4">
+                    <td className="min-w-0 overflow-hidden px-2 py-2.5 sm:px-4">
                       <span
-                        className="inline-block max-w-full truncate rounded-full bg-[#fff1e4] px-2 py-1 text-[11px] font-semibold text-[#ea7a1a]"
+                        className="inline-block max-w-full truncate rounded-full bg-[#fff1e4] px-2 py-0.5 text-[11px] font-semibold text-[#ea7a1a]"
                         title={t('toValidate.statusPending')}
                       >
                         {t('toValidate.statusPending')}
@@ -201,49 +315,41 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
         </table>
       </div>
 
-      <div className="flex shrink-0 flex-col gap-2 border-t border-[#eef3f9] px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-4">
-        <p className="min-w-0 truncate text-[12px] font-medium text-[#8b95a8]">
-          {interpolate(t('toValidate.range'), { from, to, total: filtered.length })}
-        </p>
-        <nav className="flex flex-wrap items-center gap-1" aria-label={t('toValidate.listTitle')}>
+      <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-t border-[#eef3f9] px-3 py-2.5 sm:px-4">
+        <nav className="flex items-center gap-0.5" aria-label={t('toValidate.listTitle')}>
           <button
             type="button"
-            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
+            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
             aria-label={t('toValidate.prevPage')}
             disabled={currentPage <= 1}
             onClick={() => setPage((value) => Math.max(1, value - 1))}
           >
             <ChevronLeftIcon />
           </button>
-          {pageNumbers(currentPage, pageCount).map((entry, index) => {
-            if (entry === 'ellipsis') {
-              return (
-                <span key={`ellipsis-${index}`} className="grid size-8 place-items-center text-[13px] font-semibold text-[#8b95a8]">
-                  …
-                </span>
-              )
-            }
-
-            const active = entry === currentPage
-            return (
+          {pageNumbers(currentPage, pageCount).map((entry, index) =>
+            entry === 'ellipsis' ? (
+              <span key={`ellipsis-${index}`} className="grid size-8 place-items-center text-[13px] font-semibold text-[#8b95a8]">
+                …
+              </span>
+            ) : (
               <button
                 key={entry}
                 type="button"
                 aria-label={interpolate(t('toValidate.page'), { page: entry })}
-                aria-current={active ? 'page' : undefined}
+                aria-current={entry === currentPage ? 'page' : undefined}
                 className={cn(
                   'grid size-8 cursor-pointer place-items-center rounded-lg text-[13px] font-semibold transition-colors',
-                  active ? 'bg-[#2860B9] text-white' : 'text-[#5b6b82] hover:bg-[#eef5fc]',
+                  entry === currentPage ? 'bg-[#2860B9] text-white' : 'text-[#5b6b82] hover:bg-[#eef5fc]',
                 )}
                 onClick={() => setPage(entry)}
               >
                 {entry}
               </button>
-            )
-          })}
+            ),
+          )}
           <button
             type="button"
-            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] transition-colors hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
+            className="grid size-8 cursor-pointer place-items-center rounded-lg text-[#5b6b82] hover:bg-[#eef5fc] disabled:cursor-not-allowed disabled:opacity-40"
             aria-label={t('toValidate.nextPage')}
             disabled={currentPage >= pageCount}
             onClick={() => setPage((value) => Math.min(pageCount, value + 1))}
@@ -251,7 +357,48 @@ export function ValidationQueueTable({ items, selectedId, onSelect }: Validation
             <ChevronRightIcon />
           </button>
         </nav>
+        <div className="relative">
+          <select
+            className={`${selectClass} min-w-[100px]`}
+            value={pageSize}
+            aria-label={t('toValidate.perPageLabel')}
+            onChange={(event) => setPageSize(Number(event.target.value) as (typeof PAGE_SIZES)[number])}
+          >
+            {PAGE_SIZES.map((size) => (
+              <option key={size} value={size}>
+                {interpolate(t('toValidate.perPage'), { count: size })}
+              </option>
+            ))}
+          </select>
+          <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#8b95a8]" />
+        </div>
       </div>
     </section>
+  )
+}
+
+function FilterSelect({
+  label,
+  value,
+  onChange,
+  children,
+}: {
+  label: string
+  value: string
+  onChange: (value: string) => void
+  children: ReactNode
+}) {
+  return (
+    <div className="relative">
+      <select
+        className={selectClass}
+        value={value}
+        aria-label={label}
+        onChange={(event) => onChange(event.target.value)}
+      >
+        {children}
+      </select>
+      <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#8b95a8]" />
+    </div>
   )
 }

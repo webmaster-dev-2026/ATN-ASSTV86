@@ -69,7 +69,70 @@
     "userName": "Sophie Martin",
     "userRole": "Medical secretary",
     "accountMenu": "Account menu",
+    "myProfile": "My profile",
+    "changePassword": "Change password",
     "logout": "Sign out"
+  },
+  "profile": {
+    "title": "My profile",
+    "subtitle": "Your current account details from the system.",
+    "loading": "Loading profile…",
+    "loadError": "Could not load profile. Please try again.",
+    "timelineTitle": "Activity timeline",
+    "editProfile": "Edit information",
+    "edit": {
+      "title": "Edit profile",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "success": "Profile updated successfully.",
+      "errors": {
+        "fullNameRequired": "Please enter a full name",
+        "forbidden": "You are not allowed to update this profile",
+        "failed": "Could not update profile. Please try again."
+      }
+    },
+    "fields": {
+      "userId": "User ID",
+      "email": "Email",
+      "fullName": "Full name",
+      "role": "Role",
+      "status": "Status",
+      "phone": "Phone",
+      "createdAt": "Created at",
+      "updatedAt": "Updated at",
+      "lastLoginAt": "Last login"
+    }
+  },
+  "changePassword": {
+    "title": "Change password",
+    "subtitle": "Enter your current password and a new password (≥ 8 characters).",
+    "hint": "Enter your current password and a new password (≥ 8 characters), with at least 1 uppercase letter, at least 1 special character, and no more than 20 characters.",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "submit": "Update password",
+    "submitting": "Updating…",
+    "success": "Password changed successfully.",
+    "rules": {
+      "title": "Note:",
+      "minLength": "At least 8 characters",
+      "maxLength": "No more than 20 characters",
+      "uppercase": "At least 1 uppercase letter",
+      "special": "At least 1 special character"
+    },
+    "errors": {
+      "currentRequired": "Please enter your current password",
+      "newRequired": "Please enter a new password",
+      "newMinLength": "New password must be at least 8 characters",
+      "newMaxLength": "New password must not exceed 20 characters",
+      "newUppercase": "New password must include at least 1 uppercase letter",
+      "newSpecial": "New password must include at least 1 special character",
+      "confirmRequired": "Please confirm the new password",
+      "confirmMismatch": "Password confirmation does not match",
+      "invalidCurrent": "Current password is incorrect or new password is invalid",
+      "failed": "Could not change password. Please try again."
+    }
   },
   "notifications": {
     "title": "Notifications",
@@ -169,7 +232,7 @@
     "queue": {
       "title": "To process",
       "all": "All",
-      "search": "Search a worker...",
+      "search": "Search by name, file ID...",
       "count": "{count} files",
       "empty": "No files match the current filters.",
       "documentsCount": "{count} documents",
@@ -179,7 +242,13 @@
       "more": "More",
       "openList": "Open the file list",
       "closeList": "Collapse the list",
-      "loading": "Loading files..."
+      "loading": "Loading files...",
+      "range": "{from}–{to} / {total}",
+      "prevPage": "Previous page",
+      "nextPage": "Next page",
+      "perPage": "{count}/page",
+      "perPageLabel": "Files per page",
+      "listNav": "Dossier list pagination"
     },
     "workspace": {
       "nav": "File sections",
@@ -214,7 +283,8 @@
     },
     "documents": {
       "title": "Documents in the file",
-      "pages": "{count} pages"
+      "pages": "{count} pages",
+      "add": "Add document"
     },
     "viewer": {
       "toolbar": "Document tools",
@@ -401,6 +471,75 @@
       "medicalReport": "Medical report"
     },
     "emptySelection": "Select a worker to process the file.",
+    "subtitle": "Manage and process visit requests",
+    "newRequest": "New request",
+    "countLabel": "{count} dossiers",
+    "resetFilters": "Reset",
+    "searchPlaceholder": "Search by employee, company, dossier ID...",
+    "filters": {
+      "status": "Status",
+      "visitType": "Visit type",
+      "priority": "Priority",
+      "company": "Company",
+      "receivedDate": "Received date"
+    },
+    "columns": {
+      "employee": "Employee",
+      "company": "Company",
+      "visitType": "Visit type",
+      "status": "Status",
+      "priority": "Priority",
+      "receivedOn": "Received on",
+      "proposedAt": "Proposed appointment",
+      "actions": "Actions"
+    },
+    "priority": {
+      "high": "High",
+      "normal": "Normal",
+      "low": "Low"
+    },
+    "listNav": "Dossiers pagination",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "perPage": "{count} / page",
+    "perPageLabel": "Dossiers per page",
+    "empty": "No dossiers yet.",
+    "emptyFilter": "No dossiers match the current filters.",
+    "openDossier": "Open dossier",
+    "backToList": "Back to dossiers",
+    "actions": {
+      "analyse": "Analyse",
+      "propose": "Propose appointment",
+      "more": "More actions"
+    },
+    "create": {
+      "title": "New request",
+      "chooseTitle": "How would you like to create a new request?",
+      "uploadTitle": "Upload files",
+      "uploadDesc": "PDF, EML, MSG, DOCX, JPG, PNG… We will automatically extract information and create the dossier.",
+      "uploadCta": "Upload files",
+      "manualTitle": "Enter manually",
+      "manualDesc": "Create a request by entering the information as text.",
+      "manualCta": "Enter manually",
+      "breadcrumbUpload": "New request > Upload files",
+      "breadcrumbManual": "New request > Manual entry",
+      "dropzone": "Drag & drop files here or",
+      "browse": "Browse files",
+      "formats": "PDF, EML, MSG, DOCX, JPG, PNG (Max 10 files, 20 MB each)",
+      "selectedFiles": "Selected files ({count})",
+      "clearAll": "Clear all",
+      "removeFile": "Remove file",
+      "sender": "Sender",
+      "subject": "Subject",
+      "content": "Request content",
+      "attachments": "Attachments",
+      "addFiles": "Add files",
+      "cancel": "Cancel",
+      "submit": "Create request",
+      "close": "Close",
+      "back": "Back",
+      "created": "Request created successfully."
+    },
     "toast": {
       "accepted": "Appointment accepted for",
       "doctorChanged": "Doctor changed for",
@@ -408,17 +547,31 @@
     }
   },
   "toValidate": {
+    "subtitle": "Confirm extracted fields before continuing processing",
     "pendingDossiers": "Files awaiting confirmation",
     "fieldsToConfirm": "Fields to confirm",
     "urgentDecisions": "Urgent decisions",
     "total": "Total",
     "vsYesterday": "vs yesterday",
-    "listTitle": "List to confirm",
+    "listTitle": "Validation queue",
+    "searchPlaceholder": "Search by employee, company, dossier ID...",
+    "resetFilters": "Reset",
+    "perPage": "{count}/page",
+    "perPageLabel": "Files per page",
+    "selectAll": "Select all",
     "filter": "Filter",
     "filterAll": "All",
+    "filters": {
+      "priority": "Priority",
+      "reason": "Reason",
+      "visitType": "Exam type",
+      "company": "Company"
+    },
     "columns": {
       "dossier": "File",
-      "type": "Type",
+      "employee": "Employee",
+      "company": "Company",
+      "type": "Exam type",
       "reason": "Reason",
       "priority": "Priority",
       "deadline": "Deadline",
@@ -438,8 +591,11 @@
       "low": "Low"
     },
     "statusPending": "Awaiting confirmation",
+    "remainingToday": "(today)",
     "remainingOne": "(1 day)",
     "remainingMany": "({count} days)",
+    "overdueOne": "(-1 day)",
+    "overdueMany": "(-{count} days)",
     "range": "Showing {from} to {to} of {total} files",
     "empty": "No files awaiting confirmation.",
     "emptyFilter": "No files match this filter.",
@@ -447,7 +603,11 @@
     "prevPage": "Previous page",
     "nextPage": "Next page",
     "page": "Page {page}",
-    "summary": "File summary",
+    "detailTitle": "File details",
+    "tabDetails": "File details",
+    "tabHistory": "History",
+    "historyEmpty": "No history yet.",
+    "summary": "Key information",
     "examDate": "Exam date",
     "doctor": "Doctor",
     "visitType": "Exam type",
@@ -455,17 +615,22 @@
     "proposal": "ATN proposal (extracted)",
     "source": "Extraction source",
     "sourceFile": "{file} (page {page})",
-    "confidence": "Confidence: {percent}%",
+    "analyzedOn": "Analyzed on {date}",
+    "confidence": "Confidence {percent}%",
     "alternatives": "Alternative choices",
-    "extraTitle": "Additional information from the document",
+    "addDate": "Add another date",
+    "addOption": "Add another value",
+    "addOptionPlaceholder": "Enter a value...",
+    "addOptionConfirm": "Add",
+    "extraTitle": "Additional information",
     "notes": "Notes (optional)",
-    "notesPlaceholder": "Enter your notes...",
+    "notesPlaceholder": "Add a note...",
     "confirm": "Confirm",
     "edit": "Edit",
     "requestMore": "Request more",
     "skip": "Skip",
     "extra": {
-      "returnDate": "The file has been analysed. Two different return-to-work dates were found and must be confirmed.",
+      "returnDate": "Two different return-to-work dates were found in the file and must be confirmed.",
       "visitType": "The exam type was extracted from the request. The workplace still needs to be confirmed before approval.",
       "workplace": "The workplace must be specified before the file can be confirmed.",
       "employeeName": "The extracted name differs from the name on the request. Confirm identity before continuing.",
@@ -833,6 +998,7 @@
     "relatedTitle": "Related settings",
     "comingSoon": "This section will be available soon.",
     "categories": {
+      "profile": "My profile",
       "general": "General",
       "users": "Users & roles",
       "centers": "Centers & doctors",
@@ -842,6 +1008,10 @@
       "notifications": "Notifications"
     },
     "sections": {
+      "profile": {
+        "title": "My profile",
+        "description": "Account details and password change."
+      },
       "general": {
         "title": "General",
         "description": "General configuration of the ATN system."
@@ -1069,6 +1239,9 @@
     "welcomeBody": "Ask about files, validations or anomalies.",
     "thinking": "Thinking",
     "dragHint": "Drag to move, click to open",
+    "error": "Unable to get a reply. Please try again.",
+    "questionRequired": "Please type a question to ask the assistant.",
+    "analyzeAttachmentsQuestion": "Analyze the attached files and summarize what to do next.",
     "suggestions": {
       "anomalies": "Which files have anomalies?",
       "validation": "Summarize the validation queue",

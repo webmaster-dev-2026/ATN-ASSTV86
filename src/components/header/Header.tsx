@@ -208,9 +208,9 @@ function UserMenu() {
     }
   }, [open])
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setOpen(false)
-    logout()
+    await logout()
     navigate('/login', { replace: true })
   }
 

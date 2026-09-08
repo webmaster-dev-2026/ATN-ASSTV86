@@ -102,3 +102,20 @@ export function TrendDownIcon({ className = 'size-3' }: { className?: string }) 
     </svg>
   )
 }
+
+export function PlusIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg {...common} className={className}>
+      <path {...stroke} d="M12 5.5v13M5.5 12h13" />
+    </svg>
+  )
+}
+
+export function InfoCircleIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg {...common} className={className}>
+      <circle cx="12" cy="12" r="8.2" {...stroke} />
+      <path {...stroke} d="M12 10.5v5M12 7.8h.01" />
+    </svg>
+  )
+}

@@ -37,6 +37,15 @@ export function UsersIcon({ className }: { className?: string }) {
   )
 }
 
+export function ProfileIcon({ className }: { className?: string }) {
+  return (
+    <svg {...common} className={cn('size-5 shrink-0', className)}>
+      <circle cx="12" cy="8.2" r="3" {...stroke} />
+      <path {...stroke} d="M5.2 18.6c1.5-3.2 3.9-4.8 6.8-4.8s5.3 1.6 6.8 4.8" />
+    </svg>
+  )
+}
+
 export function CenterIcon({ className }: { className?: string }) {
   return (
     <svg {...common} className={cn('size-5 shrink-0', className)}>
@@ -191,6 +200,7 @@ export function ChevronRightIcon({ className }: { className?: string }) {
 }
 
 const CATEGORY_ICONS: Record<SettingsCategoryId, typeof GearIcon> = {
+  profile: ProfileIcon,
   general: GearIcon,
   users: UsersIcon,
   centers: CenterIcon,

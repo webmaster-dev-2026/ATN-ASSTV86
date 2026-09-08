@@ -1,6 +1,7 @@
 import { toIntlLocale, type Locale, type TranslationKey } from '@/i18n'
 import type {
   DossierCaseStatus,
+  DossierPriority,
   FitnessDecision,
   RestrictionKind,
   RestrictionSeverity,
@@ -20,6 +21,18 @@ export const STATUS_STYLES: Record<DossierCaseStatus, string> = {
   readyForAppointment: 'bg-[#e7f8ee] text-[#16a34a]',
   blocked: 'bg-[#fde2e2] text-[#e54848]',
   completed: 'bg-[#eef3f9] text-[#5b6b82]',
+}
+
+export const PRIORITY_KEYS: Record<DossierPriority, TranslationKey> = {
+  high: 'dossiers.priority.high',
+  normal: 'dossiers.priority.normal',
+  low: 'dossiers.priority.low',
+}
+
+export const PRIORITY_STYLES: Record<DossierPriority, string> = {
+  high: 'bg-[#fde2e2] text-[#e54848]',
+  normal: 'bg-[#eef3f9] text-[#5b6b82]',
+  low: 'bg-[#e8f0fe] text-[#1d4f9a]',
 }
 
 export const FITNESS_KEYS: Record<FitnessDecision, TranslationKey> = {
@@ -159,4 +172,20 @@ export function interpolate(
   values: Record<string, string | number>,
 ) {
   return template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ''))
+}
+
+export function pageNumbers(current: number, total: number) {
+  if (total <= 5) {
+    return Array.from({ length: total }, (_, index) => index + 1)
+  }
+
+  if (current <= 3) {
+    return [1, 2, 3, 'ellipsis' as const, total]
+  }
+
+  if (current >= total - 2) {
+    return [1, 'ellipsis' as const, total - 2, total - 1, total]
+  }
+
+  return [1, 'ellipsis' as const, current, 'ellipsis' as const, total]
 }
